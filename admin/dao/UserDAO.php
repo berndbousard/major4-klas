@@ -29,11 +29,12 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "INSERT INTO `boek_users`
-                            (`name`, `email`, `card_id`, `school`, `class`, `created`, `verified`, `is_admin`)
-                    VALUES  (:name, :email, :card_id, :school, :class, :created, :verified, :is_admin)";
+                            (`name`, `email`, `password`, `card_id`, `school`, `class`, `created`, `verified`, `is_admin`)
+                    VALUES  (:name, :email, :password, :card_id, :school, :class, :created, :verified, :is_admin)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':name', $data['name']);
 			$stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':password', $data['password']);
 			$stmt->bindValue(':card_id', $data['card_id']);
 			$stmt->bindValue(':school', $data['school']);
             $stmt->bindValue(':class', $data['class']);
@@ -52,11 +53,12 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "UPDATE `boek_users`
-                    SET `name` = :name, `email` = :email, `card_id` = :card_id, `school` = :school, `class` = :class, `created` = :created, `verified` = :verified, `is_admin` = :is_admin
+                    SET `name` = :name, `email` = :email, `password` = :password, `card_id` = :card_id, `school` = :school, `class` = :class, `created` = :created, `verified` = :verified, `is_admin` = :is_admin
                     WHERE `id` = :id";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':name', $data['name']);
 			$stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':password', $data['password']);
 			$stmt->bindValue(':card_id', $data['card_id']);
 			$stmt->bindValue(':school', $data['school']);
             $stmt->bindValue(':class', $data['class']);
@@ -86,6 +88,9 @@ class UserDAO extends DAO {
 		if(empty($data['email'])) {
 			$errors['email'] = 'Please enter a email';
 		}
+        if(empty($data['password'])) {
+            $errors['password'] = 'Please enter a password';
+        }
 		if(empty($data['card_id'])) {
 			$errors['card_id'] = 'Please enter an card_id';
 		}
