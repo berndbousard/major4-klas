@@ -64,3 +64,191 @@ html {
 main {
   display: block;
 }
+
+.wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell {
+  visibility: hidden;
+}
+
+.wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell {
+  font-family: 'titillium web';
+  visibility: visible;
+}
+
+.container {
+  width: 96rem;
+  margin: 0 auto;
+}
+
+.cms-header-top {
+  background-color: #3E3E3E;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cms-header-top-image {
+  width: 10rem;
+  height: auto;
+}
+
+.cms-login {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cms-login-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  background-color: #3E3E3E;
+  padding: 5rem;
+  width: 50%;
+}
+
+.cms-input-wrapper {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cms-input-wrapper:first-child {
+  margin-bottom: 2rem;
+}
+
+.cms-login-label {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.cms-login-input {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: 400;
+  color: #3E3E3E;
+  outline: none;
+  border: none;
+}
+
+.cms-login-submit {
+  margin-top: 3rem;
+  border-radius: none;
+  border: none;
+  outline: none;
+  background-color: #7d5abf;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+}
+
+.cms-orders-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cms-orders-nav, .cms-filters {
+  background-color: #3E3E3E;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1.5rem 0;
+}
+
+.cms-orders-navitems {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cms-orders-navitem-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  margin: 0 2rem;
+  font-size: 1.5rem;
+}
+
+.cms-orders, .cms-orders-table {
+  width: 100%;
+}
+
+.cms-orders-table {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.cms-orders-table-header, .cms-orders-table-data-cell {
+  font-size: 1.5rem;
+  color: #3E3E3E;
+  font-weight: 600;
+}
+
+.cms-orders-table-data-cell {
+  font-size: 1.3rem;
+  font-weight: 400;
+  padding-top: 1.5rem;
+}
+
+.cms-orders-table-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cms-filters {
+  background-color: #646464;
+  margin-top: 0;
+}
+
+.cms-filters-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}

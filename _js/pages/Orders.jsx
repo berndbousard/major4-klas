@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 import Emitter from '../events/';
 
 import {OrderItem, NavigationBar} from '../components/';
-
-import {basename} from '../globals/';
 
 export default class Orders extends Component {
   constructor(props, context){
@@ -21,6 +18,10 @@ export default class Orders extends Component {
 
   fetchById(id){
     Emitter.emit('fetch-orders', id);
+  }
+
+  componentDidMount(){
+    console.log('orders is gemount');
   }
 
   render(){
@@ -49,7 +50,7 @@ export default class Orders extends Component {
 
                     <tbody>
                         {this.props.orders.map((order, index) => {
-                            return <OrderItem {...order} key={index} />;
+                          return <OrderItem {...order} key={index} />;
                         })}
                     </tbody>
                 </table>

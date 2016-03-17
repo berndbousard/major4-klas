@@ -7,9 +7,11 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
 <body>
-  <header>
-    <h1>The Shining</h1>
-  </header>
+    <div class="react-container">
+      <header>
+        <h1>Dit is de gewone site</h1>
+      </header>
+    </div>
   <script>
     window.app = window.app || {};
     window.app.basename = '<?php echo $basePath;?>';

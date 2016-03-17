@@ -1,13 +1,13 @@
-// import ReactDOM from 'react-dom';
-// import React from 'react';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
-// import Router from './routers/';
+import Router from './routers/';
 
-// const init = () => {
-//     ReactDOM.render(
-//         <Router />,
-//         document.querySelector('.container')
-//     );
-// };
+const init = () => {
+  ReactDOM.render(
+    <Router />,
+    document.querySelector('.react-container')
+  );
+};
 
-// init();
+init();
