@@ -1,5 +1,13 @@
-const init = () => {
-    console.log('init');
-};
+// import ReactDOM from 'react-dom';
+// import React from 'react';
 
-init();
+// import Router from './routers/';
+
+// const init = () => {
+//     ReactDOM.render(
+//         <Router />,
+//         document.querySelector('.container')
+//     );
+// };
+
+// init();
