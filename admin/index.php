@@ -18,12 +18,15 @@ $app = new \Slim\App([
     ]
 ]);
 
-// $app->get('/api/oneliners', function ($request, $response, $args) {
-//   $onelinerDAO = new OnelinerDAO();
-//   $oneliners = $onelinerDAO->selectAll();
-//   return $response->write(json_encode($oneliners))
-//     ->withHeader('Content-Type','application/json');
-// });
+$app->get('/api/orders/{id}', function ($request, $response, $args) {
+  $userDAO = new UserDAO();
+  $orders = $userDAO->selectByVerified($args['id']);
+
+  $response = $response->write(json_encode($orders));
+  $response = $response->withHeader('Content-Type','application/json');
+
+  return $response;
+});
 
 // $app->get('/api/oneliners/{id}', function ($request, $response, $args) {
 //   $onelinerDAO = new OnelinerDAO();
@@ -114,7 +117,6 @@ $app->post('/api/login', function ($request, $response, $args) {
 
     $data = $request->getParsedBody();
 
-    print_r($data);
     $userDAO = new UserDAO();
 
     $user = array(
@@ -122,7 +124,7 @@ $app->post('/api/login', function ($request, $response, $args) {
     "password" => "password"
     );
 
-    $existingUser = $userDAO->selectByEmail($data['email']['value']);
+    $existingUser = $userDAO->selectByEmail($data['email']);
 
 
     // $existingUser = $userDAO->selectByEmail($data['email']);

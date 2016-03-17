@@ -25,6 +25,14 @@ class UserDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+    public function selectByVerified($verified) {
+        $sql = "SELECT * FROM `boek_users` WHERE `verified` = :verified";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':verified', $verified);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function selectByEmail($email) {
         $sql = "SELECT * FROM `boek_users` WHERE `email` = :email";
         $stmt = $this->pdo->prepare($sql);
@@ -37,13 +45,13 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "INSERT INTO `boek_users`
-                            (`name`, `email`, `password`, `card_id`, `school`, `class`, `created`, `verified`, `is_admin`)
-                    VALUES  (:name, :email, :password, :card_id, :school, :class, :created, :verified, :is_admin)";
+                            (`name`, `email`, `password`, `cardId`, `school`, `class`, `created`, `verified`, `is_admin`)
+                    VALUES  (:name, :email, :password, :cardId, :school, :class, :created, :verified, :is_admin)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':name', $data['name']);
 			$stmt->bindValue(':email', $data['email']);
             $stmt->bindValue(':password', $data['password']);
-			$stmt->bindValue(':card_id', $data['card_id']);
+			$stmt->bindValue(':cardId', $data['cardId']);
 			$stmt->bindValue(':school', $data['school']);
             $stmt->bindValue(':class', $data['class']);
             $stmt->bindValue(':created', $data['created']);
@@ -61,13 +69,13 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "UPDATE `boek_users`
-                    SET `name` = :name, `email` = :email, `password` = :password, `card_id` = :card_id, `school` = :school, `class` = :class, `created` = :created, `verified` = :verified, `is_admin` = :is_admin
+                    SET `name` = :name, `email` = :email, `password` = :password, `cardId` = :cardId, `school` = :school, `class` = :class, `created` = :created, `verified` = :verified, `is_admin` = :is_admin
                     WHERE `id` = :id";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':name', $data['name']);
 			$stmt->bindValue(':email', $data['email']);
             $stmt->bindValue(':password', $data['password']);
-			$stmt->bindValue(':card_id', $data['card_id']);
+			$stmt->bindValue(':cardId', $data['cardId']);
 			$stmt->bindValue(':school', $data['school']);
             $stmt->bindValue(':class', $data['class']);
             $stmt->bindValue(':created', $data['created']);
@@ -99,8 +107,8 @@ class UserDAO extends DAO {
         if(empty($data['password'])) {
             $errors['password'] = 'Please enter a password';
         }
-		if(empty($data['card_id'])) {
-			$errors['card_id'] = 'Please enter an card_id';
+		if(empty($data['cardId'])) {
+			$errors['cardId'] = 'Please enter an cardId';
 		}
 		if(empty($data['school'])) {
 			$errors['school'] = 'Please enter a school';

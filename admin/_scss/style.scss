@@ -3,6 +3,7 @@
 @import 'webfontloader';
 
 $zwart: #3E3E3E;
+$lichtZwart: lighten($zwart, 15%);
 $wit: #FFFFFF;
 $paars: #7d5abf;
 
@@ -78,4 +79,68 @@ $paars: #7d5abf;
     text-transform: uppercase;
 
     padding: 1rem 3rem;
+}
+
+.cms-orders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cms-orders-nav, .cms-filters {
+    background-color: $zwart;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1.5rem 0;
+}
+
+.cms-orders-navitems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cms-orders-navitem-link {
+    text-decoration: none;
+    color: $wit;
+    margin: 0 2rem;
+    font-size: 1.5rem;
+}
+
+.cms-orders, .cms-orders-table {
+    width: 100%;
+}
+
+.cms-orders-table  {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.cms-orders-table-header, .cms-orders-table-data-cell {
+    font-size: 1.5rem;
+    color: $zwart;
+    font-weight: 600;
+}
+
+.cms-orders-table-data-cell {
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-top: 1.5rem;
+}
+
+.cms-orders-table-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cms-filters {
+    background-color: $lichtZwart;
+    margin-top: 0;
+}
+
+.cms-filters-list {
+    display: flex;
+    justify-content: center;
 }

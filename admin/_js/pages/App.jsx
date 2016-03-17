@@ -1,39 +1,72 @@
 import React from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import fetch from 'isomorphic-fetch';
 import {checkStatus} from '../util';
 import {basename} from '../globals';
 
 import Emitter from '../events/';
 
-import {find, filter} from 'lodash';
+// import {find, filter} from 'lodash';
 
 export default class App extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {};
+
+        // verified 0 = pending, 1 = goedgekeurd, 2 = afgekeurd
+        this.state = {
+        orders: [
+            {
+                name: 'kevin bousard',
+                email: 'bernd.bousard@gmail.com',
+                cardId: '3ZETSDRHGFSEQDZ',
+                created: '14 maart 2016',
+                verified: 0
+            },
+            {
+                name: 'bernd bousard',
+                email: 'bernd.bousard@gmail.com',
+                cardId: '3ZETSDRHGFSEQDZ',
+                created: '14 maart 2016',
+                verified: 0
+            }
+        ]
+    };
 
         // Event komt van form component
-        Emitter.on('login', content => this.loginHandler(email.value, password.value));
+        Emitter.on('login', (content) => this.loginHandler(email.value, password.value));
+
+        // Event komt van orders pagina
+        Emitter.on('fetch-orders', (id) => this.fetchOrders(id));
     }
 
     loginHandler(email, password){
         // Hier checken of deze user wel bestaat
-        fetch(`${basename}/api/login`, {
-            method: 'POST',
-            body: JSON.stringify({email: email, password: password}),
-            header: new Headers({'Content-type': 'application/json'})
-        })
-        .then(checkStatus)
-        .then((response) => {
-            return response.json();
-        })
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+        // fetch(`${basename}/api/login`, {
+        //     method: 'POST',
+        //     body: JSON.stringify({email: email, password: password}),
+        //     header: new Headers({'Content-type': 'application/json'})
+        // })
+        // .then(checkStatus)
+        // .then((response) => {
+        //     return response.json();
+        // })
+        // .then((response) => {
+        //     console.log(response);
+        // })
+        // .catch((error) => {
+        //     console.log(error);
+        // });
+    }
+
+    fetchOrders(id){
+        console.log(`${basename}/api/orders/${id}`);
+        fetch(`${basename}/api/orders/${id}`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) => {
+                this.setState({orders: [response]});
+            })
     }
 
   componentDidMount(){
@@ -194,12 +227,17 @@ export default class App extends React.Component {
     //     })}
     //   </div>
 
+    console.log(this.state);
+    let {orders} = this.state;
+
     return (
         <div className="container">
             <header className="cms-header-top">
                 <img className="cms-header-top-image" src="./assets/svg/logo.svg" alt=""/>
             </header>
-            {this.props.children}
+            {this.props.children && React.cloneElement(this.props.children, {
+              orders: orders
+            })}
         </div>
     );
   }

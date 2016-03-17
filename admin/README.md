@@ -1,1 +1,1 @@
-# sliders 0.1.0
+# Project van Kevin & Bernd
