@@ -1,0 +1,14 @@
+.wf-loading {
+    .cms-login-label {
+        visibility: hidden;
+    }
+}
+
+.wf-active {
+    .cms-login-label, .cms-login-submit, .cms-login-input {
+        font-family: 'titillium web';
+        visibility: visible;
+    }
+}
+
+

@@ -1,1 +1,81 @@
 @import 'reset';
+
+@import 'webfontloader';
+
+$zwart: #3E3E3E;
+$wit: #FFFFFF;
+$paars: #7d5abf;
+
+.container {
+    width: 96rem;
+    margin: 0 auto;
+}
+
+.cms-header-top {
+    background-color: $zwart;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cms-header-top-image {
+    width: 10rem;
+    height: auto;
+}
+
+.cms-login {
+    display: flex;
+    justify-content: center;
+}
+
+.cms-login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    background-color: $zwart;
+    padding: 5rem;
+    width: 50%;
+}
+
+.cms-input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+        margin-bottom: 2rem;
+    }
+}
+
+.cms-login-label {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: $wit;
+}
+
+.cms-login-input {
+    font-size: 1.5rem;
+    padding: 1rem;
+    font-weight: 400;
+    color: $zwart;
+    outline: none;
+    border: none;
+}
+
+.cms-login-submit {
+    margin-top: 3rem;
+    border-radius: none;
+    border: none;
+    outline: none;
+
+    background-color: $paars;
+    color: $wit;
+
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    padding: 1rem 3rem;
+}

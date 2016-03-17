@@ -4,13 +4,38 @@ import fetch from 'isomorphic-fetch';
 import {checkStatus} from '../util';
 import {basename} from '../globals';
 
+import Emitter from '../events/';
+
 import {find, filter} from 'lodash';
 
 export default class App extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {};
-  }
+    constructor(props, context) {
+        super(props, context);
+        this.state = {};
+
+        // Event komt van form component
+        Emitter.on('login', content => this.loginHandler(email.value, password.value));
+    }
+
+    loginHandler(email, password){
+        // Hier checken of deze user wel bestaat
+        fetch(`${basename}/api/login`, {
+            method: 'POST',
+            body: JSON.stringify({email: email, password: password}),
+            header: new Headers({'Content-type': 'application/json'})
+        })
+        .then(checkStatus)
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
   componentDidMount(){
     // fetch(`${basename}/api/oneliners`)
     //   .then(checkStatus)
@@ -170,9 +195,12 @@ export default class App extends React.Component {
     //   </div>
 
     return (
-        <header>
-            <h1>Dit is de app</h1>
-        </header>
+        <div className="container">
+            <header className="cms-header-top">
+                <img className="cms-header-top-image" src="./assets/svg/logo.svg" alt=""/>
+            </header>
+            {this.props.children}
+        </div>
     );
   }
 }

@@ -64,3 +64,103 @@ html {
 main {
   display: block;
 }
+
+.wf-loading .cms-login-label {
+  visibility: hidden;
+}
+
+.wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input {
+  font-family: 'titillium web';
+  visibility: visible;
+}
+
+.container {
+  width: 96rem;
+  margin: 0 auto;
+}
+
+.cms-header-top {
+  background-color: #3E3E3E;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cms-header-top-image {
+  width: 10rem;
+  height: auto;
+}
+
+.cms-login {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cms-login-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  background-color: #3E3E3E;
+  padding: 5rem;
+  width: 50%;
+}
+
+.cms-input-wrapper {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cms-input-wrapper:first-child {
+  margin-bottom: 2rem;
+}
+
+.cms-login-label {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.cms-login-input {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: 400;
+  color: #3E3E3E;
+  outline: none;
+  border: none;
+}
+
+.cms-login-submit {
+  margin-top: 3rem;
+  border-radius: none;
+  border: none;
+  outline: none;
+  background-color: #7d5abf;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+}
