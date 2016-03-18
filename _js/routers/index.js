@@ -11,13 +11,12 @@ export default () => (
           <IndexRoute component={Login} />
           <Route path="admin" component={Login} />
           <Route path="admin/orders" component={Orders} onEnter={checkAuthentication} />
-          <Route path="admin/participations" component={Participations} />
+          <Route path="admin/participations" component={Participations} onEnter={checkAuthentication}/>
       </Route>
   </Router>
 );
 
 const checkAuthentication = (nextState, transition) => {
-  console.log(isAuthenticated());
   // return isAuthenticated;
   if (!isAuthenticated()) {
     //           current location *1                    , routeTo
