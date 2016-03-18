@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {Form} from '../components/';
-import {basename} from '../globals';
+import {basename, isAuthenticated} from '../globals';
 import {checkStatus} from '../util';
 
 import Emitter from '../events/';
@@ -13,6 +13,8 @@ export default class Login extends Component {
     this.state = {
 
     };
+
+    console.log(isAuthenticated());
 
     Emitter.on('login', (email, password) => this.loginHandler(email, password));
   }
