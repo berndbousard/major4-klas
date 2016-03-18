@@ -21,7 +21,7 @@ const checkAuthentication = (nextState, transition) => {
   if (!isAuthenticated()) {
     //           current location *1                    , routeTo
     transition({ pathname: nextState.location.pathname }, '/admin');
-  };
+  }
 };
 
 // *1

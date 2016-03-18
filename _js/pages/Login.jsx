@@ -11,6 +11,8 @@ export default class Login extends Component {
   constructor(props, context){
     super(props, context);
 
+    // werkt met library Meteor
+    console.log('session:', Session.get('test'));
 
     this.state = {
 
@@ -38,9 +40,9 @@ export default class Login extends Component {
       console.log('gelukt');
       // waar staat deze functie?
       // Emitter.emit('auth', response);
-      console.log('auth before set: ',isAuthenticated());
+      console.log('auth before set: ', isAuthenticated());
       setAuthenticated(1);
-      console.log('auth after set: ',isAuthenticated());
+      console.log('auth after set: ', isAuthenticated());
 
       // werkt niet als je hierna surft naar de /orders. Ookal is de var bijgewerkt
       // de reden is omdat er "gerefresht" wordt en hierdoor reset die aut variabele

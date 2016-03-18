@@ -1,8 +1,12 @@
 <?php
+session_start();
+
+// testje
+$_SESSION['test'] = 'test waarde';
+
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-session_start();
 
 define('DS', DIRECTORY_SEPARATOR);
 define('WWW_ROOT', __DIR__ . DS);
