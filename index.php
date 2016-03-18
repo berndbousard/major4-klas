@@ -45,6 +45,7 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
 
   $order = $userDAO->selectById($args['id']);
   $order['verified'] = $request->getQueryParams()['verified'];
+  error_log( print_r($order, true) );
 
   $inserted_order = $userDAO->update($args['id'], $order);
   error_log( print_r($inserted_order, true) );
