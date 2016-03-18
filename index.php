@@ -19,6 +19,26 @@ $app = new \Slim\App([
     ]
 ]);
 
+// Om alle participations op te halen
+$app->get('/api/participations', function ($request, $response, $args) {
+  $participationDAO = new ParticipationDAO();
+
+  $participations = $participationDAO->selectAll();
+
+  if(empty($participations)) {
+    $response = $response->withStatus(404);
+  } else {
+    $response = $response->withStatus(201);
+  }
+
+  error_log( print_r($participations, true) );
+
+  $response = $response->write(json_encode($participations));
+  $response = $response->withHeader('Content-Type','application/json');
+
+  return $response;
+});
+
 // Om een order met een id aan te passen naar een nieuwe verified state
 $app->put('/api/orders/{id}', function ($request, $response, $args) {
   $userDAO = new UserDAO();
@@ -26,15 +46,15 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
   $order = $userDAO->selectById($args['id']);
   $order['verified'] = $request->getQueryParams()['verified'];
 
-  $id = $args['id'];
-  $inserted_order = $userDAO->update($id, $order);
+  $inserted_order = $userDAO->update($args['id'], $order);
+  error_log( print_r($inserted_order, true) );
+  // Probleem is dat hij geen inserted order terugkrijgt van de dao
 
-
-  // if(empty($inserted_order)) {
-  //   $response = $response->withStatus(404);
-  // } else {
-  //   $response = $response->withStatus(201);
-  // }
+  if(empty($inserted_order)) {
+    $response = $response->withStatus(404);
+  } else {
+    $response = $response->withStatus(201);
+  }
 
   return $response;
 });
@@ -45,7 +65,6 @@ $app->get('/api/orders', function ($request, $response, $args) {
   $userDAO = new UserDAO();
 
   $orders = $userDAO->selectByVerified($request->getQueryParams()['verified']);
-  error_log( print_r($orders, true) );
 
   if(empty($orders)) {
     $response = $response->withStatus(404);

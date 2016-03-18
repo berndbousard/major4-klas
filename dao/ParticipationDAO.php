@@ -2,12 +2,15 @@
 require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
 class ParticipationDAO extends DAO {
 
-	public function selectAll() {
-		$sql = "SELECT * FROM `boek_participations`";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+  public function selectAll() {
+    $sql = "SELECT `boek_participations`.* , `boek_users`.*
+            FROM `boek_participations`
+            INNER JOIN `boek_users`
+            ON `boek_users`.`id` = `boek_participations`.`user_id`";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 
 	public function selectById($id) {
 		$sql = "SELECT * FROM `boek_participations` WHERE `id` = :id";
@@ -17,13 +20,13 @@ class ParticipationDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-    public function selectAllPhotos($id) {
-        $sql = "SELECT * FROM `boek_participations` WHERE `photo` != ''";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+  public function selectAllPhotos($id) {
+      $sql = "SELECT * FROM `boek_participations` WHERE `photo` != ''";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':id', $id);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);

@@ -224,6 +224,11 @@ main {
   padding-top: 1.5rem;
 }
 
+.cms-orders-table-data-cell img {
+  width: 15rem;
+  height: auto;
+}
+
 .cms-orders-table-actions {
   display: -webkit-flex;
   display: -ms-flexbox;

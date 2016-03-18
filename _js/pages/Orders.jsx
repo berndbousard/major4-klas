@@ -51,8 +51,6 @@ export default class Orders extends Component {
 
   // Alle orders fetchen met een bepaalde ID
   fetchOrders(id){
-    console.log(`${basename}/api/orders?verified=${id}`);
-
     fetch(`${basename}/api/orders?verified=${id}`)
     .then((response) => {
       return response.json();
@@ -67,7 +65,6 @@ export default class Orders extends Component {
 
   componentDidMount(){
     // Hier worden de standaard orders gefetcht, momenteel zijn het de nieuwe die worden gefetcht.
-    console.log('orders is gemount');
     this.fetchOrders(0);
   }
 

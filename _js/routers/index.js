@@ -9,9 +9,9 @@ export default () => (
   <Router history={useRouterHistory(createHistory)({basename})}>
       <Route path="/" component={App}>
           <IndexRoute component={Login} />
-          <Route path="admin/orders" component={Orders} />
           <Route path="admin" component={Login} />
-          <Route path="participations" component={Participations} />
+          <Route path="admin/orders" component={Orders} />
+          <Route path="admin/participations" component={Participations} />
       </Route>
   </Router>
 );
