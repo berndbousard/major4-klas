@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Emitter from '../events/';
+import {basename} from '../util/';
 
 import {OrderItem, NavigationBar} from '../components/';
 
@@ -7,17 +7,45 @@ export default class Orders extends Component {
   constructor(props, context){
     super(props, context);
 
-    this.state = {};
+    // verified 0 = pending, 1 = goedgekeurd, 2 = afgekeurd
+    this.state = {
+      orders: [
+        {
+          name: 'kevin bousard',
+          email: 'bernd.bousard@gmail.com',
+          cardId: '3ZETSDRHGFSEQDZ',
+          created: '14 maart 2016',
+          verified: 0
+        },
+        {
+          name: 'bernd bousard',
+          email: 'bernd.bousard@gmail.com',
+          cardId: '3ZETSDRHGFSEQDZ',
+          created: '14 maart 2016',
+          verified: 0
+        }
+      ]
+    };
   }
 
   filterClickHandler(e, id){
     e.preventDefault();
 
-    this.fetchById(id);
+    this.fetchOrders(id);
   }
 
-  fetchById(id){
-    Emitter.emit('fetch-orders', id);
+  // Alle orders fetchen met een bepaalde ID
+  fetchOrders(id){
+    fetch(`${basename}/api/orders/${id}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      this.setState({orders: [response]});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   componentDidMount(){

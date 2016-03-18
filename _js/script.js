@@ -4,10 +4,13 @@ import React from 'react';
 import Router from './routers/';
 
 const init = () => {
-  ReactDOM.render(
-    <Router />,
-    document.querySelector('.react-container')
-  );
+  // Check of je op de admin pagina zit of niet
+  if(document.querySelector('.react-container')){
+    ReactDOM.render(
+      <Router />,
+      document.querySelector('.react-container')
+    );
+  }
 };
 
 init();

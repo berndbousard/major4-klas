@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
 <body>
-    <div class="react-container">
+    <div class="container">
       <header>
         <h1>Dit is de gewone site</h1>
       </header>

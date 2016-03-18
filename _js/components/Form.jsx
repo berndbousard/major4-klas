@@ -27,6 +27,7 @@ export default class Form extends Component {
       return;
     }
 
+    // Wordt geemit naar Login page
     Emitter.emit('login', email.value, password.value);
   }
 
