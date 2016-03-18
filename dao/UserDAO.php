@@ -22,7 +22,7 @@ class UserDAO extends DAO {
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':verified', $verified);
       $stmt->execute();
-      return $stmt->fetch(PDO::FETCH_ASSOC);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectByEmail($email) {

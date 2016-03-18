@@ -6,11 +6,11 @@ export default () => {
     <nav className="cms-orders-nav">
         <ul className="cms-orders-navitems">
             <li className="cms-orders-navitem">
-                <Link className="cms-orders-navitem-link" to="/orders">bestellingen bekijken</Link>
+                <Link className="cms-orders-navitem-link" to="/admin/orders">bestellingen bekijken</Link>
             </li>
 
             <li className="cms-orders-navitem">
-                <Link className="cms-orders-navitem-link" to="/participations">inzendingen bekijken</Link>
+                <Link className="cms-orders-navitem-link" to="/admin/participations">inzendingen bekijken</Link>
             </li>
         </ul>
     </nav>

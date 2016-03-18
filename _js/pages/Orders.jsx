@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import {basename} from '../util/';
+import {basename} from '../globals/';
+// import {find} from 'lodash';
+
+
+import Emitter from '../events/';
 
 import {OrderItem, NavigationBar} from '../components/';
 
@@ -9,39 +13,52 @@ export default class Orders extends Component {
 
     // verified 0 = pending, 1 = goedgekeurd, 2 = afgekeurd
     this.state = {
-      orders: [
-        {
-          name: 'kevin bousard',
-          email: 'bernd.bousard@gmail.com',
-          cardId: '3ZETSDRHGFSEQDZ',
-          created: '14 maart 2016',
-          verified: 0
-        },
-        {
-          name: 'bernd bousard',
-          email: 'bernd.bousard@gmail.com',
-          cardId: '3ZETSDRHGFSEQDZ',
-          created: '14 maart 2016',
-          verified: 0
-        }
-      ]
+      orders: []
     };
+
+    Emitter.on('change-order', (id, verified) => this.changeOrderHandler(id, verified));
+  }
+
+  changeOrderHandler(id, verified){
+    // De gebruiker zit de order verdwijnen
+    let orders = this.state.orders.concat();
+    let newOrders = orders.filter((order) => {
+      return order.id !== id;
+    });
+    this.setState({orders: newOrders});
+
+    // de server kant
+    // Een order goedkeuren met een bepaald ID en een verified code
+    console.log(`${basename}/api/orders/${id}?verified=${verified}`);
+    fetch(`${basename}/api/orders/${id}?verified=${verified}`, {
+      method: 'PUT'
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then(() => {
+      console.log('het is gelukt');
+    })
+    .catch(() => {
+      console.log('het is niet gelukt');
+    });
   }
 
   filterClickHandler(e, id){
     e.preventDefault();
-
     this.fetchOrders(id);
   }
 
   // Alle orders fetchen met een bepaalde ID
   fetchOrders(id){
-    fetch(`${basename}/api/orders/${id}`)
+    console.log(`${basename}/api/orders?verified=${id}`);
+
+    fetch(`${basename}/api/orders?verified=${id}`)
     .then((response) => {
       return response.json();
     })
-    .then((response) => {
-      this.setState({orders: [response]});
+    .then((orders) => {
+      this.setState({orders});
     })
     .catch((error) => {
       console.log(error);
@@ -49,10 +66,14 @@ export default class Orders extends Component {
   }
 
   componentDidMount(){
+    // Hier worden de standaard orders gefetcht, momenteel zijn het de nieuwe die worden gefetcht.
     console.log('orders is gemount');
+    this.fetchOrders(0);
   }
 
   render(){
+    let {orders} = this.state;
+
     return (
         <div className="cms-orders-container">
             <NavigationBar />
@@ -77,7 +98,7 @@ export default class Orders extends Component {
                     </thead>
 
                     <tbody>
-                        {this.props.orders.map((order, index) => {
+                        {orders.map((order, index) => {
                           return <OrderItem {...order} key={index} />;
                         })}
                     </tbody>

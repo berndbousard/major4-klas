@@ -19,11 +19,33 @@ $app = new \Slim\App([
     ]
 ]);
 
-// Om de orders op te halen aan de hand van een id
-$app->get('/api/orders/{id}', function ($request, $response, $args) {
+// Om een order met een id aan te passen naar een nieuwe verified state
+$app->put('/api/orders/{id}', function ($request, $response, $args) {
   $userDAO = new UserDAO();
 
-  $orders = $userDAO->selectByVerified($args['id']);
+  $order = $userDAO->selectById($args['id']);
+  $order['verified'] = $request->getQueryParams()['verified'];
+
+  $id = $args['id'];
+  $inserted_order = $userDAO->update($id, $order);
+
+
+  // if(empty($inserted_order)) {
+  //   $response = $response->withStatus(404);
+  // } else {
+  //   $response = $response->withStatus(201);
+  // }
+
+  return $response;
+});
+
+
+// Om de orders op te halen aan de hand van een id via de params meegaat
+$app->get('/api/orders', function ($request, $response, $args) {
+  $userDAO = new UserDAO();
+
+  $orders = $userDAO->selectByVerified($request->getQueryParams()['verified']);
+  error_log( print_r($orders, true) );
 
   if(empty($orders)) {
     $response = $response->withStatus(404);
