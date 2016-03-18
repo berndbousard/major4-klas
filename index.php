@@ -19,10 +19,12 @@ $app = new \Slim\App([
 ]);
 
 $app->get('/', function ($request, $response, $args) {
+
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
 
   return $view->render($response, 'home.php', ['basePath' => $basePath]);
+
 });
 
 $app->run();

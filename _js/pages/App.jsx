@@ -43,10 +43,15 @@ export default class App extends React.Component {
 
   loginHandler(email, password){
     // Hier checken of deze user wel bestaat
+
+    let body = new FormData();
+    body.append('email', email);
+    body.append('password', password);
+
+
     fetch(`${basename}/api/login`, {
       method: 'POST',
-      body: JSON.stringify({email, password}),
-      headers: new Headers({'Content-Type': 'application/json'})
+      body
     })
     .then(checkStatus)
     .then((response) => {
@@ -87,9 +92,9 @@ export default class App extends React.Component {
             <header className="cms-header-top">
                 <img className="cms-header-top-image" src="./assets/svg/logo.svg" alt=""/>
             </header>
-            {this.props.children && React.cloneElement(this.props.children, {
-              orders: orders
-            })}
+           {this.props.children && React.cloneElement(this.props.children, {
+                orders: orders
+              })}
         </div>
     );
   }

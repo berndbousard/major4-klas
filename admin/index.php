@@ -21,7 +21,11 @@ $app = new \Slim\App([
 $app->post('/api/login', function ($request, $response, $args) {
   $userDAO = new UserDAO();
 
+  //error_log('IK BEN IN LOGIN API CALL');
+
   $data = $request->getParsedBody();
+
+  error_log( print_r($data, true) );
 
   $existingUser = $userDAO->selectByEmail($data['email']);
   if($existingUser['password'] == $data['password']){
