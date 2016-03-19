@@ -22,8 +22,13 @@ export default class Login extends Component {
   }
 
   loginHandler(email, password){
-    // Hier checken of deze user wel bestaat
+    // Loading animation
+    let loader = document.querySelector('.loader');
+    if(loader){
+      loader.classList.toggle('hide');
+    }
 
+    // Hier checken of deze user wel bestaat
     let body = new FormData();
     body.append('email', email);
     body.append('password', password);
@@ -31,6 +36,10 @@ export default class Login extends Component {
     fetch(`${basename}/api/login`, {
       method: 'POST',
       body
+    })
+    .then((response) => {
+      loader.classList.toggle('hide');
+      return response;
     })
     .then(checkStatus)
     .then((response) => {

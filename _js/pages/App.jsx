@@ -20,6 +20,7 @@ export default class App extends React.Component {
                 <img className="cms-header-top-image" src="/assets/svg/logo.svg" alt="logo boek.be"/>
                 <span className={isAuthenticated() === '0' ? 'hide' : 'cms-button-afmelden'} onClick={() => this.onLogOut()}>afmelden</span>
             </header>
+            <div className="loader hide"></div>
             {this.props.children}
         </div>
     );

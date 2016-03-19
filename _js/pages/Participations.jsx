@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {basename} from '../globals/';
 
 import {ParticipationItem} from '../components/';
-
 import {NavigationBar} from '../components/';
 
 export default class Participations extends Component {
