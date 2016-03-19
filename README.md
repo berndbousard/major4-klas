@@ -1,1 +1,1 @@
-# sliders 0.1.0
+# MAIV - Klassiekers in je klas
