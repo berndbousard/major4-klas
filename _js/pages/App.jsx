@@ -1,6 +1,4 @@
-import React, {Component} from 'react';
-
-import Emitter from '../events/';
+import React from 'react';
 
 import {setAuthenticated} from '../globals/';
 // import fetch from 'isomorphic-fetch';
@@ -15,8 +13,6 @@ export default class App extends React.Component {
     super(props, context);
 
     this.state = {};
-
-    // Emitter.on('log-out', this.onLogOut);
   }
 
   render() {
@@ -24,7 +20,7 @@ export default class App extends React.Component {
         <div className="container">
             <header className="cms-header-top">
                 <img className="cms-header-top-image" src="/assets/svg/logo.svg" alt="logo boek.be"/>
-                <span className="cms-button-afmelden" onClick={() => Emitter.emit('log-out')}>afmelden</span>
+                <span className="cms-button-afmelden" onClick={() => this.onLogOut()}>afmelden</span>
             </header>
             {this.props.children}
         </div>
@@ -32,8 +28,8 @@ export default class App extends React.Component {
   }
 
   onLogOut() {
+    console.log('logout');
     setAuthenticated(0);
-    console.log(this.context);
     this.context.router.push('/admin');
   }
 }

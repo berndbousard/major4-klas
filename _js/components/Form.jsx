@@ -6,11 +6,7 @@ export default class Form extends Component {
   constructor(props, context){
     super(props, context);
 
-    console.log(window.sessionStorage);
-
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   submitHandler(event){

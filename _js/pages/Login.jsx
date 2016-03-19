@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {Form} from '../components/';
-import {basename, setAuthenticated, isAuthenticated, session} from '../globals';
+import {basename, setAuthenticated} from '../globals';
 import {checkStatus} from '../util';
 
 import Emitter from '../events/';
@@ -15,15 +15,10 @@ export default class Login extends Component {
   constructor(props, context){
     super(props, context);
 
-    this.state = {
-
-    };
+    this.state = {};
 
     Emitter.on('login', (email, password) => this.loginHandler(email, password));
     Emitter.on('validLogin', this.onValidLogin);
-
-    // Bernd
-
   }
 
   loginHandler(email, password){
@@ -53,7 +48,6 @@ export default class Login extends Component {
 
   onValidLogin(){
     setAuthenticated(1);
-
   }
 
   render(){
