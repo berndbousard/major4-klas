@@ -1,7 +1,5 @@
 import React from 'react';
-
-import {setAuthenticated} from '../globals/';
-// import fetch from 'isomorphic-fetch';
+import {setAuthenticated, isAuthenticated} from '../globals/';
 
 export default class App extends React.Component {
 
@@ -20,7 +18,7 @@ export default class App extends React.Component {
         <div className="container">
             <header className="cms-header-top">
                 <img className="cms-header-top-image" src="/assets/svg/logo.svg" alt="logo boek.be"/>
-                <span className="cms-button-afmelden" onClick={() => this.onLogOut()}>afmelden</span>
+                <span className={isAuthenticated() === '0' ? 'hide' : 'cms-button-afmelden'} onClick={() => this.onLogOut()}>afmelden</span>
             </header>
             {this.props.children}
         </div>
@@ -28,7 +26,6 @@ export default class App extends React.Component {
   }
 
   onLogOut() {
-    console.log('logout');
     setAuthenticated(0);
     this.context.router.push('/admin');
   }

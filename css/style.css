@@ -79,6 +79,10 @@ main {
   margin: 0 auto;
 }
 
+.hide {
+  display: none;
+}
+
 .cms-header-top {
   position: relative;
   background-color: #3E3E3E;

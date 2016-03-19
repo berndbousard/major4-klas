@@ -1,16 +1,8 @@
 @import 'reset';
 
 @import 'webfontloader';
-
-$zwart: #3E3E3E;
-$lichtZwart: lighten($zwart, 15%);
-$wit: #FFFFFF;
-$paars: #7d5abf;
-
-.container {
-    width: 96rem;
-    margin: 0 auto;
-}
+@import 'general';
+@import 'colors';
 
 .cms-header-top {
     position: relative;
@@ -151,16 +143,16 @@ $paars: #7d5abf;
     justify-content: center;
 }
 
-.cms-order-button{
+.cms-order-button {
     color: $paars;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
 }
 
-.cms-button-afmelden{
+.cms-button-afmelden {
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -171,7 +163,7 @@ $paars: #7d5abf;
 
     transition: 0.3s all;
 
-    &:hover{
+    &:hover {
       opacity: 1;
     }
 }
