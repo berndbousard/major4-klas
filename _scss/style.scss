@@ -13,6 +13,7 @@ $paars: #7d5abf;
 }
 
 .cms-header-top {
+    position: relative;
     background-color: $zwart;
     display: flex;
     justify-content: center;
@@ -148,4 +149,29 @@ $paars: #7d5abf;
 .cms-filters-list {
     display: flex;
     justify-content: center;
+}
+
+.cms-order-button{
+    color: $paars;
+    cursor: pointer;
+
+    &:hover{
+      text-decoration: underline;
+    }
+}
+
+.cms-button-afmelden{
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    color: $wit;
+    font-size: 1.5rem;
+    opacity: 0.5;
+
+    transition: 0.3s all;
+
+    &:hover{
+      opacity: 1;
+    }
 }

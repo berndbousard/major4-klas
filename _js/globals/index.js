@@ -1,15 +1,11 @@
-// eventueel private?
-// veiliger?
-let auth = 0;
-
 export const basename = (() => {
   return window.app.basename;
 })();
 
 export const isAuthenticated = (() => {
-  return auth;
+  return window.sessionStorage.getItem('auth');
 });
 
 export const setAuthenticated = (bool => {
-  auth = bool;
+  window.sessionStorage.setItem('auth', bool);
 });

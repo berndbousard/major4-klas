@@ -65,11 +65,11 @@ main {
   display: block;
 }
 
-.wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell {
+.wf-loading .cms-button-afmelden, .wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell {
   visibility: hidden;
 }
 
-.wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell {
+.wf-active .cms-button-afmelden, .wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell {
   font-family: 'titillium web';
   visibility: visible;
 }
@@ -80,6 +80,7 @@ main {
 }
 
 .cms-header-top {
+  position: relative;
   background-color: #3E3E3E;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -256,4 +257,28 @@ main {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.cms-order-button {
+  color: #7d5abf;
+  cursor: pointer;
+}
+
+.cms-order-button:hover {
+  text-decoration: underline;
+}
+
+.cms-button-afmelden {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  opacity: 0.5;
+  transition: 0.3s all;
+}
+
+.cms-button-afmelden:hover {
+  opacity: 1;
 }

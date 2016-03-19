@@ -17,8 +17,7 @@ export default () => (
 );
 
 const checkAuthentication = (nextState, transition) => {
-  // return isAuthenticated;
-  if (!isAuthenticated()) {
+  if (isAuthenticated() == false) {
     //           current location *1                    , routeTo
     transition({ pathname: nextState.location.pathname }, '/admin');
   }

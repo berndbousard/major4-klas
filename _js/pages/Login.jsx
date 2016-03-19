@@ -1,24 +1,29 @@
 import React, {Component} from 'react';
 
 import {Form} from '../components/';
-import {basename, setAuthenticated, isAuthenticated} from '../globals';
+import {basename, setAuthenticated, isAuthenticated, session} from '../globals';
 import {checkStatus} from '../util';
 
 import Emitter from '../events/';
 
 export default class Login extends Component {
 
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
+
   constructor(props, context){
     super(props, context);
-
-    // werkt met library Meteor
-    console.log('session:', Session.get('test'));
 
     this.state = {
 
     };
 
     Emitter.on('login', (email, password) => this.loginHandler(email, password));
+    Emitter.on('validLogin', this.onValidLogin);
+
+    // Bernd
+
   }
 
   loginHandler(email, password){
@@ -37,22 +42,18 @@ export default class Login extends Component {
       return response.json();
     })
     .then((response) => {
-      console.log('gelukt');
-      // waar staat deze functie?
-      // Emitter.emit('auth', response);
-      console.log('auth before set: ', isAuthenticated());
-      setAuthenticated(1);
-      console.log('auth after set: ', isAuthenticated());
-
-      // werkt niet als je hierna surft naar de /orders. Ookal is de var bijgewerkt
-      // de reden is omdat er "gerefresht" wordt en hierdoor reset die aut variabele
-      // terug naar de standaard waarde.
-      // How to fix?
+      Emitter.emit('validLogin', response);
+      this.context.router.push('/admin/orders');
     })
     .catch(() => {
       // Er is een error gebeurd
       console.log('error');
     });
+  }
+
+  onValidLogin(){
+    setAuthenticated(1);
+
   }
 
   render(){

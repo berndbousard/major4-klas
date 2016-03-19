@@ -5,6 +5,7 @@
   "author": "Bernd Bousard & Kevin Hendrickx",
   "scripts": {
     "development": "webpack --watch",
+    "d": "webpack -w",
     "production": "webpack -d -p"
   },
   "devDependencies": {

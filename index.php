@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// testje
-$_SESSION['test'] = 'test waarde';
-
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
