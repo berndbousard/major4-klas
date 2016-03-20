@@ -116,6 +116,11 @@ main {
   }
 }
 
+.activeFilter {
+  color: #FFFFFF;
+  background-color: #7d5abf;
+}
+
 .cms-header-top {
   position: relative;
   background-color: #3E3E3E;
@@ -303,6 +308,11 @@ main {
 
 .cms-order-button:hover {
   text-decoration: underline;
+}
+
+.cms-filter {
+  padding: .5rem 1.5rem;
+  border-radius: 100rem;
 }
 
 .cms-button-afmelden {

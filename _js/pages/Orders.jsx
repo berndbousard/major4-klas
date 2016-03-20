@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {basename} from '../globals/';
-// import {find} from 'lodash';
-
-
 import Emitter from '../events/';
 
 import {OrderItem, NavigationBar} from '../components/';
@@ -21,7 +18,7 @@ export default class Orders extends Component {
 
   changeOrderHandler(id, verified){
     // De gebruiker zit de order verdwijnen
-    let orders = this.state.orders.concat();
+    let {orders} = this.state;
     let newOrders = orders.filter((order) => {
       return order.id !== id;
     });
@@ -29,7 +26,6 @@ export default class Orders extends Component {
 
     // de server kant
     // Een order goedkeuren met een bepaald ID en een verified code
-    console.log(`${basename}/api/orders/${id}?verified=${verified}`);
     fetch(`${basename}/api/orders/${id}?verified=${verified}`, {
       method: 'PUT'
     })
@@ -47,6 +43,19 @@ export default class Orders extends Component {
   filterClickHandler(e, id){
     e.preventDefault();
     this.fetchOrders(id);
+    this.changeCSSClass(e);
+  }
+
+  changeCSSClass(e){
+    // Alle huidige classes wegdoen
+    [...document.querySelectorAll('.cms-filter')].forEach((link) => {
+      if(link.classList.contains('activeFilter')){
+        link.classList.remove('activeFilter');
+      }
+    });
+
+    // De huidige active maken
+    e.currentTarget.classList.toggle('activeFilter');
   }
 
   // Alle orders fetchen met een bepaalde ID
@@ -76,9 +85,9 @@ export default class Orders extends Component {
             <NavigationBar />
             <section className="cms-filters">
                 <ul className="cms-filters-list">
-                    <li><a className="cms-orders-navitem-link" href="api/orders/0" onClick={e => this.filterClickHandler(e, 0)}>nieuwe</a></li>
-                    <li><a className="cms-orders-navitem-link" href="api/orders/1" onClick={e => this.filterClickHandler(e, 1)}>goedgekeurd</a></li>
-                    <li><a className="cms-orders-navitem-link" href="api/orders/2" onClick={e => this.filterClickHandler(e, 2)}>afgekeurd</a></li>
+                    <li><a className="cms-orders-navitem-link cms-filter" href="api/orders/0" onClick={e => this.filterClickHandler(e, 0)} data-tag="0">nieuwe</a></li>
+                    <li><a className="cms-orders-navitem-link cms-filter" href="api/orders/1" onClick={e => this.filterClickHandler(e, 1)} data-tag="1">goedgekeurd</a></li>
+                    <li><a className="cms-orders-navitem-link cms-filter" href="api/orders/2" onClick={e => this.filterClickHandler(e, 2)} data-tag="2">afgekeurd</a></li>
                 </ul>
             </section>
 
