@@ -265,7 +265,8 @@ main {
 .cms-orders-table-data-cell {
   font-size: 1.3rem;
   font-weight: 400;
-  padding-top: 1.5rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .cms-orders-table-data-cell-img {
