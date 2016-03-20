@@ -4,6 +4,8 @@ import Emitter from '../events/';
 
 import {OrderItem, NavigationBar} from '../components/';
 
+import {checkStatus} from '../util/';
+
 export default class Orders extends Component {
 
   constructor(props, context){
@@ -21,6 +23,7 @@ export default class Orders extends Component {
 
   componentDidMount(){
     this.fetchOrders();
+    this.defaultCSSClass();
   }
 
   // Orders ophalen
@@ -40,11 +43,11 @@ export default class Orders extends Component {
 
   filterOrders(verifiedID = this.state.currentTabID){ // Standaard op nieuwe opladen
     let {orders} = this.state;
-    console.log('ik kan er', orders.length, 'filteren');
+    // console.log('ik kan er', orders.length, 'filteren');
     let filteredOrders = orders.filter((o) => {
       return parseInt(o.verified) === parseInt(verifiedID);
     });
-    console.log('ik toon er', filteredOrders.length, filteredOrders);
+    // console.log('ik toon er', filteredOrders.length, filteredOrders);
     this.setState({visibleOrders: filteredOrders});
   }
 
@@ -59,12 +62,8 @@ export default class Orders extends Component {
     // De gebruiker zit de order verdwijnen
     if(verifiedID !== this.state.currentTabID){ //Niet verwijderen als je op zelfde pagina zit
       let {orders} = this.state;
-      // let newOrders = orders.filter((order) => {
-      //   return parseInt(order.id) !== parseInt(verifiedID); // Nieuwe array opbouwen met alles behalve de geselecteerde
-      // });
       let newOrders = orders.map((order) => {
         if(parseInt(order.id) === parseInt(id)){
-          console.log(order);
           order.verified = verifiedID;
         }
         return order;
@@ -77,14 +76,15 @@ export default class Orders extends Component {
       fetch(`${basename}/api/orders/${id}?verified=${verifiedID}`, {
         method: 'PUT'
       })
+      .then(checkStatus)
       .then((response) => {
         return response.json();
       })
-      .then(() => {
-        console.log('het is gelukt');
+      .then((response) => {
+        console.log(response);
       })
-      .catch(() => {
-        console.log('het is niet gelukt');
+      .catch((error) => {
+        console.log(error);
       });
     }
   }
@@ -99,6 +99,10 @@ export default class Orders extends Component {
 
     // De huidige active maken
     e.currentTarget.classList.toggle('activeFilter');
+  }
+
+  defaultCSSClass(index = this.state.currentTabID){
+    [...document.querySelectorAll('.cms-filter')][index].classList.toggle('activeFilter');
   }
 
   render(){

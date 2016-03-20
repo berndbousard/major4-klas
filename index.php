@@ -49,7 +49,6 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
 
   $order = $userDAO->selectById($args['id']);
   $order['verified'] = $request->getQueryParams()['verified'];
-  // error_log( print_r($order, true) );
 
   $inserted_order = $userDAO->update($args['id'], $order);
 
@@ -59,6 +58,8 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
     $response = $response->withStatus(201);
   }
 
+  $response = $response->write(true);
+  $response = $response->withHeader('Content-Type','application/json');
   return $response;
 });
 
