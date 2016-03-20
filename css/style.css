@@ -268,7 +268,7 @@ main {
   padding-top: 1.5rem;
 }
 
-.cms-orders-table-data-cell img {
+.cms-orders-table-data-cell-img {
   width: 15rem;
   height: auto;
 }
@@ -277,15 +277,28 @@ main {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+.cms-orders-table-action {
+  width: 2rem;
+  height: 2rem;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.cms-orders-table-action:hover {
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .cms-filters {
@@ -312,8 +325,7 @@ main {
 }
 
 .cms-filter {
-  padding: .5rem 1.5rem;
-  border-radius: 100rem;
+  padding: 1.1rem 1.5rem;
 }
 
 .cms-button-afmelden {

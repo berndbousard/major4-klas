@@ -119,18 +119,28 @@
     font-size: 1.3rem;
     font-weight: 400;
     padding-top: 1.5rem;
+}
 
-    img {
-      width: 15rem;
-      height: auto;
-    }
+.cms-orders-table-data-cell-img {
+  width: 15rem;
+  height: auto;
 }
 
 .cms-orders-table-actions {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.cms-orders-table-action {
+  width: 2rem;
+  height: 2rem;
+  transition: transform .5s ease;
+
+  &:hover {
+    transition: transform .3s ease;
+    transform: scale(1.2);
+  }
 }
 
 .cms-filters {
@@ -153,8 +163,7 @@
 }
 
 .cms-filter {
-  padding: .5rem 1.5rem;
-  border-radius: 100rem;
+  padding: 1.1rem 1.5rem;
 }
 
 .cms-button-afmelden {

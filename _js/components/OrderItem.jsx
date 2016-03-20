@@ -10,7 +10,10 @@ export default (props) => {
       <td className="cms-orders-table-data-cell">{props.email}</td>
       <td className="cms-orders-table-data-cell">{props.cardId}</td>
       <td className="cms-orders-table-data-cell">{props.created}</td>
-      <td className="cms-orders-table-data-cell cms-orders-table-actions"><span className="cms-order-button" onClick={() => Emitter.emit('change-order', props.id, 1)}>goedkeuren</span><span className="cms-order-button" onClick={() => Emitter.emit('change-order', props.id, 2)}>afkeuren</span></td>
+      <td className="cms-orders-table-data-cell cms-orders-table-actions">
+        <img className="cms-orders-table-action" src="../../assets/svg/accept.svg" alt="" onClick={() => Emitter.emit('change-order', props.id, 1)}/>
+        <img className="cms-orders-table-action" src="../../assets/svg/delete.svg" alt="" onClick={() => Emitter.emit('change-order', props.id, 2)}/>
+      </td>
     </tr>
   );
 };
