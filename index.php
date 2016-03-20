@@ -35,7 +35,7 @@ $app->get('/api/participations', function ($request, $response, $args) {
     $response = $response->withStatus(201);
   }
 
-  error_log( print_r($participations, true) );
+  // error_log( print_r($participations, true) );
 
   $response = $response->write(json_encode($participations));
   $response = $response->withHeader('Content-Type','application/json');
@@ -49,11 +49,9 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
 
   $order = $userDAO->selectById($args['id']);
   $order['verified'] = $request->getQueryParams()['verified'];
-  error_log( print_r($order, true) );
+  // error_log( print_r($order, true) );
 
   $inserted_order = $userDAO->update($args['id'], $order);
-  error_log( print_r($inserted_order, true) );
-  // Probleem is dat hij geen inserted order terugkrijgt van de dao
 
   if(empty($inserted_order)) {
     $response = $response->withStatus(404);
@@ -69,7 +67,7 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
 $app->get('/api/orders', function ($request, $response, $args) {
   $userDAO = new UserDAO();
 
-  $orders = $userDAO->selectByVerified($request->getQueryParams()['verified']);
+  $orders = $userDAO->selectAll();
 
   if(empty($orders)) {
     $response = $response->withStatus(404);

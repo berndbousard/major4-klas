@@ -5,45 +5,88 @@ import Emitter from '../events/';
 import {OrderItem, NavigationBar} from '../components/';
 
 export default class Orders extends Component {
+
   constructor(props, context){
     super(props, context);
 
     // verified 0 = pending, 1 = goedgekeurd, 2 = afgekeurd
     this.state = {
-      orders: []
+      orders: [],
+      visibleOrders: [],
+      currentTabID: 0
     };
 
     Emitter.on('change-order', (id, verified) => this.changeOrderHandler(id, verified));
   }
 
-  changeOrderHandler(id, verified){
-    // De gebruiker zit de order verdwijnen
-    let {orders} = this.state;
-    let newOrders = orders.filter((order) => {
-      return order.id !== id;
-    });
-    this.setState({orders: newOrders});
+  componentDidMount(){
+    this.fetchOrders();
+  }
 
-    // de server kant
-    // Een order goedkeuren met een bepaald ID en een verified code
-    fetch(`${basename}/api/orders/${id}?verified=${verified}`, {
-      method: 'PUT'
-    })
+  // Orders ophalen
+  fetchOrders(){
+    fetch(`${basename}/api/orders`)
     .then((response) => {
       return response.json();
     })
-    .then(() => {
-      console.log('het is gelukt');
+    .then((orders) => {
+      this.state.orders = orders; // geen setState want render is niet nodig.
+      this.filterOrders(); // De juiste orders eruit filteren
     })
-    .catch(() => {
-      console.log('het is niet gelukt');
+    .catch((error) => {
+      console.log(error);
     });
+  }
+
+  filterOrders(verifiedID = this.state.currentTabID){ // Standaard op nieuwe opladen
+    let {orders} = this.state;
+    console.log('ik kan er', orders.length, 'filteren');
+    let filteredOrders = orders.filter((o) => {
+      return parseInt(o.verified) === parseInt(verifiedID);
+    });
+    console.log('ik toon er', filteredOrders.length, filteredOrders);
+    this.setState({visibleOrders: filteredOrders});
   }
 
   filterClickHandler(e, id){
     e.preventDefault();
-    this.fetchOrders(id);
-    this.changeCSSClass(e);
+    this.state.currentTabID = id;
+    this.filterOrders(); //de orders filteren adhv een id
+    this.changeCSSClass(e); // de css classen regelen
+  }
+
+  changeOrderHandler(id, verifiedID){
+    // De gebruiker zit de order verdwijnen
+    if(verifiedID !== this.state.currentTabID){ //Niet verwijderen als je op zelfde pagina zit
+      let {orders} = this.state;
+      // let newOrders = orders.filter((order) => {
+      //   return parseInt(order.id) !== parseInt(verifiedID); // Nieuwe array opbouwen met alles behalve de geselecteerde
+      // });
+      let newOrders = orders.map((order) => {
+        if(parseInt(order.id) === parseInt(id)){
+          console.log(order);
+          order.verified = verifiedID;
+        }
+        return order;
+      });
+      this.state.orders = newOrders;
+      this.filterOrders();
+
+      // de server kant
+      // Een order goedkeuren met een bepaald ID en een verified code
+      fetch(`${basename}/api/orders/${id}?verified=${verifiedID}`, {
+        method: 'PUT'
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then(() => {
+        console.log('het is gelukt');
+      })
+      .catch(() => {
+        console.log('het is niet gelukt');
+      });
+    }
   }
 
   changeCSSClass(e){
@@ -58,27 +101,8 @@ export default class Orders extends Component {
     e.currentTarget.classList.toggle('activeFilter');
   }
 
-  // Alle orders fetchen met een bepaalde ID
-  fetchOrders(id){
-    fetch(`${basename}/api/orders?verified=${id}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((orders) => {
-      this.setState({orders});
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
-  componentDidMount(){
-    // Hier worden de standaard orders gefetcht, momenteel zijn het de nieuwe die worden gefetcht.
-    this.fetchOrders(0);
-  }
-
   render(){
-    let {orders} = this.state;
+    let {visibleOrders} = this.state;
 
     return (
         <div className="cms-orders-container">
@@ -104,7 +128,7 @@ export default class Orders extends Component {
                     </thead>
 
                     <tbody>
-                        {orders.map((order, index) => {
+                        {visibleOrders.map((order, index) => {
                           return <OrderItem {...order} key={index} />;
                         })}
                     </tbody>
