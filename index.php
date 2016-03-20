@@ -8,10 +8,10 @@ error_reporting(E_ALL);
 define('DS', DIRECTORY_SEPARATOR);
 define('WWW_ROOT', __DIR__ . DS);
 
-require_once WWW_ROOT .  'dao' . DS . 'ParticipationDAO.php';
-require_once WWW_ROOT .  'dao' . DS . 'UserDAO.php';
-require_once WWW_ROOT . 'phpass' . DS . 'Phpass.php';
-require_once WWW_ROOT . 'phpUtils' . DS . 'resizeCrop.php';
+require_once 'dao' . DS . 'ParticipationDAO.php';
+require_once 'dao' . DS . 'UserDAO.php';
+require_once 'phpass' . DS . 'Phpass.php';
+require_once 'phpUtils' . DS . 'resizeCrop.php';
 
 require 'vendor/autoload.php';
 
@@ -100,11 +100,14 @@ $app->post('/api/login', function ($request, $response, $args) {
     $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
     if(!empty($password_check)){
       // Hier zijn we zeker dat de gebruiker het juiste wachtwoord heeft ingevoerd
-      $_SESSION['user'] = $existing_user;
-      $response = $response->write(json_encode($_SESSION['user']));
-      $response = $response->withStatus(200);
-    } else {
-      $response = $response->withStatus(404);
+      if($existing_user['is_admin'] == 1){
+        // Is de user wel admin?
+        $_SESSION['user'] = $existing_user;
+        $response = $response->write(json_encode($_SESSION['user']));
+        $response = $response->withStatus(200);
+      } else {
+        $response = $response->withStatus(404);
+      }
     }
   }
 
@@ -213,7 +216,7 @@ $app->post('/api/participations/create', function ($request, $response, $args) {
               // Komt uit de PHPUTILS maps
               // 320, 240
               // 480, 360 (x1.5)
-              $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'], $basePath . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
+              $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
 
               // De inschrijving in de database steken
               $data['user_id'] = $existing_user['id'];
@@ -230,6 +233,7 @@ $app->post('/api/participations/create', function ($request, $response, $args) {
 
                   $data['created'] = date('Y-m-d H:i:s');
                   $inserted_participation = $participationDAO->insert($data);
+                  error_log(print_r($inserted_participation, true));
                 }
               }
             }
