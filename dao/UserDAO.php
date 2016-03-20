@@ -97,6 +97,8 @@ class UserDAO extends DAO {
 	}
 
 	public function getValidationErrors($data) {
+    // empty in php is ook 0, hadden errors omdat hij checkte of admin/verified 0 was
+    // Opgelost door !isset
 		$errors = array();
 		if(empty($data['name'])) {
 			$errors['name'] = 'Please enter a name';
@@ -110,19 +112,19 @@ class UserDAO extends DAO {
 		if(empty($data['cardId'])) {
 			$errors['cardId'] = 'Please enter an cardId';
 		}
-		if(empty($data['school'])) {
+		if(!isset($data['school'])) {
 			$errors['school'] = 'Please enter a school';
 		}
-    if(empty($data['class'])) {
+    if(!isset($data['class'])) {
         $errors['class'] = 'Please enter a class';
     }
     if(empty($data['created'])) {
         $errors['created'] = 'Please enter a created';
     }
-    if(empty($data['verified'])) {
+    if(!isset($data['verified'])) {
         $errors['verified'] = 'Please enter an verified';
     }
-    if(empty($data['is_admin'])) {
+    if(!isset($data['is_admin'])) {
         $errors['is_admin'] = 'Please enter a is_admin';
     }
 		return $errors;

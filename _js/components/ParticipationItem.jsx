@@ -9,7 +9,7 @@ export default (props) => {
     <tr className="cms-orders-table-data-row">
       <td className="cms-orders-table-data-cell">{props.name}</td>
       <td className="cms-orders-table-data-cell">{props.school} - {props.class}</td>
-      <td className="cms-orders-table-data-cell"><img src={`${basename}/uploads/${props.photo}.jpg`} /></td>
+      <td className="cms-orders-table-data-cell"><img src={`${basename}/uploads/photo/${props.photo}`} /></td>
       <td className="cms-orders-table-data-cell">{props.email}</td>
       <td className="cms-orders-table-data-cell">{props.created}</td>
     </tr>

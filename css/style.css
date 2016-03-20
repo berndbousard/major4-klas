@@ -90,6 +90,7 @@ main {
   position: absolute;
   top: calc(50vh - 1rem);
   left: calc(50vw - 1rem);
+  z-index: 100;
   -webkit-animation: rotate 1.2s ease-in-out 0s infinite alternate;
           animation: rotate 1.2s ease-in-out 0s infinite alternate;
 }

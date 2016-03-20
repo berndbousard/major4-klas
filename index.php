@@ -11,6 +11,7 @@ define('WWW_ROOT', __DIR__ . DS);
 require_once WWW_ROOT .  'dao' . DS . 'ParticipationDAO.php';
 require_once WWW_ROOT .  'dao' . DS . 'UserDAO.php';
 require_once WWW_ROOT . 'phpass' . DS . 'Phpass.php';
+require_once WWW_ROOT . 'phpUtils' . DS . 'resizeCrop.php';
 
 require 'vendor/autoload.php';
 
@@ -19,6 +20,8 @@ $app = new \Slim\App([
         'displayErrorDetails' => true
     ]
 ]);
+
+// --------------------------------------------------------------------------- CMS
 
 // Om alle participations op te halen
 $app->get('/api/participations', function ($request, $response, $args) {
@@ -153,18 +156,100 @@ $app->get('/admin', function ($request, $response, $args) {
   return $view->render($response, 'admin.php', ['basePath' => $basePath]);
 });
 
-// Om de home in te laden als hij gewoon naar localhost surft
-$app->get('/', function ($request, $response, $args) {
-  $view = new \Slim\Views\PhpRenderer('view/');
-  $basePath = $request->getUri()->getBasePath();
-  return $view->render($response, 'home.php', ['basePath' => $basePath]);
-});
-
 // Als hij naar een andere pagina komt in de admin dan ga je gewoon naar admin.php
 $app->get('/admin/{anything:.*}', function ($request, $response, $args) {
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
   return $view->render($response, 'admin.php', ['basePath' => $basePath]);
+});
+
+// --------------------------------------------------------------------------- WEBSITE
+
+// Om de home in te laden als hij gewoon naar localhost surft
+$app->post('/api/orders/create', function ($request, $response, $args) {
+  $userDAO = new UserDAO();
+  $hasher = new \Phpass\Hash;
+
+  $data = $request->getParsedBody();
+  $data['password'] = $hasher->hashPassword($data['password']);
+  $data['school'] = 0;
+  $data['class'] = 0;
+  $data['created'] = date('Y-m-d H:i:s');
+  $data['verified'] = 0;
+  $data['is_admin'] = 0;
+  error_log( print_r($data, true) );
+
+  $inserted_order = $userDAO->insert($data);
+  error_log( print_r($inserted_order, true) );
+});
+
+$app->post('/api/participations/create', function ($request, $response, $args) {
+  $userDAO = new UserDAO();
+  $participationDAO = new ParticipationDAO();
+  $hasher = new \Phpass\Hash;
+
+
+  $data = $request->getParsedBody();
+  $data['pdf'] = $_FILES['pdf'];
+  $data['photo'] = $_FILES['photo'];
+
+  // Checken of user wel bestaat
+    // email
+    $existing_user = $userDAO->selectByEmail($data['email']);
+    if($existing_user){
+      // password
+      $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+      if($password_check){
+        // IMAGE CHECK
+        if(!empty($data['photo'])){
+          if(empty($data['photo']['error'])){
+            $size = getimagesize($data['photo']['tmp_name']);
+            if($size){
+              $resizeCrop = new resizeCrop();
+              $basePath = $request->getUri()->getBasePath();
+              $ext = explode('.', $data['photo']['name']);
+              $ext = $ext[sizeof($ext) - 1];
+              $data['photo'] = uniqid() . '.' . $ext;
+              // Komt uit de PHPUTILS maps
+              // 320, 240
+              // 480, 360 (x1.5)
+              $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'], $basePath . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
+
+              // De inschrijving in de database steken
+              $data['user_id'] = $existing_user['id'];
+
+
+              if(!empty($data['pdf'])){
+                if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
+                  $ext = explode('.', $data['pdf']['name']);
+                  $ext = $ext[sizeof($ext) - 1];
+                  $data['pdf'] = uniqid() . '.' . $ext;
+                  move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
+
+                  $participationDAO = new ParticipationDAO();
+
+                  $data['created'] = date('Y-m-d H:i:s');
+                  $inserted_participation = $participationDAO->insert($data);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  // Checken of afbeelding juist is
+
+  // Checken of PDF juist is
+
+  // inserten
+});
+
+// Om de home in te laden als hij gewoon naar localhost surft
+$app->get('/', function ($request, $response, $args) {
+  $view = new \Slim\Views\PhpRenderer('view/');
+  $basePath = $request->getUri()->getBasePath();
+  return $view->render($response, 'home.php', ['basePath' => $basePath]);
 });
 
 $app->run();
