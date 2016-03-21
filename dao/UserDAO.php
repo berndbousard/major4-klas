@@ -58,29 +58,15 @@ class UserDAO extends DAO {
 	}
 
 	public function update($id, $data) {
-		$errors = $this->getValidationErrors($data);
+		// $errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "UPDATE `boek_users`
-                SET `name` = :name,
-                    `email` = :email,
-                    `password` = :password,
-                    `cardId` = :cardId,
-                    `school` = :school,
-                    `class` = :class,
-                    `created` = :created,
-                    `verified` = :verified,
-                    `is_admin` = :is_admin
+                SET `school` = :school,
+                    `class` = :class
                 WHERE `id` = :id";
 			$stmt = $this->pdo->prepare($sql);
-			$stmt->bindValue(':name', $data['name']);
-			$stmt->bindValue(':email', $data['email']);
-      $stmt->bindValue(':password', $data['password']);
-			$stmt->bindValue(':cardId', $data['cardId']);
 			$stmt->bindValue(':school', $data['school']);
       $stmt->bindValue(':class', $data['class']);
-      $stmt->bindValue(':created', $data['created']);
-      $stmt->bindValue(':verified', $data['verified']);
-      $stmt->bindValue(':is_admin', $data['is_admin']);
 			$stmt->bindValue(':id', $id);
 			if($stmt->execute()) {
 				return $this->selectById($id);

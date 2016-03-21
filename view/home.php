@@ -7,11 +7,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
 <body>
-    <?php
-      echo "<pre>";
-      echo var_dump($errors);
-      echo "</pre>";
-    ?>
     <div class="container form-temp">
       <h1>Dit is om deel te nemen</h1>
       <form action="/" method="POST">
@@ -38,11 +33,15 @@
       <form action="/" method="POST" enctype="multipart/form-data">
         <label for="email_2">Email adres</label>
         <input type="text" name="email" id="email_2" placeholder="email">
-        <span class="error <?php if(empty($errors['email_2'])) echo 'hide'?>">Gelieve uw emailadres in te vullen</span>
+        <?php if(!empty($errors['email_2'])) { ?>
+          <span class="error"><?php echo $errors['email_2'] ?></span>
+        <?php } ?>
 
         <label for="password_2">Paswoord</label>
         <input type="password" name="password" id="password_2" placeholder="paswoord">
-        <span class="error <?php if(empty($errors['password_2'])) echo 'hide'?>">Gelieve uw wachtwoord in te vullen</span>
+        <?php if(!empty($errors['password_2'])) { ?>
+          <span class="error"><?php echo $errors['password_2'] ?></span>
+        <?php } ?>
 
         <label for="school">School</label>
         <input type="text" name="school" id="school" placeholder="school">

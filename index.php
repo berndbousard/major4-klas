@@ -167,26 +167,11 @@ $app->get('/admin/{anything:.*}', function ($request, $response, $args) {
 
 // --------------------------------------------------------------------------- WEBSITE
 
-// Om de home in te laden als hij gewoon naar localhost surft
-// $app->post('/api/orders/create', function ($request, $response, $args) {
-//   $userDAO = new UserDAO();
-//   $hasher = new \Phpass\Hash;
-
-//   $data = $request->getParsedBody();
-//   $data['password'] = $hasher->hashPassword($data['password']);
-//   $data['school'] = 0;
-//   $data['class'] = 0;
-//   $data['created'] = date('Y-m-d H:i:s');
-//   $data['verified'] = 0;
-//   $data['is_admin'] = 0;
-//   error_log( print_r($data, true) );
-
-//   $inserted_order = $userDAO->insert($data);
-//   error_log( print_r($inserted_order, true) );
-// });
-
 $app->post('/', function ($request, $response, $args) {
   $data = $request->getParsedBody();
+  $userDAO = new UserDAO();
+  $hasher = new \Phpass\Hash;
+
 
   if($data['submit'] == 'the shining aanvragen'){
 
@@ -234,17 +219,33 @@ $app->post('/', function ($request, $response, $args) {
   if($data['submit'] == 'deelnemen aan de actie'){
     $errors = array();
 
+    // data aanvullen met de $_FILES
     $data['pdf'] = $_FILES['pdf'];
     $data['photo'] = $_FILES['photo'];
 
 
     if(empty($data['email'])){
       $errors['email_2'] = "Gelieve je email op te geven";
+    }else{
+      $existing_user = $userDAO->selectByEmail($data['email']);
+      if(empty($existing_user)){
+        $errors['email_2'] = "Je hebt je nog niet opgegeven om deel te nemen";
+      }
     }
 
     if(empty($data['password'])){
       $errors['password_2'] = "Gelieve je password op te geven";
+    }else{
+      $existing_user = $userDAO->selectByEmail($data['email']);
+      $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+      if(empty($password_check)){
+        $errors['password_2'] = "Het opgegeven paswoord is niet correct";
+      }
     }
+
+
+
+    error_log(print_r($errors, true));
 
     if(empty($data['school'])){
       $errors['school'] = "Gelieve je school op te geven";
@@ -263,13 +264,54 @@ $app->post('/', function ($request, $response, $args) {
     }
 
     if(empty($errors)){
+      $participationDAO = new ParticipationDAO();
 
+      $existing_user = $userDAO->selectByEmail($data['email']);
+      if($existing_user){
+        // password
+        $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+        if($password_check){
+          // IMAGE CHECK
+          if(!empty($data['photo'])){
+            if(empty($data['photo']['error'])){
+              $size = getimagesize($data['photo']['tmp_name']);
+              if($size){
+                $resizeCrop = new resizeCrop();
+                $basePath = $request->getUri()->getBasePath();
+                $ext = explode('.', $data['photo']['name']);
+                $ext = $ext[sizeof($ext) - 1];
+                $data['photo'] = uniqid() . '.' . $ext;
+                $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
+
+                $data['user_id'] = $existing_user['id'];
+                if(!empty($data['pdf'])){
+                  if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
+                    $ext = explode('.', $data['pdf']['name']);
+                    $ext = $ext[sizeof($ext) - 1];
+                    $data['pdf'] = uniqid() . '.' . $ext;
+                    move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
+
+                    $participationDAO = new ParticipationDAO();
+
+                    $data['created'] = date('Y-m-d H:i:s');
+                    $inserted_participation = $participationDAO->insert($data);
+
+                    // user updaten
+                    $updated_user = $userDAO->update($existing_user['id'], $data);
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     } else {
-      $view = new \Slim\Views\PhpRenderer('view/');
-      $basePath = $request->getUri()->getBasePath();
-      return $view->render($response, 'home.php', [
-        'basePath' => $basePath,
-        'errors' => $errors
+        $view = new \Slim\Views\PhpRenderer('view/');
+        $basePath = $request->getUri()->getBasePath();
+        return $view->render($response, 'home.php', [
+          'basePath' => $basePath,
+          'errors' => $errors
       ]);
     }
   }
