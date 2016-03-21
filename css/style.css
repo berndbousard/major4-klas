@@ -343,3 +343,20 @@ main {
 .cms-button-afmelden:hover {
   opacity: 1;
 }
+
+.form-temp form label, .form-temp form input {
+  display: block;
+}
+
+.form-temp form {
+  margin-bottom: 50px;
+}
+
+.form-temp h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.form-temp .error {
+  color: red;
+}

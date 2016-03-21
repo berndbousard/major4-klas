@@ -3,9 +3,9 @@ export const basename = (() => {
 })();
 
 export const isAuthenticated = (() => {
-  return window.sessionStorage.getItem('auth');
+  return sessionStorage.getItem('auth');
 });
 
 export const setAuthenticated = (bool => {
-  window.sessionStorage.setItem('auth', bool);
+  sessionStorage.setItem('auth', bool);
 });

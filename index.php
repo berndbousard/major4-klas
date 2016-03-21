@@ -168,83 +168,150 @@ $app->get('/admin/{anything:.*}', function ($request, $response, $args) {
 // --------------------------------------------------------------------------- WEBSITE
 
 // Om de home in te laden als hij gewoon naar localhost surft
-$app->post('/api/orders/create', function ($request, $response, $args) {
-  $userDAO = new UserDAO();
-  $hasher = new \Phpass\Hash;
+// $app->post('/api/orders/create', function ($request, $response, $args) {
+//   $userDAO = new UserDAO();
+//   $hasher = new \Phpass\Hash;
 
+//   $data = $request->getParsedBody();
+//   $data['password'] = $hasher->hashPassword($data['password']);
+//   $data['school'] = 0;
+//   $data['class'] = 0;
+//   $data['created'] = date('Y-m-d H:i:s');
+//   $data['verified'] = 0;
+//   $data['is_admin'] = 0;
+//   error_log( print_r($data, true) );
+
+//   $inserted_order = $userDAO->insert($data);
+//   error_log( print_r($inserted_order, true) );
+// });
+
+$app->post('/', function ($request, $response, $args) {
   $data = $request->getParsedBody();
-  $data['password'] = $hasher->hashPassword($data['password']);
-  $data['school'] = 0;
-  $data['class'] = 0;
-  $data['created'] = date('Y-m-d H:i:s');
-  $data['verified'] = 0;
-  $data['is_admin'] = 0;
-  error_log( print_r($data, true) );
 
-  $inserted_order = $userDAO->insert($data);
-  error_log( print_r($inserted_order, true) );
+  if($data['submit'] == 'the shining aanvragen'){
+
+    $errors = array();
+
+    if(empty($data['name'])){
+      $errors['name'] = "Gelieve een naam in te vullen";
+    }
+
+    if(empty($data['password'])){
+      $errors['password'] = "Gelieve een paswoord in te vullen";
+    }
+
+    if(empty($data['cardId'])){
+      $errors['cardId'] = "Gelieve een cardID in te vullen";
+    }
+
+    if(empty($data['email'])){
+      $errors['email'] = "Gelieve een email in te vullen";
+    }
+
+    if(empty($errors)){
+      $userDAO = new UserDAO();
+      $hasher = new \Phpass\Hash;
+
+      $data['password'] = $hasher->hashPassword($data['password']);
+      $data['school'] = 0;
+      $data['class'] = 0;
+      $data['created'] = date('Y-m-d H:i:s');
+      $data['verified'] = 0;
+      $data['is_admin'] = 0;
+
+      $inserted_order = $userDAO->insert($data);
+      return $response->withRedirect('/');
+    } else {
+      $view = new \Slim\Views\PhpRenderer('view/');
+      $basePath = $request->getUri()->getBasePath();
+      return $view->render($response, 'home.php', [
+        'basePath' => $basePath,
+        'errors' => $errors
+      ]);
+    }
+  }
+
+  // if($data['submit'] == 'deelnemen aan de actie'){
+  //   $errors = array();
+  // }
 });
 
 $app->post('/api/participations/create', function ($request, $response, $args) {
   $userDAO = new UserDAO();
   $participationDAO = new ParticipationDAO();
   $hasher = new \Phpass\Hash;
+  $errors = array();
 
 
   $data = $request->getParsedBody();
   $data['pdf'] = $_FILES['pdf'];
   $data['photo'] = $_FILES['photo'];
 
+
+  if(empty($data['school'])){
+    $errors['school'] = "Gelieve je school op te geven";
+  }
+
+  if(empty($data['klas'])){
+    $errors['klas'] = "Gelieve je klas op te geven";
+  }
+
+  if(empty($data['photo']['name'])){
+    $errors['photo'] = "gelieve een image te selecteren";
+  }
+
+  if(empty($data['pdf']['name'])){
+    $errors['pdf'] = "gelieve een pdf te selecteren";
+  }
+
   // Checken of user wel bestaat
-    // email
-    $existing_user = $userDAO->selectByEmail($data['email']);
-    if($existing_user){
-      // password
-      $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
-      if($password_check){
-        // IMAGE CHECK
-        if(!empty($data['photo'])){
-          if(empty($data['photo']['error'])){
-            $size = getimagesize($data['photo']['tmp_name']);
-            if($size){
-              $resizeCrop = new resizeCrop();
-              $basePath = $request->getUri()->getBasePath();
-              $ext = explode('.', $data['photo']['name']);
-              $ext = $ext[sizeof($ext) - 1];
-              $data['photo'] = uniqid() . '.' . $ext;
-              // Komt uit de PHPUTILS maps
-              // 320, 240
-              // 480, 360 (x1.5)
-              $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
+  // email
+  $existing_user = $userDAO->selectByEmail($data['email']);
+  if($existing_user){
+    // password
+    $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+    if($password_check){
+      // IMAGE CHECK
+      if(!empty($data['photo'])){
+        if(empty($data['photo']['error'])){
+          $size = getimagesize($data['photo']['tmp_name']);
+          if($size){
+            $resizeCrop = new resizeCrop();
+            $basePath = $request->getUri()->getBasePath();
+            $ext = explode('.', $data['photo']['name']);
+            $ext = $ext[sizeof($ext) - 1];
+            $data['photo'] = uniqid() . '.' . $ext;
+            // Komt uit de PHPUTILS maps
+            // 320, 240
+            // 480, 360 (x1.5)
+            $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
 
-              // De inschrijving in de database steken
-              $data['user_id'] = $existing_user['id'];
+            // De inschrijving in de database steken
+            $data['user_id'] = $existing_user['id'];
 
 
-              if(!empty($data['pdf'])){
-                if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
-                  $ext = explode('.', $data['pdf']['name']);
-                  $ext = $ext[sizeof($ext) - 1];
-                  $data['pdf'] = uniqid() . '.' . $ext;
-                  move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
+            if(!empty($data['pdf'])){
+              if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
+                $ext = explode('.', $data['pdf']['name']);
+                $ext = $ext[sizeof($ext) - 1];
+                $data['pdf'] = uniqid() . '.' . $ext;
+                move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
 
-                  $participationDAO = new ParticipationDAO();
+                $participationDAO = new ParticipationDAO();
 
-                  $data['created'] = date('Y-m-d H:i:s');
-                  $inserted_participation = $participationDAO->insert($data);
-                }
+                $data['created'] = date('Y-m-d H:i:s');
+                $inserted_participation = $participationDAO->insert($data);
               }
+            }else{
+              // Geen pdf geselecteerd
+              $errors['pdf'] = "Gelieve een pdf te selecteren";
             }
           }
         }
       }
     }
-
-  // Checken of afbeelding juist is
-
-  // Checken of PDF juist is
-
-  // inserten
+  }
+  return $response->withRedirect('/');
 });
 
 // Om de home in te laden als hij gewoon naar localhost surft

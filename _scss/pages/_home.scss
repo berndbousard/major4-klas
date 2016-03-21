@@ -1,0 +1,20 @@
+// tijdelijke code voor form te testen
+
+.form-temp {
+  form label, form input {
+    display: block;
+  }
+
+  form {
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  .error {
+    color: red;
+  }
+}

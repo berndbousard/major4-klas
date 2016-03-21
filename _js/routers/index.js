@@ -16,10 +16,10 @@ export default () => (
   </Router>
 );
 
-const checkAuthentication = (nextState, transition) => {
+const checkAuthentication = (nextState, replace) => {
   if (isAuthenticated() == false) {
     //           current location *1                    , routeTo
-    transition({ pathname: nextState.location.pathname }, '/admin');
+    replace('/admin');
   }
 };
 
