@@ -1,5 +1,7 @@
 <?php
+// http://docs.slimframework.com/sessions/native/
 session_start();
+session_cache_limiter(false);
 
 ini_set('display_errors', true);
 error_reporting(E_ALL);
@@ -63,9 +65,9 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
   return $response;
 });
 
-
-// Om de orders op te halen aan de hand van een id via de params meegaat
+// Om alle orders op te halen. Deze worden gefiltered in de react app.
 $app->get('/api/orders', function ($request, $response, $args) {
+  error_log(print_r($_SESSION, true));
   $userDAO = new UserDAO();
 
   $orders = $userDAO->selectAll();
@@ -77,17 +79,14 @@ $app->get('/api/orders', function ($request, $response, $args) {
   }
 
   $response = $response->write(json_encode($orders));
-  $response = $response->withHeader('Content-Type','application/json');
+  $response = $response->withHeader('Content-Type', 'application/json');
 
   return $response;
-
 });
 
 // Om een gebruiker in te loggen als hij naar api/login gaat
 $app->post('/api/login', function ($request, $response, $args) {
   $data = $request->getParsedBody();
-
-  // error_log( print_r($data, true) );
 
   // UserDAO aanmaken om te kijken of die bestaat.
   $userDAO = new UserDAO();
