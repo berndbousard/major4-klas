@@ -231,9 +231,48 @@ $app->post('/', function ($request, $response, $args) {
     }
   }
 
-  // if($data['submit'] == 'deelnemen aan de actie'){
-  //   $errors = array();
-  // }
+  if($data['submit'] == 'deelnemen aan de actie'){
+    $errors = array();
+
+    $data['pdf'] = $_FILES['pdf'];
+    $data['photo'] = $_FILES['photo'];
+
+
+    if(empty($data['email'])){
+      $errors['email_2'] = "Gelieve je email op te geven";
+    }
+
+    if(empty($data['password'])){
+      $errors['password_2'] = "Gelieve je password op te geven";
+    }
+
+    if(empty($data['school'])){
+      $errors['school'] = "Gelieve je school op te geven";
+    }
+
+    if(empty($data['class'])){
+      $errors['class'] = "Gelieve je klas op te geven";
+    }
+
+    if(empty($data['photo']['name'])){
+      $errors['photo'] = "gelieve een image te selecteren";
+    }
+
+    if(empty($data['pdf']['name'])){
+      $errors['pdf'] = "gelieve een pdf te selecteren";
+    }
+
+    if(empty($errors)){
+
+    } else {
+      $view = new \Slim\Views\PhpRenderer('view/');
+      $basePath = $request->getUri()->getBasePath();
+      return $view->render($response, 'home.php', [
+        'basePath' => $basePath,
+        'errors' => $errors
+      ]);
+    }
+  }
 });
 
 $app->post('/api/participations/create', function ($request, $response, $args) {
