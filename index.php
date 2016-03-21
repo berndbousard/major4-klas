@@ -171,6 +171,7 @@ $app->post('/', function ($request, $response, $args) {
   $data = $request->getParsedBody();
   $userDAO = new UserDAO();
   $hasher = new \Phpass\Hash;
+  $participationDAO = new ParticipationDAO();
 
 
   if($data['submit'] == 'the shining aanvragen'){
@@ -189,7 +190,15 @@ $app->post('/', function ($request, $response, $args) {
       $errors['cardId'] = "Gelieve een cardID in te vullen";
     }
 
-    if(empty($data['email'])){
+    if(!empty($data['email'])){
+      $existing_user = $userDAO->selectByEmail($data['email']);
+      if($existing_user && $existing_user['verified'] == 1){
+        $errors['email'] = "We hebben een ebook reeds naar dit email adres verstuurd";
+      }else if($existing_user && $existing_user['verified'] == 0){
+        // Heeft al deelgenomen maar er wordt in de admin gecheckt of het wel een echte docent is
+        $errors['email'] = "Je hebt je reeds geregistreerd, je ebook aanvraag is in behandeling";
+      }
+    }else{
       $errors['email'] = "Gelieve een email in te vullen";
     }
 
@@ -217,20 +226,26 @@ $app->post('/', function ($request, $response, $args) {
   }
 
   if($data['submit'] == 'deelnemen aan de actie'){
+    $data['email'] = $data['email_2'];
     $errors = array();
 
     // data aanvullen met de $_FILES
     $data['pdf'] = $_FILES['pdf'];
     $data['photo'] = $_FILES['photo'];
 
-
-    if(empty($data['email'])){
-      $errors['email_2'] = "Gelieve je email op te geven";
-    }else{
+    if(!empty($data['email'])){
       $existing_user = $userDAO->selectByEmail($data['email']);
       if(empty($existing_user)){
         $errors['email_2'] = "Je hebt je nog niet opgegeven om deel te nemen";
+      }else{
+        $already_participated = $participationDAO->selectByUserId($existing_user['id']);
+        if(!empty($already_participated)){
+          $errors['email_2'] = "Om iedereen een kans te geven mag iedereen maar 1x deelnemen";
+        }
       }
+
+    }else{
+      $errors['email_2'] = "Gelieve je email op te geven";
     }
 
     if(empty($data['password'])){
@@ -243,10 +258,6 @@ $app->post('/', function ($request, $response, $args) {
       }
     }
 
-
-
-    error_log(print_r($errors, true));
-
     if(empty($data['school'])){
       $errors['school'] = "Gelieve je school op te geven";
     }
@@ -256,16 +267,14 @@ $app->post('/', function ($request, $response, $args) {
     }
 
     if(empty($data['photo']['name'])){
-      $errors['photo'] = "gelieve een image te selecteren";
+      $errors['photo'] = "Gelieve een image te selecteren";
     }
 
     if(empty($data['pdf']['name'])){
-      $errors['pdf'] = "gelieve een pdf te selecteren";
+      $errors['pdf'] = "Gelieve een pdf te selecteren";
     }
 
     if(empty($errors)){
-      $participationDAO = new ParticipationDAO();
-
       $existing_user = $userDAO->selectByEmail($data['email']);
       if($existing_user){
         // password
@@ -283,7 +292,6 @@ $app->post('/', function ($request, $response, $args) {
                 $data['photo'] = uniqid() . '.' . $ext;
                 $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
 
-                $data['user_id'] = $existing_user['id'];
                 if(!empty($data['pdf'])){
                   if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
                     $ext = explode('.', $data['pdf']['name']);
@@ -298,7 +306,6 @@ $app->post('/', function ($request, $response, $args) {
 
                     // user updaten
                     $updated_user = $userDAO->update($existing_user['id'], $data);
-
                   }
                 }
               }
@@ -313,83 +320,6 @@ $app->post('/', function ($request, $response, $args) {
           'basePath' => $basePath,
           'errors' => $errors
       ]);
-    }
-  }
-});
-
-$app->post('/api/participations/create', function ($request, $response, $args) {
-  $userDAO = new UserDAO();
-  $participationDAO = new ParticipationDAO();
-  $hasher = new \Phpass\Hash;
-  $errors = array();
-
-
-  $data = $request->getParsedBody();
-  $data['pdf'] = $_FILES['pdf'];
-  $data['photo'] = $_FILES['photo'];
-
-
-  if(empty($data['school'])){
-    $errors['school'] = "Gelieve je school op te geven";
-  }
-
-  if(empty($data['klas'])){
-    $errors['klas'] = "Gelieve je klas op te geven";
-  }
-
-  if(empty($data['photo']['name'])){
-    $errors['photo'] = "gelieve een image te selecteren";
-  }
-
-  if(empty($data['pdf']['name'])){
-    $errors['pdf'] = "gelieve een pdf te selecteren";
-  }
-
-  // Checken of user wel bestaat
-  // email
-  $existing_user = $userDAO->selectByEmail($data['email']);
-  if($existing_user){
-    // password
-    $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
-    if($password_check){
-      // IMAGE CHECK
-      if(!empty($data['photo'])){
-        if(empty($data['photo']['error'])){
-          $size = getimagesize($data['photo']['tmp_name']);
-          if($size){
-            $resizeCrop = new resizeCrop();
-            $basePath = $request->getUri()->getBasePath();
-            $ext = explode('.', $data['photo']['name']);
-            $ext = $ext[sizeof($ext) - 1];
-            $data['photo'] = uniqid() . '.' . $ext;
-            // Komt uit de PHPUTILS maps
-            // 320, 240
-            // 480, 360 (x1.5)
-            $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
-
-            // De inschrijving in de database steken
-            $data['user_id'] = $existing_user['id'];
-
-
-            if(!empty($data['pdf'])){
-              if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){
-                $ext = explode('.', $data['pdf']['name']);
-                $ext = $ext[sizeof($ext) - 1];
-                $data['pdf'] = uniqid() . '.' . $ext;
-                move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
-
-                $participationDAO = new ParticipationDAO();
-
-                $data['created'] = date('Y-m-d H:i:s');
-                $inserted_participation = $participationDAO->insert($data);
-              }
-            }else{
-              // Geen pdf geselecteerd
-              $errors['pdf'] = "Gelieve een pdf te selecteren";
-            }
-          }
-        }
-      }
     }
   }
   return $response->withRedirect('/');

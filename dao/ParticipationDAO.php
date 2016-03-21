@@ -20,6 +20,14 @@ class ParticipationDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+  public function selectByUserId($user_id) {
+    $sql = "SELECT * FROM `boek_participations` WHERE `user_id` = :user_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $user_id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function selectAllPhotos($id) {
       $sql = "SELECT * FROM `boek_participations` WHERE `photo` != ''";
       $stmt = $this->pdo->prepare($sql);
