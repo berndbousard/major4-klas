@@ -232,7 +232,6 @@ $app->post('/api/participations/create', function ($request, $response, $args) {
 
                   $data['created'] = date('Y-m-d H:i:s');
                   $inserted_participation = $participationDAO->insert($data);
-                  error_log(print_r($inserted_participation, true));
                 }
               }
             }

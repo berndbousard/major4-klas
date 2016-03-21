@@ -2,7 +2,16 @@
 class resizeCrop {
   //http://stackoverflow.com/questions/1855996/crop-image-in-php
   public function resizeCropImage($src, $dst, $thumb_width, $thumb_height) {
-    $image = imagecreatefromjpeg($src);
+    $type = exif_imagetype($src);
+    switch ($type) {
+        case 2:
+            $image = imagecreatefromjpeg($src);
+        break;
+        case 3:
+            $image = imagecreatefrompng($src);
+        break;
+    }
+
     $filename = $dst;
 
     $width = imagesx($image);
