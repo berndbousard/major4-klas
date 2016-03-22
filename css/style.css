@@ -87,9 +87,7 @@ main {
   width: 2rem;
   height: 2rem;
   background-color: #7d5abf;
-  position: absolute;
-  top: calc(50vh - 1rem);
-  left: calc(50vw - 1rem);
+  margin-top: 2rem;
   z-index: 100;
   -webkit-animation: rotate 1.2s ease-in-out 0s infinite alternate;
           animation: rotate 1.2s ease-in-out 0s infinite alternate;
@@ -145,9 +143,12 @@ main {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cms-login-form {

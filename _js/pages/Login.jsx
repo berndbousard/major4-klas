@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import fetch from 'isomorphic-fetch';
 
 import {Form} from '../components/';
 import {basename, setAuthenticated} from '../globals';
@@ -63,6 +64,7 @@ export default class Login extends Component {
     return (
         <section className="cms-login">
             <Form />
+            <div className="loader hide"></div>
         </section>
     );
   }

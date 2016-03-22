@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {basename} from '../globals/';
 import Emitter from '../events/';
+import fetch from 'isomorphic-fetch';
 
 import {OrderItem, NavigationBar} from '../components/';
 

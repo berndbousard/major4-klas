@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {basename} from '../globals/';
+import fetch from 'isomorphic-fetch';
 
 import {ParticipationItem} from '../components/';
 import {NavigationBar} from '../components/';
