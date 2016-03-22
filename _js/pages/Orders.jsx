@@ -44,19 +44,18 @@ export default class Orders extends Component {
 
   filterOrders(verifiedID = this.state.currentTabID){ // Standaard op nieuwe opladen
     let {orders} = this.state;
-    // console.log('ik kan er', orders.length, 'filteren');
+    console.log('ik kan er', orders.length, 'filteren');
     let filteredOrders = orders.filter((o) => {
       return parseInt(o.verified) === parseInt(verifiedID);
     });
-    // console.log('ik toon er', filteredOrders.length, filteredOrders);
+    console.log('ik toon er', filteredOrders.length, filteredOrders);
     this.setState({visibleOrders: filteredOrders});
   }
 
   filterClickHandler(e, id){
     e.preventDefault();
     this.state.currentTabID = id;
-    this.fetchOrders(); //Toch nog eens fetchen voor allernieuwste results
-    // this.filterOrders(); //de orders filteren adhv een id
+    this.filterOrders(); //de orders filteren adhv een id
     this.changeCSSClass(e); // de css classen regelen
   }
 
@@ -70,6 +69,7 @@ export default class Orders extends Component {
         }
         return order;
       });
+
       this.state.orders = newOrders;
       this.filterOrders();
 

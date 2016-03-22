@@ -75,6 +75,22 @@ class UserDAO extends DAO {
 		return false;
 	}
 
+  public function updateOrder($id, $data) {
+    // $errors = $this->getValidationErrors($data);
+    if(empty($errors)) {
+      $sql = "UPDATE `boek_users`
+                SET `verified` = :verified
+                WHERE `id` = :id";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':verified', $data['verified']);
+      $stmt->bindValue(':id', $id);
+      if($stmt->execute()) {
+        return $this->selectById($id);
+      }
+    }
+    return false;
+  }
+
 	public function delete($id) {
 		$sql = "DELETE FROM `boek_users` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);

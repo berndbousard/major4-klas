@@ -52,7 +52,7 @@ $app->put('/api/orders/{id}', function ($request, $response, $args) {
   $order = $userDAO->selectById($args['id']);
   $order['verified'] = $request->getQueryParams()['verified'];
 
-  $inserted_order = $userDAO->update($args['id'], $order);
+  $inserted_order = $userDAO->updateOrder($args['id'], $order);
 
   if(empty($inserted_order)) {
     $response = $response->withStatus(404);
