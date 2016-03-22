@@ -55,7 +55,8 @@ export default class Orders extends Component {
   filterClickHandler(e, id){
     e.preventDefault();
     this.state.currentTabID = id;
-    this.filterOrders(); //de orders filteren adhv een id
+    this.fetchOrders(); //Toch nog eens fetchen voor allernieuwste results
+    // this.filterOrders(); //de orders filteren adhv een id
     this.changeCSSClass(e); // de css classen regelen
   }
 
