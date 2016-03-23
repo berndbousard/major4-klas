@@ -1,0 +1,31 @@
+$border-width: 1.5rem;
+
+// lettergroottes 
+// photoshop waarde  / 4 (300dpi)
+
+$size-nav: 0.875rem; 		// 3.5	// enkel nav
+$size-smallest: 0.70rem; 	// 2.6	// kleine typo boven de header titel
+$size-header-title: 4rem;	// 16	//
+$size-title: 2.25rem;		// 9	//
+$size-brood: 1rem; 			// 4 	// ook voor .cta-text en <label>'s
+$size-button: 1.2rem;		// 4.8 	// .cta-button
+$size-input: 1.25rem;		// 5	// inputvelden
+$size-tab: 1.4rem;			// 5.6	// 
+$size-the-shining-title: 5rem;
+
+//	letterspacing 100
+@mixin wider-tekst(){
+	letter-spacing: 0.1rem;
+}
+//	letterspacing 40
+@mixin wide-tekst(){
+	letter-spacing: 0.04rem;
+}
+//	letterspacing 100
+@mixin wider-title(){
+	letter-spacing: 0.5rem;
+}
+//	letterspacing 20
+@mixin wide-title(){
+	letter-spacing: 0.2rem;
+}
