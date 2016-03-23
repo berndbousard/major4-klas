@@ -139,7 +139,7 @@ body {
           justify-content: center;
 }
 
-.main-nav-list {
+.main-nav-list, .nav-items {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
