@@ -31,7 +31,11 @@ const initTabFunctions = () => {
 	});
 };
 const tabClickHandler = (e, index, tabs, tabItems) => {
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> c14b305b1de8f74b9c7b4ff7f92dff0ff39e04ba
 	//handle form switch
 	let className = tabItems[0].classList[0];
 	let previousItem = document.querySelector(`.${className}:not(.hide)`);
@@ -52,4 +56,8 @@ const switchTabItems = (oldObj, newObj) => {
 };
 
 
+<<<<<<< HEAD
 init();
+=======
+init();
+>>>>>>> c14b305b1de8f74b9c7b4ff7f92dff0ff39e04ba
