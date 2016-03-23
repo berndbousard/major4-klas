@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 
 	<script type="text/javascript">
@@ -13,13 +13,13 @@
 	    wf.async = 'true';
 	    var s = document.getElementsByTagName('script')[0];
 	    s.parentNode.insertBefore(wf, s);
-	  })(); 
+	  })();
 	</script>
 
 	<meta charset="UTF-8">
   <title>Klassiekers in je klas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
 
 <body>
@@ -28,9 +28,9 @@
 		<nav class="main-nav">
 			<ul class="main-nav-list">
 				<li class="nav-logo"><a href="http://www.boek.be"><span class="hide">boek.be</span></a></li>
-				<li class="nav-item"><a href="index.html"><span>de actie</span></a></li>
-				<li class="nav-item"><a href="over.html" class="active"><span>over de shining</span></a></li>
-				<li class="nav-item"><a href="index.html#form-deelnemen"><span>deelnemen</span></a></li>
+				<li class="nav-item"><a href="/"><span>de actie</span></a></li>
+				<li class="nav-item"><a href="<?php echo $basePath ?>" class="active"><span>over de shining</span></a></li>
+				<li class="nav-item"><a href="/#form-deelnemen"><span>deelnemen</span></a></li>
 			</ul>
 		</nav>
 		<main class="main-wrapper over">
@@ -150,7 +150,7 @@
 				</div>
 			</article>
 
-			<article class="reviews-pers">			
+			<article class="reviews-pers">
 				<div class="container">
 					<header>
 						<h1 class="title">wat zegt de <span class="paars">pers</span>?</h1>
@@ -204,6 +204,10 @@
 		</footer>
 	</div>
 
-	<script src="/js/script.js"></script>
+	<script>
+    window.app = window.app || {};
+    window.app.basename = '<?php echo $basePath;?>';
+  </script>
+  <script src="<?php echo $basePath;?>/js/script.js"></script>
 </body>
 </html>

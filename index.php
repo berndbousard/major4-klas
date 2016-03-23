@@ -190,6 +190,13 @@ $app->get('/api/logout', function ($request, $response, $args) {
 });
 
 // Om de admin pagina in te laden als je naar localhost/admin surft
+$app->get('/about', function ($request, $response, $args) {
+  $view = new \Slim\Views\PhpRenderer('view/');
+  $basePath = $request->getUri()->getBasePath();
+  return $view->render($response, 'about.php', ['basePath' => $basePath]);
+});
+
+// Om de admin pagina in te laden als je naar localhost/admin surft
 $app->get('/admin', function ($request, $response, $args) {
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
