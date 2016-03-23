@@ -1,10 +1,10 @@
 .container {
-    width: 96rem;
+    width: 85vw;
     margin: 0 auto;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 
@@ -12,12 +12,84 @@
   width: 2rem;
   height: 2rem;
   background-color: $paars;
-  // position: absolute;
-  // top: calc(50vh - 1rem);
-  // left: calc(50vw - 1rem);
-  margin-top: 2rem;
+  position: absolute;
+  top: calc(50vh - 1rem);
+  left: calc(50vw - 1rem);
   z-index: 100;
   animation: rotate 1.2s ease-in-out 0s infinite alternate;
+}
+
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: $wit;
+  position: relative;
+  color: $zwart;
+}
+
+.main-border{
+  box-sizing: border-box;
+  border: $border-width solid $border-color;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-shadow: inset 0 0 2rem 0 rgba(0,0,0,0.1);
+  z-index: 1000;
+  pointer-events: none
+}
+.body-wrapper{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: $border-width;
+  position: relative; // z-index border
+}
+
+//  NAV
+
+.main-nav{
+  padding: 3rem 2rem;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main-nav-list{
+  display: flex;
+  align-items: center;
+}
+.nav-logo{
+  opacity: 0.4;
+  transition: 0.4s all;
+  margin-right: 2rem;
+  a{
+    display: block;
+    width: 74px;
+    height: 58px;
+    background: url('/assets/svg/boek-be-logo.svg') 100% center no-repeat;
+  }
+
+  &:hover{
+    opacity: 1;
+  }
+}
+.nav-item{
+  margin: 0 1rem;
+  a{
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $zwart;
+    font-family: 'Titillium Web';
+    font-weight: 400;
+    font-size: $size-nav;
+
+    @include wider-tekst;
+  }
 }
 
 @keyframes rotate {
@@ -30,7 +102,150 @@
   }
 }
 
+@keyframes arrowHover {
+  0% {
+    padding-bottom: 3rem;
+  }
+
+  100% {
+    padding-bottom: 4rem;
+  }
+}
+
 .activeFilter {
   color: $wit;
   background-color: $paars;
+}
+
+p.tekst{
+  font-size: $size-brood;
+  font-family: 'Titillium Web';
+  @include wide-tekst;
+  line-height: 1.6rem;
+}
+
+.paars{
+  color: $paars;
+}
+.bold{
+  font-weight: 600;
+}
+
+.quote{
+  font-style: italic;
+  &::before{
+    content: '“';
+  }
+  &::after{
+    content: '”';
+  }
+}
+
+.nav-item .active{
+  background-color: $paars;
+  color: $wit;
+}
+.title{
+  font-size: $size-title;
+  font-family: 'Plantagenet Cherokee';
+  text-shadow: 3rem 1.5rem 5px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  @include wide-title;
+}
+.sub-title{
+  font-size: $size-brood;
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  line-height: 1.6rem;
+  @include wide-tekst;
+}
+
+// CTA'S
+
+.cta-button{
+  text-decoration: none;
+  display: inline-block;
+  background-color: $paars;
+  padding: 0.8rem 1.8rem;
+  border: 0.4rem solid $paars; // niet-zichtbare border is nodig voor transitie // border-box doet raar
+  transition: 0.5s all;
+  span, label{
+    font-size: $size-button;
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    color: $wit;
+    text-transform: uppercase;
+    @include wider-tekst;
+    // voor lijntje achteraan de button
+    display: flex;
+    align-items: center;
+    &::after{
+      content: '';
+      display: inline-block;
+      height: 0.2rem;
+      width: 1.8rem;
+      margin-left: 0.5rem;
+      background-color: $wit;
+    }
+  }
+}
+.cta-button:hover{
+  background: none;
+  span, label{
+    color: $paars;
+    &::after{
+      background-color: $paars;
+    }
+  }
+}
+
+.cta-text{
+  text-decoration: none;
+  @include wider-tekst;
+  opacity: 0.7;
+  transition: 0.4s all;
+  span{
+    font-size: $size-brood;
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $zwart;
+    text-align: center;
+
+    &::before{
+      content: '/';
+      margin-right: 0.5rem;
+    }
+    &::after{
+      content: '/';
+      margin-left: 0.5rem;
+    }
+  }
+  &:hover{
+    opacity: 1;
+  }
+
+  &.arrow-down{
+    animation: arrowHover 2s ease-in-out 0s infinite alternate;
+    padding-bottom: 3rem;
+    background: url('/assets/svg/pijl.svg') bottom center no-repeat;
+    background-size: 1.27rem 2.17rem;
+  }
+  &.arrow-right{
+    display: flex;
+    justify-content: center;
+    &::after{
+      content: '';
+      background: url('/assets/svg/pijl.svg') no-repeat;
+      background-position: right;
+      position: relative;
+      right: 1rem;
+      background-size: 1.27rem 2.17rem;
+      display: inline-block;
+      width: 1.27rem;
+      height: 2.17rem;
+      transform-origin: 100% 0%;
+      transform: rotate(-90deg);
+    }
+  }
 }

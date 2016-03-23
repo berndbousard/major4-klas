@@ -1,10 +1,12 @@
 @import 'reset';
 
 @import 'settings/colors';
+@import 'settings/values';
 @import 'settings/webfontloader';
 @import 'general';
 
 @import 'pages/admin';
 @import 'pages/home';
+@import 'pages/about';
 
 @import 'settings/breakpoints';

@@ -13,8 +13,7 @@
 
 .cms-login {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .cms-login-form {
@@ -99,12 +98,6 @@
     width: 100%;
 }
 
-.cms-orders {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .cms-orders-table  {
     margin-top: 2rem;
     text-align: center;
@@ -182,13 +175,4 @@
     &:hover {
       opacity: 1;
     }
-}
-
-
-.noOrdersLabel {
-  color: $wit;
-  padding: 2rem;
-  font-size: 1.4rem;
-  background-color: $paars;
-  margin-top: 2rem;
 }

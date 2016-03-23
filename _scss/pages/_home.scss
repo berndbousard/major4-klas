@@ -1,20 +1,487 @@
-// tijdelijke code voor form te testen
+.actie{
 
-.form-temp {
-  form label, form input {
+  .main-header .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .header-content-wrapper{
+    display: flex;
+  }
+  .main-header{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 20vh;
+    margin-top: -20vh;
+
+    background: url('/assets/img/beeld-header.png') no-repeat, url('/assets/img/grunge-header.png') no-repeat;
+    background-position: top right, center right;
+    background-size: auto 100%, auto 100%;
+    // background-size: contain, contain;  // responsive
+  }
+  .header-title{
+    margin: 1rem 0;
+    h2{
+      font-size: $size-smallest;
+      font-family: 'Titillium Web';
+      font-weight: 600;
+      text-transform: uppercase;
+      @include wide-tekst;
+      opacity: 0.5;
+    }
+  }
+  .main-title-wrapper{
+    width: auto;
+  }
+  .main-title{
+    font-family: 'Plantagenet Cherokee';
+    text-transform: uppercase;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+    width: auto;
+  }
+  .header-text{
     display: block;
   }
-
-  form {
-    margin-bottom: 50px;
+  .header-title{
+    font-size: $size-header-title;
+    @include wider-title;
+  }
+  .header-sub{
+    font-size: $size-title;
+    @include wide-title;
   }
 
-  h1 {
+  .header-content{
+    display: flex;
+    justify-content: space-between;
+    section{
+      // width: 50%;
+    }
+  }
+  .catch-phrase-text-wrapper{
+    margin: 2rem 0;
+    width: 70%;
+  }
+  .catch-phrase p{
+    margin: 1rem 0;
+    font-family: 'Titillium web';
+    font-weight: 600;
+    @include wide-tekst;
+    font-size: $size-input;
+  }
+  .main-header .cta-text{
+    align-self: center;
+    margin-top: 2rem;
+  }
+
+  .shining-header{
+    padding: 12rem 0 4rem 0;
+    background: url('/assets/img/letter-s.png') left bottom no-repeat;
+    h1{
+      color: $puur-wit;
+      text-transform: uppercase;
+      font-family: 'Titillium Web';
+      font-size: $size-the-shining-title;
+      @include wider-title;
+      text-shadow: 0 0 20px rgba(255,255,255,1);
+    }
+  }
+}
+
+// SECTION __ HOE HET WERKT
+.over-wedstrijd{
+  background: url('/assets/img/grunge-main.png') no-repeat, url('/assets/img/grunge-flipped.png') no-repeat;
+  background-size: auto, auto;
+  background-position: right 30%, left bottom;
+}
+.info-over-wedstrijd{
+  position: relative;
+  background: url('/assets/svg/6-hoek-groot.svg') no-repeat;
+  background-size: 29.5rem 30.7rem;
+  background-position: 6rem 8rem;
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .title{
+    padding: 6rem 0;
+    margin-right: 4vw;
+  }
+  &::before{
+    content: '';
+    z-index: -99;
+    display: block;
+    width: 100%;
+    height: calc(100% - 8rem);
+    position: absolute;
+    top: 0;
+    background-color: $lichtPaars;
+  }
+}
+.article-content{
+  display: flex;
+  flex-direction: column;
+}
+.sec-over{
+  display: flex;
+  justify-content: space-between;
+}
+.wedstrijd-uitleg{
+  width: 55%;
+}
+.wedstrijd-uitleg p:nth-child(3){
+  margin-top: 2rem;
+}
+
+.sec-over .sub-title{
+  margin-left: 5rem;
+  width: 30%;
+  margin-bottom: 2rem;
+}
+.boek-detail{
+  margin-left: 5rem;
+  margin-top: -4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.boek-meta{
+  margin-left: 2rem;
+  cite{
+    font-family: 'Titillium Web';
     font-weight: 700;
-    font-size: 3rem;
+    font-size: $size-tab;
   }
+  .tekst{
+    margin: 0.5rem 0 2.5rem 0;
+    opacity: 0.5;
+  }
+}
+.boek-caption{
+  .cta-button{
+    position: relative;
+    z-index: 2;
+    left: -3rem;
+  }
+}
 
-  .error {
-    color: red;
+.hoe-het-werkt{
+  background: url('/assets/img/beeld-mansion.png') no-repeat;
+  background-size: auto;
+  background-position: bottom right;
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .title{
+    padding: 3rem 0 8rem 0;
+    margin-right: 4vw;
+  }
+}
+.sec-werking{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 90%;
+}
+.korte-uitleg{
+  align-self: flex-end;
+  width: 40%;
+
+  .sub-title{
+    margin-bottom: 2rem;
+  }
+}
+.uitleg-lijst{
+  margin-top: -3rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.uitleg-item{
+  width: 55%;
+  padding-top: 6rem;
+  &:nth-child(1){
+    background-image: url('/assets/svg/li-1.svg');
+  }
+  &:nth-child(2){
+    align-self: flex-end;
+    margin: 2rem 0;
+    background-image: url('/assets/svg/li-2.svg');
+  }
+  &:nth-child(3){
+    background-image: url('/assets/svg/li-3.svg');
+  }
+  background-size: 7rem;
+  background-repeat: no-repeat;
+  background-position: top center
+}
+
+
+// FORM
+.form{
+  margin-top: 6rem;
+
+  background: url('/assets/img/grunge-main.png') no-repeat;
+  background-position: center right;
+  background-size: auto 100%;
+}
+.form .container{
+  margin: 0 auto;
+}
+.form-container{
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+}
+.form-input-fields{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+  // TABS
+
+[class *="tab-navigation"]{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4rem;
+
+}
+.tab-header{
+  width: 48%;
+  padding: 1.5rem 0;
+  background-color: $lichtPaars;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include wide-title;
+  cursor: pointer;
+  &.active{
+    cursor: inherit;
+    background-color: $zwart;
+    color: $wit;
+  }
+}
+.tab-title{
+  text-align: center;
+  font-family: 'Titillium Web';
+  font-size: $size-tab;
+  text-transform: uppercase;
+}
+
+.main-form{
+  background-color: $zwart;
+  color: $wit;
+
+
+  background-image: url('/assets/img/grunge-flipped.png');
+  background-repeat:  no-repeat;
+  background-position: center left;
+  background-size: auto 100%;
+}
+
+.form-input-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  label:not(.file-input-replacement){
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Plantagenet Cherokee';
+    font-size: $size-brood;
+    opacity: 0.5;
+    @include wide-tekst;
+  }
+  input, .file-input-replacement{
+    width: 35vw;
+    border: 0.15rem solid $wit;
+    color: $wit;
+    background: none;
+    padding: 1rem;
+    opacity: 0.5;
+    font-family: 'Titillium Web';
+    font-size: $size-input;
+
+    &:focus{
+      outline: none;
+      border: 0.15rem solid $paars;
+      opacity: 1;
+    }
+  }
+}
+.file-input-replacement{
+  padding: 3.5rem 1rem !important;
+  text-align: center;
+
+}
+.form-error{
+  margin: 0.5rem 0 1rem 0;
+  color: $paars;
+  font-family: 'Titillium Web';
+  font-size: $size-input;
+  align-self: flex-end;
+
+  display: flex;
+  align-items: center;
+  &::after{
+    content: '';
+    display: inline-block;
+    height: 0.1rem;
+    width: 1.5rem;
+    margin-left: 0.8rem;
+    background-color: $paars;
+  }
+}
+
+.form-deelnemen, .fieldset-uploaden{
+  overflow: auto;
+  .cta-button{
+    float: right;
+  }
+}
+
+
+// DEELNEMENDE KLASSEN
+
+.deelnemende-klassen{
+  padding: 8rem 0;
+
+  background: url('/assets/img/grunge-flipped.png') no-repeat, url('/assets/svg/6-hoek-groot.svg') no-repeat;
+  background-position: center left, 55vw 10rem;
+  background-size: auto 100%, 29.5rem 30.7rem;
+
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .title{
+    margin-bottom: 2rem;
+  }
+}
+.klassen-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .cta-text{
+    margin-bottom: 3rem;
+  }
+}
+.recentste-klassen{
+  display: flex;
+}
+.klas-list-item{
+  margin-left: 4rem;
+}
+.klas-foto-wrapper{
+  position: relative;
+  .foto-overlay{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/img/klasfoto-overlay.png') center;
+    background-size: cover;
+    opacity: 1;
+    transition: 0.4s all;
+  }
+  .klas-foto{
+    filter: grayscale(1);
+    transition: 0.4s all;
+  }
+}
+.klas-foto-wrapper:hover{
+  .foto-overlay{
+    opacity: 0.5;
+  }
+  .klas-foto{
+    filter: grayscale(0.5);
+  }
+}
+.klas-info{
+  margin-top: 1rem;
+  h1{
+    font-weight: 600;
+  }
+  h1, h2{
+    font-family: 'Titillium Web';
+    font-size: $size-input;
+  }
+}
+
+// FOOTER
+
+.main-footer{
+  margin: 2rem 0 5rem 0;
+
+  .container{
+    border-top: 0.1rem solid lighten($zwart, 50%);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  section{
+    width: 20%;
+  }
+}
+
+.footer-social-list {
+  display: flex;
+  justify-content: space-between;
+  a{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition: 0.4s all;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+.social-twitter{background-image: url('/assets/svg/twitter-logo.svg');}
+.social-facebook{background-image: url('/assets/svg/facebook-logo.svg');}
+
+.footer-logo{
+    display: block;
+    width: 5rem;
+    height: 4rem;
+    margin: 0 auto;
+    background: url('/assets/svg/boek-be-logo.svg') 100% center no-repeat;
+    opacity: 0.5;
+
+    transition: 0.4s all;
+    &:hover{
+      opacity: 1;
+    }
+}
+.footer-contact-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  p{
+    font-family: 'Titillium Web';
+    font-size: $size-nav;
+
+    &:first-child{
+      margin-bottom: 0.5rem;
+    }
   }
 }
