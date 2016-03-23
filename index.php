@@ -189,7 +189,6 @@ $app->get('/api/logout', function ($request, $response, $args) {
   return $response;
 });
 
-// Om de admin pagina in te laden als je naar localhost/admin surft
 $app->get('/about', function ($request, $response, $args) {
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();

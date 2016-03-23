@@ -27,11 +27,22 @@
   <div class="body-wrapper">
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li class="nav-logo"><a href="http://www.boek.be"><span class="hide">boek.be</span></a></li>
+        <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
+          <svg class="nav-logo-svg">
+            <use class="nav-logo-svg-use" xlink:href="./assets/svg/logo.svg#logo"/>
+          </svg>
+          <span class="hide">boek.be</span></a>
+        </li>
         <div class="nav-items">
-          <li class="nav-item"><a href="/"><span>de actie</span></a></li>
-          <li class="nav-item"><a href="<?php echo $basePath ?>" class="active"><span>over de shining</span></a></li>
-          <li class="nav-item"><a href="/#form-deelnemen"><span>deelnemen</span></a></li>
+          <li class="nav-item">
+            <a href="/" class="nav-item-link"><span>de actie</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="/about" class="active nav-item-link"><span>over de shining</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="/#form-deelnemen" class="nav-item-link"><span>deelnemen</span></a>
+          </li>
         </div>
       </ul>
     </nav>
