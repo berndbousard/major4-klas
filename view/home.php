@@ -28,11 +28,11 @@
     <nav class="main-nav">
       <ul class="main-nav-list">
         <li class="nav-logo"><a href="http://www.boek.be"><span class="hide">boek.be</span></a></li>
-        <li class="nav-items"> <!-- Hier moet wrapper rond voor responsive -->
+        <div class="nav-items"> <!-- Hier moet wrapper rond voor responsive -->
           <li class="nav-item"><a href="index.html" class="active"><span>de actie</span></a></li>
           <li class="nav-item"><a href="over.html"><span>over de shining</span></a></li>
           <li class="nav-item"><a href="index.html#form-deelnemen"><span>deelnemen</span></a></li>
-        </li>
+        </div>
       </ul>
     </nav>
     <main class="main-wrapper actie">
