@@ -1,11 +1,11 @@
 .wf-loading {
-    .cms-button-afmelden, .cms-login-label, .cms-orders-navitem-link, .cms-orders-table-header, .cms-orders-table-data-cell {
+    .cms-button-afmelden, .cms-login-label, .cms-orders-navitem-link, .cms-orders-table-header, .cms-orders-table-data-cell, .noOrdersLabel {
         visibility: hidden;
     }
 }
 
 .wf-active {
-    .cms-button-afmelden, .cms-login-label, .cms-login-submit, .cms-login-input, .cms-orders-navitem-link, .cms-orders-table-header, .cms-orders-table-data-cell {
+    .cms-button-afmelden, .cms-login-label, .cms-login-submit, .cms-login-input, .cms-orders-navitem-link, .cms-orders-table-header, .cms-orders-table-data-cell, .noOrdersLabel {
         font-family: 'titillium web';
         visibility: visible;
     }

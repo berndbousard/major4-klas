@@ -76,7 +76,7 @@ class UserDAO extends DAO {
 	}
 
   public function updateOrder($id, $data) {
-    // $errors = $this->getValidationErrors($data);
+    $errors = $this->getValidationErrors($data);
     if(empty($errors)) {
       $sql = "UPDATE `boek_users`
                 SET `verified` = :verified

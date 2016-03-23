@@ -65,11 +65,11 @@ main {
   display: block;
 }
 
-.wf-loading .cms-button-afmelden, .wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell {
+.wf-loading .cms-button-afmelden, .wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell, .wf-loading .noOrdersLabel {
   visibility: hidden;
 }
 
-.wf-active .cms-button-afmelden, .wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell {
+.wf-active .cms-button-afmelden, .wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell, .wf-active .noOrdersLabel {
   font-family: 'titillium web';
   visibility: visible;
 }
@@ -252,6 +252,18 @@ main {
   width: 100%;
 }
 
+.cms-orders {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .cms-orders-table {
   margin-top: 2rem;
   text-align: center;
@@ -343,6 +355,14 @@ main {
 
 .cms-button-afmelden:hover {
   opacity: 1;
+}
+
+.noOrdersLabel {
+  color: #FFFFFF;
+  padding: 2rem;
+  font-size: 1.4rem;
+  background-color: #7d5abf;
+  margin-top: 2rem;
 }
 
 .form-temp form label, .form-temp form input {

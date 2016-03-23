@@ -100,7 +100,7 @@ $app->post('/api/login', function ($request, $response, $args) {
       // Hier zijn we zeker dat de gebruiker het juiste wachtwoord heeft ingevoerd
       if($existing_user['is_admin'] == 1){
         // Is de user wel admin?
-        $_SESSION['user'] = $existing_user;
+        $_SESSION['user'] = $existing_user; //user
         $response = $response->write(json_encode($_SESSION['user']));
         $response = $response->withStatus(200);
       } else {

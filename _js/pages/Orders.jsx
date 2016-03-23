@@ -44,17 +44,24 @@ export default class Orders extends Component {
 
   filterOrders(verifiedID = this.state.currentTabID){ // Standaard op nieuwe opladen
     let {orders} = this.state;
-    console.log('ik kan er', orders.length, 'filteren');
+    // console.log('ik kan er', orders.length, 'filteren');
     let filteredOrders = orders.filter((o) => {
       return parseInt(o.verified) === parseInt(verifiedID);
     });
-    console.log('ik toon er', filteredOrders.length, filteredOrders);
+    // console.log('ik toon er', filteredOrders.length, filteredOrders);
     this.setState({visibleOrders: filteredOrders});
+    if(filteredOrders.length === 0){
+      this.noOrdersLabel();
+    }else{
+      let hide = true;
+      this.noOrdersLabel(hide);
+    }
   }
 
   filterClickHandler(e, id){
     e.preventDefault();
     this.state.currentTabID = id;
+    // this.fetchOrders(); //Toch nog eens fetchen voor allernieuwste results
     this.filterOrders(); //de orders filteren adhv een id
     this.changeCSSClass(e); // de css classen regelen
   }
@@ -69,7 +76,6 @@ export default class Orders extends Component {
         }
         return order;
       });
-
       this.state.orders = newOrders;
       this.filterOrders();
 
@@ -107,6 +113,22 @@ export default class Orders extends Component {
     [...document.querySelectorAll('.cms-filter')][index].classList.toggle('activeFilter');
   }
 
+  noOrdersLabel(hide){
+    if(hide){ //Als je het label wilt hiden
+      let noOrdersLabel = document.querySelector('.noOrdersLabel');
+      if(noOrdersLabel){
+        noOrdersLabel.classList.add('hide');
+      }
+      return;
+    }
+
+    let noOrdersLabel = document.querySelector('.noOrdersLabel');
+    if(noOrdersLabel){
+      noOrdersLabel.classList.remove('hide');
+    }
+    return;
+  }
+
   render(){
     let {visibleOrders} = this.state;
 
@@ -139,6 +161,7 @@ export default class Orders extends Component {
                         })}
                     </tbody>
                 </table>
+                <span className="noOrdersLabel hide">Er zijn geen orders met de gekozen filter gevonden</span>
             </section>
         </div>
     );
