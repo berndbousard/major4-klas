@@ -27,62 +27,89 @@ $app = new \Slim\App([
 
 // Om alle participations op te halen
 $app->get('/api/participations', function ($request, $response, $args) {
-  $participationDAO = new ParticipationDAO();
+  if(!empty($_SESSION['user'])){
+    if($_SESSION['user']['is_admin'] == 1){
+      $participationDAO = new ParticipationDAO();
 
-  $participations = $participationDAO->selectAll();
+      $participations = $participationDAO->selectAll();
 
-  if(empty($participations)) {
-    $response = $response->withStatus(404);
-  } else {
-    $response = $response->withStatus(201);
+      if(empty($participations)) {
+        $response = $response->withStatus(404);
+      } else {
+        $response = $response->withStatus(201);
+      }
+
+      // error_log( print_r($participations, true) );
+
+      $response = $response->write(json_encode($participations));
+      $response = $response->withHeader('Content-Type','application/json');
+
+      return $response;
+    }
   }
 
-  // error_log( print_r($participations, true) );
-
-  $response = $response->write(json_encode($participations));
-  $response = $response->withHeader('Content-Type','application/json');
-
+  $response = $response->getBody()->write("U heeft niet de juiste rechten om deze pagina te bekijken");
   return $response;
 });
 
 // Om een order met een id aan te passen naar een nieuwe verified state
 $app->put('/api/orders/{id}', function ($request, $response, $args) {
-  $userDAO = new UserDAO();
+  if(!empty($_SESSION['user'])){
+    if($_SESSION['user']['is_admin'] == 1){
+      $userDAO = new UserDAO();
 
-  $order = $userDAO->selectById($args['id']);
-  $order['verified'] = $request->getQueryParams()['verified'];
+      $order = $userDAO->selectById($args['id']);
+      $order['verified'] = $request->getQueryParams()['verified'];
 
-  $inserted_order = $userDAO->updateOrder($args['id'], $order);
+      $inserted_order = $userDAO->updateOrder($args['id'], $order);
 
-  if(empty($inserted_order)) {
-    $response = $response->withStatus(404);
-  } else {
-    $response = $response->withStatus(201);
+      if(empty($inserted_order)) {
+        $response = $response->withStatus(404);
+      } else {
+        $response = $response->withStatus(201);
+      }
+
+      $response = $response->write(true);
+      $response = $response->withHeader('Content-Type','application/json');
+      return $response;
+    }
   }
 
-  $response = $response->write(true);
-  $response = $response->withHeader('Content-Type','application/json');
+  $response = $response->getBody()->write("U heeft niet de juiste rechten om deze pagina te bekijken");
   return $response;
 });
 
 // Om alle orders op te halen. Deze worden gefiltered in de react app.
 $app->get('/api/orders', function ($request, $response, $args) {
-  error_log(print_r($_SESSION, true));
-  $userDAO = new UserDAO();
+  if(!empty($_SESSION['user'])){
+    if($_SESSION['user']['is_admin'] == 1){
+      $userDAO = new UserDAO();
 
-  $orders = $userDAO->selectAll();
+      $orders = $userDAO->selectAll();
 
-  if(empty($orders)) {
-    $response = $response->withStatus(404);
-  } else {
-    $response = $response->withStatus(201);
+      if(empty($orders)) {
+        $response = $response->withStatus(404);
+      } else {
+        $response = $response->withStatus(201);
+      }
+
+      $response = $response->write(json_encode($orders));
+      $response = $response->withHeader('Content-Type', 'application/json');
+
+      return $response;
+    }
   }
 
-  $response = $response->write(json_encode($orders));
-  $response = $response->withHeader('Content-Type', 'application/json');
+  $response = $response->getBody()->write("U heeft niet de juiste rechten om deze pagina te bekijken");
 
   return $response;
 });
+
+// // Om een gebruiker in te loggen als hij naar api/login gaat
+// $app->get('/api/echosession', function ($request, $response, $args) {
+//   print_r($_SESSION);
+//   die();
+// });
 
 // Om een gebruiker in te loggen als hij naar api/login gaat
 $app->post('/api/login', function ($request, $response, $args) {
@@ -147,6 +174,18 @@ $app->get('/api/register', function ($request, $response, $args) {
   $response = $response->write(json_encode($insertedUser));
   $response = $response->withHeader('Content-Type','application/json');
 
+  return $response;
+});
+
+$app->get('/api/logout', function ($request, $response, $args) {
+  // register
+  if(!empty($_SESSION['user'])){
+    $_SESSION['user'] = 0;
+    $response = $response->withRedirect('/admin');
+    return $response;
+  }
+
+  $response = $response->withHeader('Content-Type','application/json');
   return $response;
 });
 

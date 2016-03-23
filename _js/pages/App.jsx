@@ -27,6 +27,9 @@ export default class App extends React.Component {
 
   onLogOut() {
     setAuthenticated(0);
+    fetch(`${basename}/api/logout`,
+      {credentials: 'include'}
+    );
     this.context.router.push('/admin');
   }
 }

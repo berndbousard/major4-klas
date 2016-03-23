@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {SearchBox} from './';
 
 export default () => {
   return (
@@ -11,6 +12,10 @@ export default () => {
 
             <li className="cms-orders-navitem">
                 <Link className="cms-orders-navitem-link" to="/admin/participations">inzendingen bekijken</Link>
+            </li>
+
+            <li>
+              <SearchBox />
             </li>
         </ul>
     </nav>

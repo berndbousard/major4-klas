@@ -36,7 +36,8 @@ export default class Login extends Component {
 
     fetch(`${basename}/api/login`, {
       method: 'POST',
-      body
+      body,
+      'credentials': 'include'
     })
     .then((response) => {
       loader.classList.toggle('hide');

@@ -20,6 +20,7 @@ export default class Orders extends Component {
     };
 
     Emitter.on('change-order', (id, verified) => this.changeOrderHandler(id, verified));
+    Emitter.on('search', (value) => this.searchHandler(value));
   }
 
   componentDidMount(){
@@ -29,7 +30,9 @@ export default class Orders extends Component {
 
   // Orders ophalen
   fetchOrders(){
-    fetch(`${basename}/api/orders`)
+    fetch(`${basename}/api/orders`,
+      {credentials: 'include'}
+    )
     .then((response) => {
       return response.json();
     })
@@ -82,7 +85,8 @@ export default class Orders extends Component {
       // de server kant
       // Een order goedkeuren met een bepaald ID en een verified code
       fetch(`${basename}/api/orders/${id}?verified=${verifiedID}`, {
-        method: 'PUT'
+        method: 'PUT',
+        credentials: 'include'
       })
       .then(checkStatus)
       .then((response) => {
@@ -127,6 +131,10 @@ export default class Orders extends Component {
       noOrdersLabel.classList.remove('hide');
     }
     return;
+  }
+
+  searchHandler(value){
+    console.log(value);
   }
 
   render(){

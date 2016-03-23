@@ -16,7 +16,9 @@ export default class Participations extends Component {
   }
 
   componentDidMount(){
-    fetch(`${basename}/api/participations`)
+    fetch(`${basename}/api/participations`,
+      {credentials: 'include'}
+    )
     .then((response) => {
       return response.json();
     })
