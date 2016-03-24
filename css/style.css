@@ -79,7 +79,7 @@ main {
   margin: 0 auto;
 }
 
-.hide {
+.hide, .form .hide {
   display: none;
 }
 
@@ -1051,7 +1051,7 @@ p.tekst {
 
 .form-error {
   margin: 0.5rem 0 1rem 0;
-  color: #925bf7;
+  color: #f75959;
   font-family: 'Titillium Web';
   font-size: 1.25rem;
   -webkit-align-self: flex-end;
@@ -1074,7 +1074,7 @@ p.tekst {
   width: 1.5rem;
   margin-left: 12.8px;
   margin-left: 0.8rem;
-  background-color: #925bf7;
+  background-color: #f75959;
 }
 
 .form-deelnemen, .fieldset-uploaden {

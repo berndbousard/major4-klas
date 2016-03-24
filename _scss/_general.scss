@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.hide  {
+.hide,  .form .hide { //Er moest eentje meer specifiek, nu is de !important weg
   display: none;
 }
 
