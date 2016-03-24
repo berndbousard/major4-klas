@@ -149,21 +149,31 @@ body {
 }
 
 .nav-logo {
-  opacity: 0.4;
-  transition: 0.4s all;
   margin-right: 2rem;
 }
 
-.nav-logo a {
-  display: block;
-  width: 74px;
-  height: 58px;
-  margin: 0 auto;
-  background: url("/assets/svg/boek-be-logo.svg") 100% center no-repeat;
+.nav-logo-svg {
+  opacity: 0.4;
+  transition: opacity .5s;
 }
 
-.nav-logo:hover {
+.nav-logo-svg:hover {
+  transition: opacity .3s;
   opacity: 1;
+}
+
+.nav-logo-svg use {
+  fill: #3E3E3E;
+  -webkit-transform: scale(0.45);
+          transform: scale(0.45);
+}
+
+.nav-logo-link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90px;
+  height: 70px;
 }
 
 .nav-item {
@@ -1076,11 +1086,29 @@ p.tekst {
   float: right;
 }
 
+.fieldset-uploaden {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 .deelnemende-klassen {
   padding: 8rem 0;
   background: url("/assets/img/grunge-flipped.png") no-repeat, url("/assets/svg/6-hoek-groot.svg") no-repeat;
   background-position: center left, 55vw 10rem;
   background-size: auto 100%, 29.5rem 30.7rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .deelnemende-klassen .container {
@@ -1103,9 +1131,9 @@ p.tekst {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .klassen-list .cta-text {
@@ -1116,10 +1144,16 @@ p.tekst {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .klas-list-item {
-  margin-left: 4rem;
+  margin: 0 2rem;
 }
 
 .klas-foto-wrapper {
@@ -1170,38 +1204,47 @@ p.tekst {
   font-size: 1.25rem;
 }
 
+.arrow-right {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+}
+
 .main-footer {
   margin: 2rem 0 5rem 0;
 }
 
 .main-footer .container {
-  border-top: 0.1rem solid #bebebe;
+  border-top: 0.1rem solid #d7d7d7;
   padding-top: 2rem;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main-footer section {
-  width: 20%;
-}
-
-.footer-social-list {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-footer section {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.footer-social-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .footer-social-list a {
+  margin: 0rem 2rem;
   display: block;
   width: 2rem;
   height: 2rem;
@@ -1513,10 +1556,24 @@ p.tekst {
   opacity: 1;
 }
 
+@media only screen and (max-width: 1170px) {
+  .klas-list-item {
+    margin: 1vw;
+  }
+}
+
 @media only screen and (max-width: 960px) {
   /*HEADER*/
   .sec-right-the-shining {
     margin-left: -120px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-footer .container {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -1602,6 +1659,9 @@ p.tekst {
     background-color: #e3d8f7;
     padding-bottom: 2vw;
   }
+  .korte-uitleg {
+    width: 55%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1642,9 +1702,6 @@ p.tekst {
     width: 95vw;
     padding: 0rem 1rem;
   }
-  .korte-uitleg {
-    width: 55%;
-  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -1675,7 +1732,9 @@ p.tekst {
     height: 100%;
   }
   .nav-logo {
-    margin-top: 1rem;
+    margin-top: 1vw;
+    margin-right: 0;
+    padding: 2vw;
   }
   .body-wrapper {
     padding: 0rem;
@@ -1693,15 +1752,16 @@ p.tekst {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    height: 100%;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .nav-item-link {
     color: #f7f7f7;
     text-align: center;
     width: 100%;
     padding: 3.5vw;
-  }
-  .nav-item-link span {
-    width: 100%;
   }
   .main-header .container {
     margin-top: 5vw;
@@ -1712,12 +1772,32 @@ p.tekst {
   }
   .container {
     width: 100vw;
-    padding: .5rem;
     margin: 0;
     margin: initial;
   }
   .form-input-wrapper input {
     width: 40vw;
+  }
+  .nav-logo-svg use {
+    fill: #f7f7f7;
+  }
+  .deelnemende-klassen {
+    padding: 5vw 0;
+  }
+  .deelnemende-klassen .title {
+    text-shadow: none;
+    text-align: center;
+  }
+  .klassen-list {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+  }
+  .arrow-right {
+    -webkit-align-self: initial;
+        -ms-flex-item-align: initial;
+            align-self: initial;
   }
 }
 
@@ -1815,6 +1895,49 @@ p.tekst {
   }
   .form-input-wrapper input {
     width: 90vw;
+  }
+  .fieldset-uploaden .form-input-wrapper {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+  }
+  .fieldset-uploaden .form-input-wrapper label {
+    width: 90vw;
+  }
+  .nav-item-link {
+    padding: 3.5vw 1vw;
+  }
+  .main-footer {
+    margin: 0;
+  }
+  .main-footer .container {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+    margin-bottom: 0;
+  }
+  .main-footer section {
+    margin: 2.5vw 0 3.5vw 0;
+  }
+  .footer-contact {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .footer-boek-be {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .footer-social {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
   }
 }
 

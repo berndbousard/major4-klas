@@ -27,7 +27,12 @@
   <div class="body-wrapper">
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li class="nav-logo"><a href="http://www.boek.be"><span class="hide">boek.be</span></a></li>
+        <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
+          <svg class="nav-logo-svg">
+            <use xlink:href="./assets/svg/logo.svg#logo"/>
+          </svg>
+          <span class="hide">boek.be</span></a>
+        </li>
         <div class="nav-items"> <!-- Hier moet wrapper rond voor responsive -->
           <li class="nav-item">
             <a href="index.html" class="active nav-item-link"><span>de actie</span></a>
@@ -265,7 +270,7 @@
       <article class="deelnemende-klassen">
         <div class="container">
           <header>
-            <h1 class="title"><span class="paars">deelenemende</span> klassen</h1>
+            <h1 class="title"><span class="paars">deelnemende</span> klassen</h1>
           </header>
           <section class="klassen-list">
             <a href="#" class="cta-text arrow-right"><span>bekijk alle deelnemers</span></a>

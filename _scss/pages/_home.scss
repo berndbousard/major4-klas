@@ -1,77 +1,77 @@
 .main-header .container{
-    display: flex;
-    flex-direction: column;
-  }
-  .header-content-wrapper{
-    display: flex;
-  }
-  .header-title{
-    margin: 1rem 0;
-    h2{
-      font-size: $size-smallest;
-      font-family: 'Titillium Web';
-      font-weight: 600;
-      text-transform: uppercase;
-      @include wide-tekst;
-      opacity: 0.5;
-    }
-  }
-  .main-title-wrapper{
-    width: auto;
-  }
-  .main-title{
-    font-family: 'Plantagenet Cherokee';
-    text-transform: uppercase;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: flex-end;
-    width: auto;
-  }
-  .header-text{
-    display: block;
-  }
-  .header-title{
-    font-size: $size-header-title;
-    @include wider-title;
-  }
-  .header-sub{
-    font-size: $size-title;
-    @include wide-title;
-  }
-
-  .header-content{
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .catch-phrase-text-wrapper{
-    margin: 2rem 0;
-    width: 70%;
-  }
-  .catch-phrase p{
-    margin: 1rem 0;
-    font-family: 'Titillium web';
+  display: flex;
+  flex-direction: column;
+}
+.header-content-wrapper{
+  display: flex;
+}
+.header-title{
+  margin: 1rem 0;
+  h2{
+    font-size: $size-smallest;
+    font-family: 'Titillium Web';
     font-weight: 600;
+    text-transform: uppercase;
     @include wide-tekst;
-    font-size: $size-input;
+    opacity: 0.5;
   }
-  .main-header .cta-text{
-    align-self: center;
-    margin-top: 2rem;
-  }
+}
+.main-title-wrapper{
+  width: auto;
+}
+.main-title{
+  font-family: 'Plantagenet Cherokee';
+  text-transform: uppercase;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-end;
+  width: auto;
+}
+.header-text{
+  display: block;
+}
+.header-title{
+  font-size: $size-header-title;
+  @include wider-title;
+}
+.header-sub{
+  font-size: $size-title;
+  @include wide-title;
+}
 
-  .shining-header{
-    padding: 12rem 0 4rem 0;
-    background: url('/assets/img/letter-s.png') left bottom no-repeat;
-    h1{
-      color: $puur-wit;
-      text-transform: uppercase;
-      font-family: 'Titillium Web';
-      font-size: $size-the-shining-title;
-      @include wider-title;
-      text-shadow: 0 0 20px rgba(255,255,255,1);
-    }
+.header-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.catch-phrase-text-wrapper{
+  margin: 2rem 0;
+  width: 70%;
+}
+.catch-phrase p{
+  margin: 1rem 0;
+  font-family: 'Titillium web';
+  font-weight: 600;
+  @include wide-tekst;
+  font-size: $size-input;
+}
+.main-header .cta-text{
+  align-self: center;
+  margin-top: 2rem;
+}
+
+.shining-header{
+  padding: 12rem 0 4rem 0;
+  background: url('/assets/img/letter-s.png') left bottom no-repeat;
+  h1{
+    color: $puur-wit;
+    text-transform: uppercase;
+    font-family: 'Titillium Web';
+    font-size: $size-the-shining-title;
+    @include wider-title;
+    text-shadow: 0 0 20px rgba(255,255,255,1);
   }
+}
 
 .main-header{
     height: 100vh;
@@ -345,6 +345,12 @@
   }
 }
 
+.fieldset-uploaden {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 
 // DEELNEMENDE KLASSEN
 
@@ -354,6 +360,9 @@
   background: url('/assets/img/grunge-flipped.png') no-repeat, url('/assets/svg/6-hoek-groot.svg') no-repeat;
   background-position: center left, 55vw 10rem;
   background-size: auto 100%, 29.5rem 30.7rem;
+
+  display: flex;
+  flex-direction: column;
 
   .container{
     display: flex;
@@ -366,7 +375,7 @@
 .klassen-list{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 
   .cta-text{
     margin-bottom: 3rem;
@@ -374,9 +383,11 @@
 }
 .recentste-klassen{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .klas-list-item{
-  margin-left: 4rem;
+  margin: 0 2rem;
 }
 .klas-foto-wrapper{
   position: relative;
@@ -417,27 +428,33 @@
   }
 }
 
+.arrow-right {
+  align-self: flex-end;
+}
+
 // FOOTER
 
 .main-footer{
   margin: 2rem 0 5rem 0;
 
   .container{
-    border-top: 0.1rem solid lighten($zwart, 50%);
+    border-top: 0.1rem solid $lichterZwart;
     padding-top: 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+
   }
   section{
-    width: 20%;
+    flex: 1;
   }
 }
 
 .footer-social-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   a{
+    margin: 0rem 2rem;
     display: block;
     width: 2rem;
     height: 2rem;

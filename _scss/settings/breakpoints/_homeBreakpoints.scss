@@ -1,7 +1,23 @@
+@media only screen and (max-width: 1170px){
+  .klas-list-item {
+    margin: 1vw;
+  }
+}
+
 @media only screen and (max-width: 960px){
   /*HEADER*/
   .sec-right-the-shining {
     margin-left: -120px;
+  }
+}
+
+@media only screen and (max-width: 900px){
+  .main-footer .container {
+    justify-content: center;
+
+    section {
+
+    }
   }
 }
 
@@ -66,6 +82,10 @@
     background-color: $lichtPaars;
     padding-bottom: 2vw;
   }
+
+  .korte-uitleg {
+    width: 55%;
+  }
 }
 
 @media only screen and (max-width: 700px){
@@ -102,10 +122,6 @@
     width: 95vw;
     padding: 0rem 1rem;
   }
-
-  .korte-uitleg {
-    width: 55%;
-  }
 }
 
 @media only screen and (max-width: 650px){
@@ -133,7 +149,9 @@
   }
 
   .nav-logo {
-    margin-top: 1rem;
+    margin-top: 1vw;
+    margin-right: 0;
+    padding: 2vw;
   }
 
   .body-wrapper {
@@ -148,6 +166,8 @@
     display: flex;
     justify-content: center;
     flex: 1;
+    height: 100%;
+    align-items: center;
   }
 
   .nav-item-link {
@@ -155,10 +175,6 @@
     text-align: center;
     width: 100%;
     padding: 3.5vw;
-
-    span {
-      width: 100%;
-    }
   }
 
   .main-header .container {
@@ -171,12 +187,32 @@
 
   .container {
     width: 100vw;
-    padding: .5rem;
     margin: initial;
   }
 
   .form-input-wrapper input {
     width: 40vw;
+  }
+
+  .nav-logo-svg use {
+    fill: $wit;
+  }
+
+  .deelnemende-klassen {
+    padding: 5vw 0;
+
+    .title {
+      text-shadow: none;
+      text-align: center;
+    }
+  }
+
+  .klassen-list {
+    align-items: center;
+  }
+
+  .arrow-right {
+    align-self: initial;
   }
 }
 
@@ -266,6 +302,45 @@
 
   .form-input-wrapper input {
     width: 90vw;
+  }
+
+  .fieldset-uploaden {
+    .form-input-wrapper {
+      align-items: center;
+      label {
+        width: 90vw;
+      }
+    }
+  }
+
+  .nav-item-link {
+    padding: 3.5vw 1vw;
+  }
+
+  .main-footer {
+    margin: 0;
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    section {
+      margin: 2.5vw 0 3.5vw 0;
+    }
+  }
+
+  .footer-contact {
+    order: 1;
+  }
+
+  .footer-boek-be {
+    order: 2;
+  }
+
+  .footer-social {
+    order: 3;
   }
 }
 
