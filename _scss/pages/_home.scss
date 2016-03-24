@@ -1,25 +1,9 @@
-.actie{
-
-  .main-header .container{
+.main-header .container{
     display: flex;
     flex-direction: column;
   }
   .header-content-wrapper{
     display: flex;
-  }
-  .main-header{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding-top: 20vh;
-    margin-top: -20vh;
-
-    background: url('/assets/img/beeld-header.png') no-repeat, url('/assets/img/grunge-header.png') no-repeat;
-    background-position: top right, center right;
-    background-size: auto 100%, auto 100%;
-    // background-size: contain, contain;  // responsive
   }
   .header-title{
     margin: 1rem 0;
@@ -58,10 +42,8 @@
   .header-content{
     display: flex;
     justify-content: space-between;
-    section{
-      // width: 50%;
-    }
   }
+
   .catch-phrase-text-wrapper{
     margin: 2rem 0;
     width: 70%;
@@ -90,7 +72,21 @@
       text-shadow: 0 0 20px rgba(255,255,255,1);
     }
   }
-}
+
+.main-header{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 20vh;
+    margin-top: -20vh;
+
+    background: url('/assets/img/beeld-header.png') no-repeat, url('/assets/img/grunge-header.png') no-repeat;
+    background-position: top right, center right;
+    background-size: auto 100%, auto 100%;
+    // background-size: contain, contain;  // responsive
+  }
 
 // SECTION __ HOE HET WERKT
 .over-wedstrijd{

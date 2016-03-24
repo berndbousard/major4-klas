@@ -70,6 +70,7 @@ body{
     display: block;
     width: 74px;
     height: 58px;
+    margin: 0 auto;
     background: url('/assets/svg/boek-be-logo.svg') 100% center no-repeat;
   }
 
@@ -79,17 +80,19 @@ body{
 }
 .nav-item{
   margin: 0 1rem;
-  a{
-    padding: 0.5rem 0.75rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: $zwart;
-    font-family: 'Titillium Web';
-    font-weight: 400;
-    font-size: $size-nav;
+}
 
-    @include wider-tekst;
-  }
+.nav-item-link {
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $zwart;
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-size: $size-nav;
+  max-height: 5rem;
+
+  @include wider-tekst;
 }
 
 @keyframes rotate {
@@ -104,11 +107,13 @@ body{
 
 @keyframes arrowHover {
   0% {
-    padding-bottom: 3rem;
+    transform: translateY(0rem);
+    // padding-bottom: 3rem;
   }
 
   100% {
-    padding-bottom: 4rem;
+    transform: translateY(.75rem);
+    // padding-bottom: 4rem;
   }
 }
 
