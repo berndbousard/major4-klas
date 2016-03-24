@@ -17,6 +17,9 @@ require_once 'phpUtils' . DS . 'resizeCrop.php';
 
 require 'vendor/autoload.php';
 
+// TINYPNG
+\Tinify\setKey("W9UsdoqEYCE335hV_7CtwWrJWFv3Hvdf");
+
 $app = new \Slim\App([
     'settings' => [
         'displayErrorDetails' => true
@@ -301,14 +304,14 @@ $app->post('/', function ($request, $response, $args) {
       $errors['email_2'] = "Gelieve je email op te geven";
     }
 
-    if(empty($data['password'])){
-      $errors['password_2'] = "Gelieve je password op te geven";
-    }else{
+    if(!empty($data['password_2'])){
       $existing_user = $userDAO->selectByEmail($data['email']);
-      $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+      $password_check = $hasher->checkpassword($data['password_2'], $existing_user['password']);
       if(empty($password_check)){
         $errors['password_2'] = "Het opgegeven paswoord is niet correct";
       }
+    }else{
+      $errors['password_2'] = "Gelieve je password op te geven";
     }
 
     if(empty($data['school'])){
@@ -328,10 +331,10 @@ $app->post('/', function ($request, $response, $args) {
     }
 
     if(empty($errors)){
-      $existing_user = $userDAO->selectByEmail($data['email']);
+      $existing_user = $userDAO->selectByEmail($data['email_2']);
       if($existing_user){
         // password
-        $password_check = $hasher->checkpassword($data['password'], $existing_user['password']);
+        $password_check = $hasher->checkpassword($data['password_2'], $existing_user['password']);
         if($password_check){
           // IMAGE CHECK
           if(!empty($data['photo'])){

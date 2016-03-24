@@ -248,7 +248,7 @@
                       </div>
                       <div class="form-input-wrapper">
                         <label for="password_2">paswoord</label>
-                        <input type="password" name="password" id="password_2" placeholder="paswoord">
+                        <input type="password" name="password_2" id="password_2" placeholder="paswoord">
                         <?php if(!empty($errors['password_2'])) { ?>
                           <span class="form-error"><?php echo $errors['password_2'] ?></span>
                         <?php } ?>
