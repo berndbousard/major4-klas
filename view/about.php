@@ -145,21 +145,23 @@
               </li>
             </ul>
           </section>
-          <section class="over-auteur-content">
-            <header>
-              <h1 class="title">Stephan <span class="paars">King</span></h1>
-            </header>
-            <section class="over-auteur-text">
-              <p class="tekst">Al zijn hele leven schrijft Stephen King verhalen en droomde ervan als kind later <span class="bold">schrijver</span> te worden. Na zijn korte carriere als docent ging hij zijn <span class="bold">kinderdroom</span> achterna en bouwde zijn carriere als schrijver uit.</p>
-              <p class="tekst">Vandaag staat Stephen bekend om zijn <span class="bold">horror en fantasy</span> boeken die al tal van  prijzen in de wacht hebben gesleept. Zijn bekendste boeken als ‘Carrie’, <span class="bold">‘The Shining’</span> en ‘IT’ zijn zelfs al verfilmd geweest.</p>
+          <div class="auteur-content-wrapper">
+            <section class="over-auteur-content">
+              <header>
+                <h1 class="title">Stephan <span class="paars">King</span></h1>
+              </header>
+              <section class="over-auteur-text">
+                <p class="tekst">Al zijn hele leven schrijft Stephen King verhalen en droomde ervan als kind later <span class="bold">schrijver</span> te worden. Na zijn korte carriere als docent ging hij zijn <span class="bold">kinderdroom</span> achterna en bouwde zijn carriere als schrijver uit.</p>
+                <p class="tekst">Vandaag staat Stephen bekend om zijn <span class="bold">horror en fantasy</span> boeken die al tal van  prijzen in de wacht hebben gesleept. Zijn bekendste boeken als ‘Carrie’, <span class="bold">‘The Shining’</span> en ‘IT’ zijn zelfs al verfilmd geweest.</p>
+              </section>
             </section>
-          </section>
-          <section class="auteur-beeld">
-            <header class="hide">
-              <h1>image stephan king</h1>
-            </header>
-            <img src="/assets/img/beeld-auteur.png" alt="Foto Stephan King">
-          </section>
+            <section class="auteur-beeld">
+              <header class="hide">
+                <h1>image stephan king</h1>
+              </header>
+              <img src="/assets/img/beeld-auteur.png" alt="Foto Stephan King">
+            </section>
+          </div>
         </div>
       </article>
 

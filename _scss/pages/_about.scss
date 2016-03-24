@@ -259,9 +259,13 @@
   font-weight: 600;
   font-style: $size-brood;
 }
-
+.auteur-content-wrapper{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
 .over-auteur-content, .auteur-beeld{
-  width: 35%;
+  width: 45%;
 }
 
 .over-auteur-content{

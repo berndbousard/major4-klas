@@ -1627,8 +1627,18 @@ p.tekst {
   font-style: 1rem;
 }
 
+.auteur-content-wrapper {
+  width: 80%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .over-auteur-content, .auteur-beeld {
-  width: 35%;
+  width: 45%;
 }
 
 .over-auteur-content .title {
@@ -2160,6 +2170,40 @@ p.tekst {
   .omschrijving-item .omschrijving-tekst {
     opacity: 1;
   }
+  .over-auteur .container {
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .bibliografie {
+    margin-top: 2rem;
+    width: auto;
+  }
+  .bib-lijst {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .bib-lijst img {
+    width: auto !important;
+  }
+  .auteur-content-wrapper {
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .auteur-content-wrapper {
+    width: 100%;
+  }
+  .over-auteur-content {
+    width: 70%;
+  }
+  .over-auteur-content .title {
+    margin: 0rem 0 2rem 0;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -2218,6 +2262,14 @@ p.tekst {
   .review-item {
     width: auto;
   }
+  .bib-lijst {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -2226,5 +2278,11 @@ p.tekst {
   }
   .over-auteur {
     background: none;
+  }
+  .auteur-beeld {
+    display: none;
+  }
+  .over-auteur-content {
+    width: auto;
   }
 }
