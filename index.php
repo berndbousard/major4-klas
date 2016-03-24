@@ -358,6 +358,7 @@ $app->post('/', function ($request, $response, $args) {
                     $participationDAO = new ParticipationDAO();
 
                     $data['created'] = date('Y-m-d H:i:s');
+                    $data['user_id'] = $existing_user['id'];
                     $inserted_participation = $participationDAO->insert($data);
 
                     // user updaten
