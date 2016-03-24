@@ -74,122 +74,6 @@ main {
   visibility: visible;
 }
 
-.container {
-  width: 85vw;
-  margin: 0 auto;
-}
-
-.hide, .form .hide {
-  display: none;
-}
-
-.loader {
-  width: 2rem;
-  height: 2rem;
-  background-color: #925bf7;
-  position: absolute;
-  top: calc(50vh - 1rem);
-  left: calc(50vw - 1rem);
-  z-index: 100;
-  -webkit-animation: rotate 1.2s ease-in-out 0s infinite alternate;
-          animation: rotate 1.2s ease-in-out 0s infinite alternate;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background-color: #f7f7f7;
-  position: relative;
-  color: #3E3E3E;
-}
-
-.main-border {
-  border: 1.5rem solid #dedede;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  box-shadow: inset 0 0 2rem 0 rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  pointer-events: none;
-}
-
-.body-wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem;
-  position: relative;
-}
-
-.main-nav {
-  margin-left: 3.75rem;
-  height: 20vh;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.main-nav-list, .nav-items {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-logo {
-  margin-right: 2rem;
-}
-
-.nav-logo-svg {
-  transition: opacity .5s;
-  opacity: 0.4;
-}
-
-.nav-logo-svg:hover {
-  transition: opacity .3s;
-  opacity: 1;
-}
-
-.nav-logo-svg-use {
-  fill: #3E3E3E;
-  -webkit-transform: scale(0.45);
-          transform: scale(0.45);
-}
-
-.nav-logo-link {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 9rem;
-  height: 7rem;
-}
-
-.nav-item {
-  margin: 0 1rem;
-}
-
-.nav-item-link {
-  padding: 0.5rem 0.75rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #3E3E3E;
-  font-family: 'Titillium Web';
-  font-weight: 400;
-  font-size: 0.875rem;
-  max-height: 5rem;
-  letter-spacing: 0.1rem;
-}
-
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -234,12 +118,112 @@ body {
   }
 }
 
+.container {
+  width: 85vw;
+  margin: 0 auto;
+}
+
+.hide, .form .hide {
+  display: none;
+}
+
+.loader {
+  width: 2rem;
+  height: 2rem;
+  background-color: #925bf7;
+  position: absolute;
+  top: calc(50vh - 1rem);
+  left: calc(50vw - 1rem);
+  z-index: 100;
+  -webkit-animation: rotate 1.2s ease-in-out 0s infinite alternate;
+          animation: rotate 1.2s ease-in-out 0s infinite alternate;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #f7f7f7;
+  position: relative;
+  color: #3E3E3E;
+}
+
+.main-border {
+  border: 1.5rem solid #dedede;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-shadow: inset 0 0 2rem 0 #d7d7d7;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.main-nav {
+  margin-left: 5.5rem;
+  padding: 7rem 0 5vw 0;
+}
+
+.main-nav-list, .nav-items {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-logo {
+  margin-right: 2rem;
+}
+
+.nav-logo-svg {
+  transition: opacity .5s;
+  opacity: 0.4;
+}
+
+.nav-logo-svg:hover {
+  transition: opacity .3s;
+  opacity: 1;
+}
+
+.nav-logo-svg-use {
+  fill: #3E3E3E;
+  -webkit-transform: scale(0.45);
+          transform: scale(0.45);
+}
+
+.nav-logo-link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6rem;
+  height: 4rem;
+}
+
+.nav-item {
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.nav-item-link {
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #3E3E3E;
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-size: 0.875rem;
+  max-height: 5rem;
+  letter-spacing: 0.1rem;
+}
+
 .activeFilter {
   color: #f7f7f7;
   background-color: #925bf7;
 }
 
-p.tekst {
+.tekst {
   font-size: 1rem;
   font-family: 'Titillium Web';
   letter-spacing: 0.04rem;
@@ -266,7 +250,7 @@ p.tekst {
   content: '\201D';
 }
 
-.nav-item .active {
+.active {
   background-color: #925bf7;
   color: #f7f7f7;
 }
@@ -274,7 +258,7 @@ p.tekst {
 .title {
   font-size: 2.25rem;
   font-family: 'Plantagenet Cherokee';
-  text-shadow: 3rem 1.5rem 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 3rem 1.5rem 0.5rem rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
 }
@@ -367,7 +351,7 @@ p.tekst {
   opacity: 1;
 }
 
-.cta-text.arrow-down {
+.arrow-down {
   -webkit-animation: arrowHover 2s ease-in-out 0s infinite alternate;
           animation: arrowHover 2s ease-in-out 0s infinite alternate;
   padding-bottom: 3rem;
@@ -376,7 +360,7 @@ p.tekst {
   z-index: 100;
 }
 
-.cta-text.arrow-right {
+.arrow-right {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -385,7 +369,7 @@ p.tekst {
           justify-content: center;
 }
 
-.cta-text.arrow-right::after {
+.arrow-right::after {
   content: '';
   background: url("/assets/svg/pijl.svg") no-repeat;
   background-position: right;
@@ -627,7 +611,7 @@ p.tekst {
   opacity: 1;
 }
 
-.main-header .container {
+.main-container {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1301,23 +1285,13 @@ p.tekst {
   margin-bottom: 0.5rem;
 }
 
-.over .main-header .container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row-reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-}
-
 .over .header-content-wrapper {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.over .main-header {
-  height: 100vh;
+.over-header {
   width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1326,11 +1300,19 @@ p.tekst {
       -ms-flex-direction: column;
           flex-direction: column;
   box-sizing: border-box;
-  padding-top: 30vh;
-  margin-top: -20vh;
   background: url("/assets/img/grunge-main.png") no-repeat, url("/assets/svg/6-hoek-groot.svg") no-repeat;
   background-position: center right, 50vw 10rem;
   background-size: auto, 29.5rem 30.7rem;
+}
+
+.over-container {
+  margin-top: 2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 .sec-over-boek {
@@ -1381,6 +1363,7 @@ p.tekst {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 5rem;
 }
 
 .boek-omschrijving .title {
@@ -1560,13 +1543,13 @@ p.tekst {
 
 .over-auteur {
   margin-top: 5rem;
-  padding-bottom: 7rem;
+  margin-bottom: 7rem;
   background: url("/assets/img/grunge-flipped.png") no-repeat;
   background-position: bottom left;
   background-size: auto;
 }
 
-.over-auteur .container {
+.auteur-container {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1628,7 +1611,6 @@ p.tekst {
 }
 
 .auteur-content-wrapper {
-  width: 80%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1637,16 +1619,31 @@ p.tekst {
           justify-content: space-between;
 }
 
-.over-auteur-content, .auteur-beeld {
-  width: 45%;
+.auteur-beeld {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.over-auteur-content .title {
-  margin: 6rem 0;
+.over-auteur-content {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 3rem;
 }
 
 .over-auteur-content p:nth-child(1) {
   margin-bottom: 2rem;
+}
+
+.over-auteur-title {
+  margin: 6rem 0;
 }
 
 .auteur-beeld img {
@@ -1686,7 +1683,7 @@ p.tekst {
           justify-content: flex-start;
 }
 
-.review-quote .quote {
+.review-quote-text {
   margin-left: 5rem;
 }
 
@@ -1699,9 +1696,106 @@ p.tekst {
   font-size: 1.2rem;
 }
 
+@media only screen and (max-width: 1390px) {
+  .omschrijving-title {
+    margin-top: 1.5rem;
+  }
+  .omschrijving-title::before {
+    width: 100%;
+    padding-top: 48px;
+    padding-top: 3rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.4s all;
+  }
+  .omschrijving-item-wrapper {
+    position: relative;
+    width: 70%;
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .omschrijving-item {
+    width: 26rem;
+    height: 26rem;
+  }
+  .auteur-container {
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+  }
+  .bib-lijst {
+    margin-top: 3rem;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .bib-item {
+    margin: 0 2rem;
+  }
+  .over-auteur {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
 @media only screen and (max-width: 1170px) {
   .klas-list-item {
     margin: 1vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .omschrijving-title {
+    margin-top: 0;
+  }
+  .omschrijving-title::before {
+    padding-top: 0;
+    margin-bottom: 0;
+    background-size: auto 100%;
+  }
+  .omschrijving-item {
+    background-color: #e3d8f7;
+  }
+  .omschrijving-item-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .omschrijving-content-wrapper {
+    margin-bottom: 2rem;
+  }
+  .omschrijving-title {
+    margin-bottom: 2rem;
+  }
+  .omschrijving-title::before {
+    padding-top: 48px;
+    padding-top: 3rem;
+    margin-bottom: 32px;
+    margin-bottom: 2rem;
+  }
+  .omschrijving-tekst {
+    opacity: 1;
+  }
+  .bibliografie {
+    margin-top: 2rem;
+    width: auto;
+  }
+  .over-auteur-title {
+    margin: 0rem 0 2rem 0;
+  }
+  .over-auteur-content {
+    padding: 0;
   }
 }
 
@@ -1718,6 +1812,9 @@ p.tekst {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .over-heading {
+    margin-left: 4rem;
+  }
 }
 
 @media only screen and (max-width: 880px) {
@@ -1727,6 +1824,14 @@ p.tekst {
         -ms-flex-item-align: initial;
             align-self: initial;
     margin-left: 40vw;
+  }
+  .omschrijving-item {
+    width: 100vw;
+    height: auto;
+  }
+  .omschrijving-item-wrapper {
+    width: 30rem !important;
+    height: 30rem !important;
   }
 }
 
@@ -1810,6 +1915,63 @@ p.tekst {
   }
 }
 
+@media only screen and (max-width: 750px) {
+  .over-content-text {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    width: 90vw;
+  }
+  .over-container {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sec-over-boek, .sec-beeld-boek {
+    width: 100%;
+  }
+  .main-header {
+    height: auto !important;
+    margin-bottom: 5rem;
+  }
+  .over-heading .quote {
+    display: none;
+  }
+  .over-content {
+    margin-left: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .over-content .cta-button {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    top: 20rem;
+  }
+  .reviews-list {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .review-item {
+    width: auto;
+  }
+  .bib-lijst {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 700px) {
   /*HEADER*/
   .sec-over {
@@ -1881,8 +2043,8 @@ p.tekst {
     padding: 2vw;
   }
   .nav-logo-link {
-    width: 5.4rem;
-    height: 4rem;
+    width: 7.5rem;
+    height: 5.5rem;
   }
   .body-wrapper {
     padding: 0rem;
@@ -1926,7 +2088,9 @@ p.tekst {
   .form-input-wrapper input {
     width: 40vw;
   }
-  .nav-logo-svg use {
+  .nav-logo-svg-use {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
     fill: #f7f7f7;
   }
   .deelnemende-klassen {
@@ -1946,6 +2110,68 @@ p.tekst {
     -webkit-align-self: initial;
         -ms-flex-item-align: initial;
             align-self: initial;
+  }
+  .over-heading {
+    margin: 2rem 0 0 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .over-content {
+    margin-top: 2rem;
+  }
+  .reviews-title {
+    text-align: center;
+  }
+  .auteur-content-wrapper {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .over-auteur-title {
+    margin: 0;
+  }
+  .over-auteur-content {
+    margin-top: 2rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .over-auteur-text {
+    margin-top: 2rem;
+    width: 90vw;
+  }
+  .review-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .review-quote-text {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .over .main-header {
+    background: none;
+  }
+  .over-auteur {
+    background: none;
   }
 }
 
@@ -2087,6 +2313,27 @@ p.tekst {
         -ms-flex-order: 3;
             order: 3;
   }
+  .main-header {
+    margin-bottom: 3vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .nav-logo {
+    margin-bottom: 2vw;
+  }
+  .nav-item-link {
+    font-size: .75rem;
+  }
+  .aanvragen-button, .quote {
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .bib-item:nth-child(2n) {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 410px) {
@@ -2104,185 +2351,5 @@ p.tekst {
 @media only screen and (max-width: 400px) {
   .main-nav {
     height: 9rem;
-  }
-  .nav-item-link {
-    font-size: .75rem;
-  }
-}
-
-@media only screen and (max-width: 1390px) {
-  .omschrijving-item .omschrijving-title {
-    margin-top: 1.5rem;
-  }
-  .omschrijving-item .omschrijving-title::before {
-    width: 100%;
-    padding-top: 48px;
-    padding-top: 3rem;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: 0.4s all;
-  }
-  .omschrijving-item .omschrijving-item-wrapper {
-    position: relative;
-    width: 70%;
-    height: 70%;
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  .omschrijving-item {
-    width: 26rem;
-    height: 26rem;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .omschrijving-item {
-    background-color: #e3d7f7;
-  }
-  .omschrijving-item .omschrijving-title {
-    margin-top: 0;
-  }
-  .omschrijving-item .omschrijving-title::before {
-    padding-top: 0;
-    margin-bottom: 0;
-    background-size: auto 100%;
-  }
-  .omschrijving-item .omschrijving-item-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-  .omschrijving-item .omschrijving-content-wrapper {
-    margin-bottom: 2rem;
-  }
-  .omschrijving-item .omschrijving-title {
-    margin-bottom: 2rem;
-  }
-  .omschrijving-item .omschrijving-title::before {
-    padding-top: 48px;
-    padding-top: 3rem;
-    margin-bottom: 32px;
-    margin-bottom: 2rem;
-  }
-  .omschrijving-item .omschrijving-tekst {
-    opacity: 1;
-  }
-  .over-auteur .container {
-    -webkit-flex-direction: column-reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-  .bibliografie {
-    margin-top: 2rem;
-    width: auto;
-  }
-  .bib-lijst {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  .bib-lijst img {
-    width: auto !important;
-  }
-  .auteur-content-wrapper {
-    -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-  }
-  .auteur-content-wrapper {
-    width: 100%;
-  }
-  .over-auteur-content {
-    width: 70%;
-  }
-  .over-auteur-content .title {
-    margin: 0rem 0 2rem 0;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .over-heading {
-    margin-left: 4rem;
-  }
-}
-
-@media only screen and (max-width: 880px) {
-  .omschrijving-item {
-    width: 100vw;
-    height: 100vw;
-  }
-  .omschrijving-item-wrapper {
-    width: 30rem !important;
-    height: 30rem !important;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  .over .main-header .container {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .sec-over-boek, .sec-beeld-boek {
-    width: 100%;
-  }
-  .main-header {
-    height: auto !important;
-    margin-bottom: 5rem;
-  }
-  .over-heading .quote {
-    display: none;
-  }
-  .over-content {
-    margin-left: 0;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .over-content .cta-button {
-    display: inline-block;
-    margin: 0 auto;
-    position: relative;
-    top: 20rem;
-  }
-  .reviews-list {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .review-item {
-    width: auto;
-  }
-  .bib-lijst {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .over .main-header {
-    background: none;
-  }
-  .over-auteur {
-    background: none;
-  }
-  .auteur-beeld {
-    display: none;
-  }
-  .over-auteur-content {
-    width: auto;
   }
 }

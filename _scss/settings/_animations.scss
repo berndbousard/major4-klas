@@ -1,0 +1,21 @@
+@keyframes rotate  {
+  0%  {
+    transform: rotate(0deg);
+  }
+
+  100%  {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes arrowHover  {
+  0%  {
+    transform: translateY(0rem);
+    // padding-bottom: 3rem;
+  }
+
+  100%  {
+    transform: translateY(.75rem);
+    // padding-bottom: 4rem;
+  }
+}

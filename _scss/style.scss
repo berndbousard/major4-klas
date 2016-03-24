@@ -3,6 +3,7 @@
 @import 'settings/colors';
 @import 'settings/values';
 @import 'settings/webfontloader';
+@import 'settings/animations';
 @import 'general';
 
 @import 'pages/admin';
@@ -10,4 +11,3 @@
 @import 'pages/about';
 
 @import 'settings/breakpoints/homeBreakpoints';
-@import 'settings/breakpoints/overBreakpoints';

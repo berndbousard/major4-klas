@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-
   <script type="text/javascript">
     WebFontConfig = {
       custom: {
@@ -22,6 +21,9 @@
 
   <meta charset="UTF-8">
   <title>Klassiekers in je klas</title>
+  <meta name="author" content="Kevin Hendrickx, Bernd Bousard"/>
+  <meta name="description" content="promotiesite voor de boek.be campagne"/>
+  <meta name="keywords" content="boek.be, the shining, boek, klas, boekbespreking, mysterieus"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
@@ -52,7 +54,7 @@
     </nav>
     <main class="main-wrapper actie">
       <header class="main-header">
-        <div class="container">
+        <div class="container main-container">
           <div class="header-content-wrapper">
             <div class="sec-left-actie">
               <section class="header-title">
@@ -222,8 +224,9 @@
                 </div>
               </fieldset>
             </form>
-      <!-- FORM OPSTUREN -->
-<!-- JS HIDE CLASS -->  <div class="tab-navigation-remove" data-on-js="hide">
+            <!-- FORM OPSTUREN -->
+            <!-- JS HIDE CLASS -->
+            <div class="tab-navigation-remove" data-on-js="hide">
               <div class="tab-header active"><span class="tab-title">recensie opsturen &amp; aanvragen</span></div>
             </div>
             <form action="/" method="POST" data-on-js="hide" enctype="multipart/form-data" class="main-form form-opsturen">

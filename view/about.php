@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-
   <script type="text/javascript">
     WebFontConfig = {
+      custom: {
+        families: ['Plantagenet Cherokee'],
+        urls: ['/assets/fonts/plantagenetCherokee/plantagenetCherokee.css']
+      },
       google: { families: [ 'Titillium+Web:400,600,300,700:latin' ] }
     };
     (function() {
@@ -18,11 +21,14 @@
 
   <meta charset="UTF-8">
   <title>Klassiekers in je klas</title>
+  <meta name="author" content="Kevin Hendrickx, Bernd Bousard"/>
+  <meta name="description" content="promotiesite voor de boek.be campagne"/>
+  <meta name="keywords" content="boek.be, the shining, boek, klas, boekbespreking, mysterieus"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
 
-<body> <!-- TODO: class="not-desktop" -->
+<body>
   <div class="main-border"></div>
   <div class="body-wrapper">
     <nav class="main-nav">
@@ -47,17 +53,17 @@
       </ul>
     </nav>
     <main class="main-wrapper over">
-      <header class="main-header over">
-        <div class="container">
+      <header class="over-header">
+        <div class="container over-container">
           <section class="sec-over-boek">
             <div class="over-heading">
               <h1 class="title">the <span class="paars">shining</span></h1>
               <q class="sub-title quote">Sometimes human places, create <span class="paars">inhuman monsters</span></q>
             </div>
             <div class="over-content">
-              <p class="tekst">Bloedstollend, mysterieus en angstwekkend kunnen het niet genoeg omschrijven waar dit boek precies over gaat. Ondanks zijn ouderdom wordt deze oerklassieker van het thrillergenre nog steeds als referentie gebruikt binnen de literatuur.</p>
-              <p class="tekst">Dit boek is geschikt vanaf 16 jaar en ideaal voor studenten die zich willen vastbijten in dit duister verhaal.</p>
-              <a href="index.html#form-deelnemen" class="cta-button"><span class="cta-button-content">the shining aanvragen</span></a>
+              <p class="tekst over-content-text">Bloedstollend, mysterieus en angstwekkend kunnen het niet genoeg omschrijven waar dit boek precies over gaat. Ondanks zijn ouderdom wordt deze oerklassieker van het thrillergenre nog steeds als referentie gebruikt binnen de literatuur.</p>
+              <p class="tekst over-content-text">Dit boek is geschikt vanaf 16 jaar en ideaal voor studenten die zich willen vastbijten in dit duister verhaal.</p>
+              <a href="/#form-deelnemen" class="cta-button aanvragen-button"><span class="cta-button-content">the shining aanvragen</span></a>
             </div>
           </section>
 
@@ -119,7 +125,7 @@
         <header class="hide">
           <h1>Uitleg over de auteur</h1>
         </header>
-        <div class="container">
+        <div class="container auteur-container">
           <section class="bibliografie">
             <header class="hide">
               <h1>Korte Bibliografie</h1>
@@ -127,7 +133,7 @@
             <ul class="bib-lijst">
               <li class="bib-item">
                 <figure class="bib-figure">
-                  <img src="/assets/img/bibliografie/boek-salem.jpg" class="bib-boek" alt="Salem's Lot">
+                  <img class="bib-img" src="/assets/img/bibliografie/boek-salem.jpg" class="bib-boek" alt="Salem's Lot">
                   <figcaption class="bib-boek-meta">
                     <h1 class="bib-boek-naam">Salem's Lot</h1>
                   </figcaption>
@@ -136,7 +142,7 @@
               </li>
               <li class="bib-item">
                 <figure class="bib-figure">
-                  <img src="/assets/img/bibliografie/boek-running.jpg" class="bib-boek" alt="The Running Man">
+                  <img class="bib-img" src="/assets/img/bibliografie/boek-running.jpg" class="bib-boek" alt="The Running Man">
                   <figcaption class="bib-boek-meta">
                     <h1 class="bib-boek-naam">The Running Man</h1>
                   </figcaption>
@@ -147,8 +153,8 @@
           </section>
           <div class="auteur-content-wrapper">
             <section class="over-auteur-content">
-              <header>
-                <h1 class="title">Stephan <span class="paars">King</span></h1>
+              <header class="over-auteur-header">
+                <h1 class="title over-auteur-title">Stephan <span class="paars">King</span></h1>
               </header>
               <section class="over-auteur-text">
                 <p class="tekst">Al zijn hele leven schrijft Stephen King verhalen en droomde ervan als kind later <span class="bold">schrijver</span> te worden. Na zijn korte carriere als docent ging hij zijn <span class="bold">kinderdroom</span> achterna en bouwde zijn carriere als schrijver uit.</p>
@@ -166,9 +172,9 @@
       </article>
 
       <article class="reviews-pers">
-        <div class="container">
+        <div class="container review-container">
           <header>
-            <h1 class="title">wat zegt de <span class="paars">pers</span>?</h1>
+            <h1 class="title reviews-title">wat zegt de <span class="paars">pers</span>?</h1>
           </header>
           <section class="reviews-content">
             <header class="hide">
@@ -177,13 +183,13 @@
             <ul class="reviews-list">
               <li class="review-item">
                 <blockquote class="review-quote">
-                  <p class="tekst quote">The Shining kon me doorheen de hele periode dat ik het las boeien. De meest onverwachtse gebeurtenissen in een angstaanjagend jasje.</p>
+                  <p class="tekst quote review-quote-text">The Shining kon me doorheen de hele periode dat ik het las boeien. De meest onverwachtse gebeurtenissen in een angstaanjagend jasje.</p>
                   <footer class="quote-footer tekst">Karel Verhoeven - <span class="bold">De Standaard</span></footer>
                 </blockquote>
               </li>
               <li class="review-item">
                 <blockquote class="review-quote">
-                  <p class="tekst quote">Stephen King weet me keer op keer te verrassen mijn zijn boeken en The Shining is hier geen uitzondering op. Elk hoofdstuk dat je gelezen hebt nodigt uit naar meer.</p>
+                  <p class="tekst quote review-quote-text">Stephen King weet me keer op keer te verrassen mijn zijn boeken en The Shining is hier geen uitzondering op. Elk hoofdstuk dat je gelezen hebt nodigt uit naar meer.</p>
                   <footer class="quote-footer tekst">Guy Mortier - <span class="bold">Humo</span></footer>
                 </blockquote>
               </li>

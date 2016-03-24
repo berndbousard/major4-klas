@@ -1,6 +1,111 @@
+@media only screen and (max-width: 1390px) {
+  .omschrijving-title{
+    margin-top: 1.5rem;
+
+    &::before{
+      width:  100%;
+      padding-top: 3rem;
+      margin-bottom: 1.5rem;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      transition: 0.4s all;
+      }
+    }
+  .omschrijving-item-wrapper{
+    position: relative;
+    width: 70%;
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .omschrijving-item{
+    width: 26rem;
+    height: 26rem;
+  }
+
+  .auteur-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .bib-lijst {
+    margin-top: 3rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .bib-item {
+    margin: 0 2rem;
+  }
+
+
+  .over-auteur {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
 @media only screen and (max-width: 1170px){
   .klas-list-item {
     margin: 1vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .omschrijving-title {
+    margin-top: 0;
+
+    &::before {
+      padding-top: 0;
+      margin-bottom: 0;
+      background-size: auto 100%;
+    }
+  }
+
+  .omschrijving-item {
+    background-color: $lichtPaars;
+  }
+
+  .omschrijving-item-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .omschrijving-content-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .omschrijving-title {
+    margin-bottom: 2rem;
+
+    &::before {
+      padding-top: 3rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .omschrijving-tekst {
+    opacity: 1;
+  }
+
+  .bibliografie {
+    margin-top: 2rem;
+    width: auto;
+  }
+
+  // .over-auteur-content {
+  //   width: 70%;
+  // }
+
+  .over-auteur-title {
+    margin: 0rem 0 2rem 0;
+  }
+
+  .over-auteur-content {
+    padding: 0;
   }
 }
 
@@ -14,10 +119,10 @@
 @media only screen and (max-width: 900px){
   .main-footer .container {
     justify-content: center;
+  }
 
-    section {
-
-    }
+  .over-heading {
+    margin-left: 4rem;
   }
 }
 
@@ -26,6 +131,16 @@
   .korte-uitleg {
     align-self: initial;
     margin-left: 40vw;
+  }
+
+  .omschrijving-item {
+    width: 100vw;
+    height: auto;
+  }
+
+  .omschrijving-item-wrapper {
+    width: 30rem !important;
+    height: 30rem !important;
   }
 }
 
@@ -89,6 +204,59 @@
 
   .korte-uitleg {
     width: 55%;
+  }
+}
+
+@media only screen and (max-width: 750px){
+
+  .over-content-text {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    width: 90vw;
+  }
+
+  .over-container {
+    flex-direction: column;
+  }
+
+  .sec-over-boek, .sec-beeld-boek {
+    width: 100%;
+  }
+  .main-header {
+    height: auto !important;
+    margin-bottom: 5rem;
+  }
+  .over-heading {
+    .quote {
+      display: none;
+    }
+  }
+
+  .over-content {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cta-button {
+      display: inline-block;
+      margin: 0 auto;
+      position: relative;
+      top: 20rem;
+    }
+  }
+
+  // reviews
+
+  .reviews-list {
+    flex-direction: column;
+  }
+  .review-item {
+    width: auto;
+  }
+  .bib-lijst {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
@@ -157,8 +325,8 @@
   }
 
   .nav-logo-link {
-    width: 5.4rem;
-    height: 4rem;
+    width: 7.5rem;
+    height: 5.5rem;
   }
 
   .body-wrapper {
@@ -201,7 +369,8 @@
     width: 40vw;
   }
 
-  .nav-logo-svg use {
+  .nav-logo-svg-use {
+    transform: scale(.6);
     fill: $wit;
   }
 
@@ -221,9 +390,65 @@
   .arrow-right {
     align-self: initial;
   }
+
+  .over-heading {
+    margin: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .over-content {
+    margin-top: 2rem;
+  }
+
+  .reviews-title {
+    text-align: center;
+  }
+
+  .auteur-content-wrapper {
+    flex-direction: column;
+  }
+
+  .over-auteur-title {
+    margin: 0;
+  }
+
+  .over-auteur-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .over-auteur-text {
+    margin-top: 2rem;
+    width: 90vw;
+  }
+
+  .review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-quote-text {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 640px){
+  .over {
+    .main-header {
+      background: none;
+    }
+  }
+  .over-auteur {
+      background: none;
+  }
 }
 
 @media only screen and (max-width: 600px){
+
   .header-title {
     font-size: 10vw;
   }
@@ -349,6 +574,31 @@
   .footer-social {
     order: 3;
   }
+
+  .main-header {
+    margin-bottom: 3vw;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .nav-logo {
+    margin-bottom: 2vw;
+  }
+
+  .nav-item-link {
+    font-size: .75rem;
+  }
+
+  .aanvragen-button, .quote {
+    width: 90vw;
+  }
+}
+
+
+@media only screen and (max-width: 450px){
+  .bib-item:nth-child(2n) {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 410px){
@@ -365,16 +615,8 @@
   }
 }
 
-
 @media only screen and (max-width: 400px){
   .main-nav {
     height: 9rem;
   }
-
-  .nav-item-link {
-    font-size: .75rem;
-  }
-}
-
-@media only screen and (max-width: 350px){
 }
