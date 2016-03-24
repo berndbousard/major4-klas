@@ -4,6 +4,10 @@
 
   <script type="text/javascript">
     WebFontConfig = {
+      custom: {
+        families: ['Plantagenet Cherokee'],
+        urls: ['/assets/fonts/plantagenetCherokee/plantagenetCherokee.css']
+      },
       google: { families: [ 'Titillium+Web:400,600,300,700:latin' ] }
     };
     (function() {
@@ -29,19 +33,19 @@
       <ul class="main-nav-list">
         <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
           <svg class="nav-logo-svg">
-            <use xlink:href="./assets/svg/logo.svg#logo"/>
+            <use class="nav-logo-svg-use" xlink:href="./assets/svg/logo.svg#logo"/>
           </svg>
           <span class="hide">boek.be</span></a>
         </li>
-        <div class="nav-items"> <!-- Hier moet wrapper rond voor responsive -->
+        <div class="nav-items">
           <li class="nav-item">
-            <a href="index.html" class="active nav-item-link"><span>de actie</span></a>
+            <a href="/" class="active nav-item-link"><span>de actie</span></a>
           </li>
           <li class="nav-item">
-            <a href="over.html" class="nav-item-link"><span>over de shining</span></a>
+            <a href="/about" class="nav-item-link"><span>over de shining</span></a>
           </li>
           <li class="nav-item">
-            <a href="index.html#form-deelnemen" class="nav-item-link"><span>deelnemen</span></a>
+            <a href="/#form-deelnemen" class="nav-item-link"><span>deelnemen</span></a>
           </li>
         </div>
       </ul>
@@ -66,7 +70,7 @@
                     <p class="tekst">Zet samen met je klas je tanden in één van de meest meeslepende thrillerboeken ooit.</p>
                     <p class="tekst">Durf jij je klas uit te dagen om er een killer-boekbespreking over te schrijven?</p>
                   </div>
-                  <a href="#" class="cta-button"><span class="cta-button-content">mijn klas durft dit</span></a>
+                  <a href="/#form-deelnemen" class="cta-button"><span class="cta-button-content">mijn klas durft dit</span></a>
                 </section>
               </section>
             </div>
@@ -78,7 +82,7 @@
               </section>
             </div>
           </div>
-          <a href="#" class="cta-text arrow-down"><span>ontdek de actie</span></a>
+          <a href="/#form-deelnemen" class="cta-text arrow-down"><span>ontdek de actie</span></a>
         </div>
       </header>
 

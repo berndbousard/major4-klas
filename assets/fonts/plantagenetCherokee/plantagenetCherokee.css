@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Plantagenet Cherokee";
+  src: url("/assets/fonts/plantagenetCherokee/plantagenetCherokee.woff2") format("woff2"),
+  url("/assets/fonts/plantagenetCherokee/plantagenetCherokee.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

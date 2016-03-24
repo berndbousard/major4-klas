@@ -135,6 +135,7 @@
     z-index: 100;
     padding: 0;
     height: 35vw;
+    margin: 0;
   }
 
   .main-header {
@@ -152,6 +153,11 @@
     margin-top: 1vw;
     margin-right: 0;
     padding: 2vw;
+  }
+
+  .nav-logo-link {
+    width: 5.4rem;
+    height: 4rem;
   }
 
   .body-wrapper {
