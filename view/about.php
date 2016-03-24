@@ -23,6 +23,7 @@
 </head>
 
 <body> <!-- TODO: class="not-desktop" -->
+<<<<<<< c39d694b8c5c9a4cb4c2377016fa871e40c2ad19
   <div class="main-border"></div>
   <div class="body-wrapper">
     <nav class="main-nav">
