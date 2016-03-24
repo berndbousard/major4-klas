@@ -1,1 +1,119 @@
 // Over boek breakpoints
+@media only screen and (max-width: 1390px) {
+
+  .omschrijving-item{
+
+    .omschrijving-title{
+      margin-top: 1.5rem;
+
+      &::before{
+        width:  100%;
+        padding-top: 3rem;
+        margin-bottom: 1.5rem;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        transition: 0.4s all;
+        }
+      }
+    .omschrijving-item-wrapper{
+      position: relative;
+      width: 70%;
+      height: 70%;
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .omschrijving-item,{
+    background-color: rgba(227, 215, 247, 1);
+
+    .omschrijving-title{
+      margin-top: 0;
+      &::before{
+        padding-top: 0;
+        margin-bottom: 0;
+        background-size: auto 100%;
+      }
+    }
+    .omschrijving-item-wrapper{
+      width: 100%;
+      height: 100%;
+    }
+    .omschrijving-content-wrapper{
+      margin-bottom: 2rem;
+    }
+    .omschrijving-title{
+      margin-bottom: 2rem;
+
+      &::before{
+        padding-top: 3rem;
+        margin-bottom: 2rem;
+      }
+    }
+    .omschrijving-tekst{
+      opacity: 1;
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+
+  .over-heading{
+    margin-left: 4rem;
+  }
+
+}
+@media only screen and (max-width: 750px) {
+
+  .over{
+    .main-header .container{
+      flex-direction: column;
+    }
+  }
+  .sec-over-boek, .sec-beeld-boek{
+    width: 100%;
+  }
+  .main-header{
+    height: auto !important;
+    margin-bottom: 5rem;
+  }
+  .over-heading{
+    .quote{
+      display: none;
+    }
+  }
+
+  .over-content{
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+
+    .cta-button{
+      display: inline-block;
+      margin: 0 auto;
+      position: relative;
+      top: 20rem;
+    }
+  }
+
+  // reviews
+
+  .reviews-list{
+    flex-direction: column;
+  }
+  .review-item{
+    width: auto;
+  }
+
+}
+
+@media only screen and (max-width: 640px) {
+  .over{
+    .main-header{
+      background: none;
+    }
+  }
+  .over-auteur{
+      background: none;
+  }
+}
