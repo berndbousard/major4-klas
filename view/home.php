@@ -239,7 +239,9 @@
                       <div class="form-input-wrapper">
                         <label for="email_2">e-mail adres</label>
                         <input type="text" name="email_2" id="email_2" placeholder="email" <?php if(!empty($_POST['email_2']) && empty($errors['email_2'])) echo "value='" .  $_POST['email_2'] . "'" ?> >
-                        <span class="form-error"><?php echo $errors['email_2'] ?></span>
+                        <?php if(!empty($errors['email_2'])) { ?>
+                          <span class="form-error"><?php echo $errors['email_2'] ?></span>
+                        <?php } ?>
                       </div>
                       <div class="form-input-wrapper">
                         <label for="password_2">paswoord</label>

@@ -65,6 +65,7 @@
 
 .omschrijving-list{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   position: relative;
 }
@@ -74,7 +75,7 @@
 
 
 .omschrijving-item{
-  width: 33vw;
+  width: 33.3%;
   height: 32vw;
   display: flex;
   justify-content: center;

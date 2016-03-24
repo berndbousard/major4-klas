@@ -1391,6 +1391,9 @@ p.tekst {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1398,7 +1401,7 @@ p.tekst {
 }
 
 .omschrijving-item {
-  width: 33vw;
+  width: 33.3%;
   height: 32vw;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2119,6 +2122,13 @@ p.tekst {
   }
 }
 
+@media only screen and (max-width: 1300px) {
+  .omschrijving-item {
+    width: 26rem;
+    height: 26rem;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .omschrijving-item {
     background-color: #e3d7f7;
@@ -2155,6 +2165,17 @@ p.tekst {
 @media only screen and (max-width: 900px) {
   .over-heading {
     margin-left: 4rem;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .omschrijving-item {
+    width: 100vw;
+    height: 100vw;
+  }
+  .omschrijving-item-wrapper {
+    width: 30rem !important;
+    height: 30rem !important;
   }
 }
 
