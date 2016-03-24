@@ -23,8 +23,6 @@ $app = new \Slim\App([
     ]
 ]);
 
-// --------------------------------------------------------------------------- CMS
-
 // Om alle participations op te halen
 $app->get('/api/participations', function ($request, $response, $args) {
   if(!empty($_SESSION['user'])){
@@ -217,7 +215,6 @@ $app->post('/', function ($request, $response, $args) {
   $hasher = new \Phpass\Hash;
   $participationDAO = new ParticipationDAO();
 
-
   if($data['submit'] == 'the shining aanvragen'){
 
     $errors = array();
@@ -258,13 +255,25 @@ $app->post('/', function ($request, $response, $args) {
       $data['is_admin'] = 0;
 
       $inserted_order = $userDAO->insert($data);
-      return $response->withRedirect('/');
+
+      if(empty($inserted_order)) {
+        $response = $response->withStatus(404);
+      } else {
+        $response = $response->withStatus(201);
+      }
+
+      return $response->withRedirect('/succes?type=registreren');
     } else {
       $view = new \Slim\Views\PhpRenderer('view/');
       $basePath = $request->getUri()->getBasePath();
+
+      $participationDAO = new ParticipationDAO();
+      $photos = $participationDAO->selectAllPhotos();
+
       return $view->render($response, 'home.php', [
         'basePath' => $basePath,
-        'errors' => $errors
+        'errors' => $errors,
+        'photos' => $photos
       ]);
     }
   }
@@ -350,6 +359,14 @@ $app->post('/', function ($request, $response, $args) {
 
                     // user updaten
                     $updated_user = $userDAO->update($existing_user['id'], $data);
+
+                    if(empty($updated_user)) {
+                      $response = $response->withStatus(404);
+                    } else {
+                      $response = $response->withStatus(201);
+                    }
+
+                    return $response->withRedirect('/succes?type=inschrijven');
                   }
                 }
               }
@@ -369,11 +386,32 @@ $app->post('/', function ($request, $response, $args) {
   return $response->withRedirect('/');
 });
 
+$app->get('/succes', function ($request, $response, $args) {
+  $view = new \Slim\Views\PhpRenderer('view/');
+    $basePath = $request->getUri()->getBasePath();
+    return $view->render($response, 'succes.php', [
+      'basePath' => $basePath
+  ]);
+});
+
 // Om de home in te laden als hij gewoon naar localhost surft
 $app->get('/', function ($request, $response, $args) {
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
-  return $view->render($response, 'home.php', ['basePath' => $basePath]);
+
+  $participationDAO = new ParticipationDAO();
+  $photos = $participationDAO->selectAllPhotos();
+
+  if(empty($photos)) {
+    $response = $response->withStatus(404);
+  } else {
+    $response = $response->withStatus(201);
+  }
+
+  return $view->render($response, 'home.php', [
+    'basePath' => $basePath,
+    'photos' => $photos
+  ]);
 });
 
 $app->run();

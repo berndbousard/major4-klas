@@ -53,12 +53,12 @@
       </ul>
     </nav>
     <main class="main-wrapper actie">
-      <header class="main-header">
+      <header class="main-header actie-header">
         <div class="container main-container">
           <div class="header-content-wrapper">
             <div class="sec-left-actie">
               <section class="header-title">
-                <h2>boek.be presenteert:</h2>
+                <h2 class="mini-title">boek.be presenteert:</h2>
                 <div class="main-title-wrapper">
                   <h1 class="main-title"><span class="header-text header-title title paars">klassiekers</span> <span class="header-text header-sub">in je klas</span></h1>
                 </div>
@@ -69,8 +69,8 @@
                 <section class="catch-phrase">
 
                   <div class="catch-phrase-text-wrapper">
-                    <p class="tekst">Zet samen met je klas je tanden in één van de meest meeslepende thrillerboeken ooit.</p>
-                    <p class="tekst">Durf jij je klas uit te dagen om er een killer-boekbespreking over te schrijven?</p>
+                    <p class="tekst catch-text">Zet samen met je klas je tanden in één van de meest meeslepende thrillerboeken ooit.</p>
+                    <p class="tekst catch-text">Durf jij je klas uit te dagen om er een killer-boekbespreking over te schrijven?</p>
                   </div>
                   <a href="/#form-deelnemen" class="cta-button"><span class="cta-button-content">mijn klas durft dit</span></a>
                 </section>
@@ -79,30 +79,30 @@
             <div class="sec-right-the-shining">
               <section class="the-shining-header">
                 <div class="shining-header">
-                  <h1>the shining</h1>
+                  <h1 class="shining-title">the shining</h1>
                 </div>
               </section>
             </div>
           </div>
-          <a href="/#form-deelnemen" class="cta-text arrow-down"><span>ontdek de actie</span></a>
+          <a href="/#form-deelnemen" class="cta-text arrow-down home-arrow"><span>ontdek de actie</span></a>
         </div>
       </header>
 
       <article class="over-wedstrijd">
         <section class="info-over-wedstrijd">
-          <div class="container">
+          <div class="container wedstrijd-container">
             <header>
-              <h1 class="title"><span class="paars">over</span> de wedstrijd</h1>
+              <h1 class="title wedstrijd-title"><span class="paars">over</span> de wedstrijd</h1>
             </header>
             <div class="article-content">
               <section class="sec-over">
-                <p class="sub-title">Bent u <strong class="paars">leerkracht Nederlands</strong> en op zoek naar een spannende <strong class="paars">uitdaging</strong>?</p>
+                <p class="sub-title wedstrijd-subtitle">Bent u <strong class="paars">leerkracht Nederlands</strong> en op zoek naar een spannende <strong class="paars">uitdaging</strong>?</p>
                 <section class="wedstrijd-uitleg">
                   <header class="hide">
                     <h1>uitleg over de wedstrijd</h1>
                   </header>
                   <p class="tekst">Maak van een boekbespreking terug een leuke opdracht met de ‘klassiekers uit je klas’ <span class="bold">actie</span> van boek.be.</p>
-                  <p class="tekst">Lees samen met je leerlingen het boek ‘De Shining’ en schrijf met je klas een <span class="bold">boekbespreking</span> over deze bloedstollende <span class="bold">thriller klassieker</span>. Wie weet sleept jouw klas de <span class="bold">hoofdprijs van 100 boeken</span>
+                  <p class="tekst bottom-text">Lees samen met je leerlingen het boek ‘De Shining’ en schrijf met je klas een <span class="bold">boekbespreking</span> over deze bloedstollende <span class="bold">thriller klassieker</span>. Wie weet sleept jouw klas de <span class="bold">hoofdprijs van 100 boeken</span>
                 </section>
 
               </section>
@@ -116,11 +116,11 @@
                   <figcaption class="boek-caption">
                     <div class="boek-meta">
                       <header>
-                        <h1><cite>The Shining</cite></h1>
+                        <h1><cite class="boek-cite">The Shining</cite></h1>
                       </header>
-                      <p class="tekst">door Stephan King</p>
+                      <p class="tekst boek-text">door Stephan King</p>
                     </div>
-                    <a href="#" class="cta-button">
+                    <a href="/#form-deelnemen" class="cta-button boek-button">
                       <span class="cta-button-content">mijn klas durft dit</span>
                     </a>
                   </figcaption>
@@ -131,18 +131,18 @@
         </section>
 
         <section class="hoe-het-werkt">
-          <div class="container">
+          <div class="container hoe-container">
             <header>
-              <h1 class="title">hoe het <span class="paars">werkt</span></h1>
+              <h1 class="title hoe-title">hoe het <span class="paars">werkt</span></h1>
             </header>
 
             <section class="sec-werking">
               <header class="hide">
                 <h1>de 3 stappen</h1>
               </header>
-              <section class="korte-uitleg">
+              <section class="korte-uitleg sec-uitleg">
                 <header>
-                  <h1 class="sub-title">Ben je benieuwd hoe je kan <strong class="paars">deelnemen</strong>?</h1>
+                  <h1 class="sub-title uitleg-sub">Ben je benieuwd hoe je kan <strong class="paars">deelnemen</strong>?</h1>
                 </header>
                 <p class="tekst">Aan de hand van deze <span class="bold">3 stappen</span> kan jij als klas deelnemen voor de boek.be actie.</p>
               </section>
@@ -163,7 +163,7 @@
       </article>
 
       <article class="form" id="form-deelnemen">
-        <div class="container">
+        <div class="container form-container">
           <header class="hide">
             <h1>Registreren &amp; recensie opsturen</h1>
           </header>
@@ -218,7 +218,7 @@
                   </fieldset>
 
                 </div>
-                <div class="cta-button">
+                <div class="cta-button form-submit-button">
                   <label for="the-shining-aanvragen">the shining aanvragen</label>
                   <input type="submit" id="the-shining-aanvragen" class="hide" name="submit" value="the shining aanvragen">
                 </div>
@@ -292,7 +292,7 @@
                         <span class="form-error"><?php echo $errors['photo'] ?></span>
                       <?php } ?>
                     </div>
-                    <div class="cta-button">
+                    <div class="cta-button form-submit-button">
                       <label for="deelnemen">deelnemen aan de actie</label>
                       <input type="submit" id="deelnemen" class="hide" name="submit" value="deelnemen aan de actie">
                     </div>
@@ -305,74 +305,52 @@
       </article>
 
       <article class="deelnemende-klassen">
-        <div class="container">
+        <div class="container klassen-container">
           <header>
-            <h1 class="title"><span class="paars">deelnemende</span> klassen</h1>
+            <h1 class="title klassen-title"><span class="paars">deelnemende</span> klassen</h1>
           </header>
           <section class="klassen-list">
-            <a href="#" class="cta-text arrow-right"><span>bekijk alle deelnemers</span></a>
-            <ol class="recentste-klassen">
+            <a href="#" class="cta-text arrow-right klassen-button"><span>bekijk alle deelnemers</span></a>
+            <?php if(!empty($photos)) echo "<ol class='recentste-klassen'>"  ?>
+              <?php foreach($photos as $photo) { ?>
               <li class="klas-list-item">
                 <figure class="klas-figure">
                   <div class="klas-foto-wrapper">
                     <div class="foto-overlay"></div>
-                    <img src="/uploads/photo/placeholder-3.jpg" class="klas-foto" alt="klas Middelbaar-dorent" width="316" height="240">
+                    <img src="<?php echo '/uploads/photo/' . $photo['photo'] ?>" class="klas-foto" alt="klas Middelbaar-dorent" width="316" height="240">
                   </div>
                   <figcaption class="klas-info">
-                    <h1>Middelbaar-dorent</h1>
-                    <h2>5 ECMD2</h2>
+                    <h1 class="klas-school klas-onderschrift"><?php echo $photo['school'] ?></h1>
+                    <h2 class="klas-class klas-onderschrift"><?php echo $photo['class'] ?></h2>
                   </figcaption>
                 </figure>
               </li>
-              <li class="klas-list-item">
-                <figure class="klas-figure">
-                  <div class="klas-foto-wrapper">
-                    <div class="foto-overlay"></div>
-                    <img src="/uploads/photo/placeholder-2.jpg" class="klas-foto" alt="klas Koninklijk College Herdersem" width="316" height="240">
-                  </div>
-                  <figcaption class="klas-info">
-                    <h1>Koninklijk College Herdersem</h1>
-                    <h2>6 LATIJN1</h2>
-                  </figcaption>
-                </figure>
-              </li>
-              <li class="klas-list-item">
-                <figure class="klas-figure">
-                  <div class="klas-foto-wrapper">
-                    <div class="foto-overlay"></div>
-                    <img src="/uploads/photo/placeholder-1.jpg" class="klas-foto" alt="klas THE DEVINE SQUAD" width="316" height="240">
-                  </div>
-                  <figcaption class="klas-info">
-                    <h1>Howest Kortrijk</h1>
-                    <h2>THE DEVINE SQUAD</h2>
-                  </figcaption>
-                </figure>
-              </li>
-            </ol>
+              <?php } ?>
+            <?php if(!empty($photos)) echo "</ol>"  ?>
           </section>
         </div>
       </article>
     </main>
     <footer class="main-footer">
-      <div class="container">
-        <section class="footer-social">
+      <div class="container footer-container">
+        <section class="footer-social footer-section">
           <ul class="footer-social-list">
-            <li><a href="#" class="social-twitter"><span class="hide">twitter</span></a></li>
-            <li><a href="#" class="social-facebook"><span class="hide">facebook</span></a></li>
+            <li><a href="#" class="social-button social-twitter"><span class="hide">twitter</span></a></li>
+            <li><a href="#" class="social-button social-facebook"><span class="hide">facebook</span></a></li>
           </ul>
         </section>
 
-        <section class="footer-boek-be">
+        <section class="footer-boek-be footer-section">
           <a href="http://www.boek.be" class="footer-logo"><span class="hide">boek.be</span></a>
         </section>
 
-        <section class="footer-contact">
+        <section class="footer-contact footer-section">
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
-              <p><span class="bold">telefoon</span> +32 3 230 89 23</p>
+              <p class="contact-text"><span class="bold">telefoon</span> +32 3 230 89 23</p>
             </li>
             <li class="footer-contact-item">
-              <p><span class="bold">e-mail</span> info@boek.be</p>
+              <p class="contact-text"><span class="bold">e-mail</span> info@boek.be</p>
             </li>
           </ul>
         </section>

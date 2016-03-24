@@ -6,35 +6,32 @@
 .header-content-wrapper{
   display: flex;
 }
+
 .header-title{
   margin: 1rem 0;
-  h2{
-    font-size: $size-smallest;
-    font-family: 'Titillium Web';
-    font-weight: 600;
-    text-transform: uppercase;
-    @include wide-tekst;
-    opacity: 0.5;
-  }
 }
-.main-title-wrapper{
-  width: auto;
-}
-.main-title{
-  font-family: 'Plantagenet Cherokee';
+
+.mini-title {
+  font-size: $size-smallest;
+  font-weight: 600;
   text-transform: uppercase;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: flex-end;
-  width: auto;
+  @include wide-tekst;
+  opacity: 0.5;
 }
+
+.main-title{
+  text-transform: uppercase;
+}
+
 .header-text{
   display: block;
 }
+
 .header-title{
   font-size: $size-header-title;
   @include wider-title;
 }
+
 .header-sub{
   font-size: $size-title;
   @include wide-title;
@@ -49,44 +46,46 @@
   margin: 2rem 0;
   width: 70%;
 }
-.catch-phrase p{
+
+.catch-text {
   margin: 1rem 0;
-  font-family: 'Titillium web';
   font-weight: 600;
   @include wide-tekst;
   font-size: $size-input;
 }
-.main-header .cta-text{
+
+.home-arrow {
   align-self: center;
   margin-top: 2rem;
 }
 
+
+
 .shining-header{
   padding: 12rem 0 4rem 0;
   background: url('/assets/img/letter-s.png') left bottom no-repeat;
-  h1{
-    color: $puur-wit;
-    text-transform: uppercase;
-    font-family: 'Titillium Web';
-    font-size: $size-the-shining-title;
-    @include wider-title;
-    text-shadow: 0 0 20px rgba(255,255,255,1);
-  }
+}
+
+.shining-title {
+  color: $puur-wit;
+  text-transform: uppercase;
+  font-size: $size-the-shining-title;
+  @include wider-title;
+  text-shadow: 0 0 20px $puur-wit;
 }
 
 .main-header{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding-top: 20vh;
-    margin-top: -20vh;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 20vh;
+  margin-top: -20vh;
 
-    background: url('/assets/img/beeld-header.png') no-repeat, url('/assets/img/grunge-header.png') no-repeat;
-    background-position: top right, center right;
-    background-size: auto 100%, auto 100%;
-    // background-size: contain, contain;  // responsive
+  background: url('/assets/img/beeld-header.png') no-repeat, url('/assets/img/grunge-header.png') no-repeat;
+  background-position: top right, center right;
+  background-size: auto 100%, auto 100%;
   }
 
 // SECTION __ HOE HET WERKT
@@ -95,20 +94,23 @@
   background-size: auto, auto;
   background-position: right 30%, left bottom;
 }
+
+.wedstrijd-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.wedstrijd-title {
+  padding: 6rem 0;
+}
+
 .info-over-wedstrijd{
   position: relative;
   background: url('/assets/svg/6-hoek-groot.svg') no-repeat;
   background-size: 29.5rem 30.7rem;
   background-position: 6rem 8rem;
-  .container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .title{
-    padding: 6rem 0;
-    margin-right: 4vw;
-  }
+
   &::before{
     content: '';
     z-index: -99;
@@ -131,11 +133,11 @@
 .wedstrijd-uitleg{
   width: 55%;
 }
-.wedstrijd-uitleg p:nth-child(3){
+.bottom-text {
   margin-top: 2rem;
 }
 
-.sec-over .sub-title{
+.wedstrijd-subtitle{
   margin-left: 5rem;
   width: 30%;
   margin-bottom: 2rem;
@@ -147,41 +149,44 @@
   flex-direction: row;
   align-items: center;
 }
+
 .boek-meta{
   margin-left: 2rem;
-  cite{
-    font-family: 'Titillium Web';
-    font-weight: 700;
-    font-size: $size-tab;
-  }
-  .tekst{
-    margin: 0.5rem 0 2.5rem 0;
-    opacity: 0.5;
-  }
 }
-.boek-caption{
-  .cta-button{
-    position: relative;
-    z-index: 2;
-    left: -3rem;
-  }
+
+.boek-text {
+  margin: 0.5rem 0 2.5rem 0;
+  opacity: 0.5;
+}
+
+.boek-cite {
+  font-weight: 700;
+  font-size: $size-tab;
+}
+
+.boek-button {
+  position: relative;
+  z-index: 2;
+  left: -3rem;
 }
 
 .hoe-het-werkt{
   background: url('/assets/img/beeld-mansion.png') no-repeat;
   background-size: auto;
   background-position: bottom right;
-
-  .container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .title{
-    padding: 3rem 0 8rem 0;
-    margin-right: 4vw;
-  }
 }
+
+.hoe-title {
+  padding: 3rem 0 8rem 0;
+  margin-right: 4vw;
+}
+
+.hoe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .sec-werking{
   display: flex;
   flex-direction: column;
@@ -191,11 +196,12 @@
 .korte-uitleg{
   align-self: flex-end;
   width: 40%;
-
-  .sub-title{
-    margin-bottom: 2rem;
-  }
 }
+
+.uitleg-sub {
+  margin-bottom: 2rem;
+}
+
 .uitleg-lijst{
   margin-top: -3rem;
   width: 60%;
@@ -205,6 +211,9 @@
 .uitleg-item{
   width: 55%;
   padding-top: 6rem;
+  background-size: 7rem;
+  background-repeat: no-repeat;
+  background-position: top center;
   &:nth-child(1){
     background-image: url('/assets/svg/li-1.svg');
   }
@@ -216,9 +225,6 @@
   &:nth-child(3){
     background-image: url('/assets/svg/li-3.svg');
   }
-  background-size: 7rem;
-  background-repeat: no-repeat;
-  background-position: top center
 }
 
 
@@ -230,15 +236,12 @@
   background-position: center right;
   background-size: auto 100%;
 }
-.form .container{
-  margin: 0 auto;
-}
 .form-container{
   width: 90%;
   margin: 0 auto;
   padding: 2rem 0;
-
 }
+
 .form-input-fields{
   display: flex;
   flex-direction: row;
@@ -270,7 +273,6 @@
 }
 .tab-title{
   text-align: center;
-  font-family: 'Titillium Web';
   font-size: $size-tab;
   text-transform: uppercase;
 }
@@ -305,7 +307,7 @@
     background: none;
     padding: 1rem;
     opacity: 0.5;
-    font-family: 'Titillium Web';
+    font-family: 'titillium web';
     font-size: $size-input;
 
     &:focus{
@@ -323,7 +325,6 @@
 .form-error{
   margin: 0.5rem 0 1rem 0;
   color: $rood;
-  font-family: 'Titillium Web';
   font-size: $size-input;
   align-self: flex-end;
 
@@ -341,9 +342,10 @@
 
 .form-deelnemen, .fieldset-uploaden{
   overflow: auto;
-  .cta-button{
-    float: right;
-  }
+}
+
+.form-submit-button {
+  float: right;
 }
 
 .fieldset-uploaden {
@@ -364,69 +366,80 @@
 
   display: flex;
   flex-direction: column;
-
-  .container{
-    display: flex;
-    flex-direction: column;
-  }
-  .title{
-    margin-bottom: 2rem;
-  }
 }
+
+.klassen-title {
+  margin-bottom: 2rem;
+}
+
+.klassen-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .klassen-list{
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .cta-text{
-    margin-bottom: 3rem;
-  }
 }
+
+.klassen-button {
+  margin-bottom: 3rem;
+}
+
 .recentste-klassen{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .klas-list-item{
   margin: 0 2rem;
 }
+
 .klas-foto-wrapper{
   position: relative;
-  .foto-overlay{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    background: url('/assets/img/klasfoto-overlay.png') center;
-    background-size: cover;
-    opacity: 1;
-    transition: 0.4s all;
-  }
-  .klas-foto{
-    filter: grayscale(1);
-    transition: 0.4s all;
+
+  &:hover {
+    .foto-overlay{
+      opacity: 0.5;
+    }
+
+    .klas-foto{
+      filter: grayscale(0.5);
+    }
   }
 }
-.klas-foto-wrapper:hover{
-  .foto-overlay{
-    opacity: 0.5;
-  }
-  .klas-foto{
-    filter: grayscale(0.5);
-  }
+
+.klas-foto{
+  filter: grayscale(1);
+  transition: 0.4s all;
 }
+
+.foto-overlay{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/img/klasfoto-overlay.png') center;
+  background-size: cover;
+  opacity: 1;
+  transition: 0.4s all;
+}
+
 .klas-info{
   margin-top: 1rem;
-  h1{
-    font-weight: 600;
-  }
-  h1, h2{
-    font-family: 'Titillium Web';
-    font-size: $size-input;
-  }
+}
+
+.klas-school {
+  font-weight: 600;
+}
+
+.klas-class, .klas-school {
+  font-size: $size-input;
 }
 
 .arrow-right {
@@ -437,65 +450,68 @@
 
 .main-footer{
   margin: 2rem 0 5rem 0;
+}
 
-  .container{
-    border-top: 0.1rem solid $lichterZwart;
-    padding-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer-section {
+  flex: 1;
+}
 
-  }
-  section{
-    flex: 1;
-  }
+.footer-container {
+  border-top: 0.1rem solid $lichterZwart;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-social-list {
   display: flex;
   justify-content: center;
-  a{
-    margin: 0rem 2rem;
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.5;
-    transition: 0.4s all;
+}
 
-    &:hover{
-      opacity: 1;
-    }
+.social-button {
+  margin: 0rem 2rem;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  transition: 0.4s all;
+
+  &:hover{
+    opacity: 1;
   }
 }
+
 .social-twitter{background-image: url('/assets/svg/twitter-logo.svg');}
 .social-facebook{background-image: url('/assets/svg/facebook-logo.svg');}
 
 .footer-logo{
-    display: block;
-    width: 5rem;
-    height: 4rem;
-    margin: 0 auto;
-    background: url('/assets/svg/boek-be-logo.svg') 100% center no-repeat;
-    opacity: 0.5;
+  display: block;
+  width: 5rem;
+  height: 4rem;
+  margin: 0 auto;
+  background: url('/assets/svg/boek-be-logo.svg') 100% center no-repeat;
+  opacity: 0.5;
 
-    transition: 0.4s all;
-    &:hover{
-      opacity: 1;
-    }
+  transition: 0.4s all;
+  &:hover{
+    opacity: 1;
+  }
 }
+
 .footer-contact-list{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  p{
-    font-family: 'Titillium Web';
-    font-size: $size-nav;
+  align-items: center;
+}
 
-    &:first-child{
-      margin-bottom: 0.5rem;
-    }
+.contact-text {
+  font-size: $size-nav;
+
+  &:first-child{
+    margin-bottom: 0.5rem;
   }
 }

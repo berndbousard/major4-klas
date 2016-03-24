@@ -35,7 +35,7 @@
       <ul class="main-nav-list">
         <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
           <svg class="nav-logo-svg">
-            <use class="nav-logo-svg-use" xlink:href="./assets/svg/logo.svg#logo"/>
+            <use class="nav-logo-svg-use" xlink:href="<?php echo $basePath . '/assets/svg/logo.svg#logo'  ?>"/>
           </svg>
           <span class="hide">boek.be</span></a>
         </li>
@@ -58,7 +58,7 @@
           <section class="sec-over-boek">
             <div class="over-heading">
               <h1 class="title">the <span class="paars">shining</span></h1>
-              <q class="sub-title quote">Sometimes human places, create <span class="paars">inhuman monsters</span></q>
+              <q class="sub-title quote over-sub-title">Sometimes human places, create <span class="paars">inhuman monsters</span></q>
             </div>
             <div class="over-content">
               <p class="tekst over-content-text">Bloedstollend, mysterieus en angstwekkend kunnen het niet genoeg omschrijven waar dit boek precies over gaat. Ondanks zijn ouderdom wordt deze oerklassieker van het thrillergenre nog steeds als referentie gebruikt binnen de literatuur.</p>
@@ -72,14 +72,14 @@
               <!-- Kan hij kleiner met webp? -->
               <img src="/assets/img/beeld-boek.png" class="boek-view" width="227" height="357" alt="the shining boek cover">
             </picture>
-            <q class="sub-title quote">I’m not gonna hurt ya. I'm just going to <span class="paars">bash your brains</span> in</q>
+            <q class="sub-title quote about-subtitle">I’m not gonna hurt ya. I'm just going to <span class="paars">bash your brains</span> in</q>
           </section>
         </div>
       </header>
 
       <article class="boek-omschrijving">
         <header>
-          <h1 class="title">het <span class="paars">verhaal</span></h1>
+          <h1 class="title boek-desc-title">het <span class="paars">verhaal</span></h1>
         </header>
           <ol class="omschrijving-list">
             <li class="omschrijving-item">
@@ -212,25 +212,25 @@
       </article>
     </main>
     <footer class="main-footer">
-      <div class="container">
-        <section class="footer-social">
+      <div class="container footer-container">
+        <section class="footer-social footer-section">
           <ul class="footer-social-list">
-            <li><a href="#" class="social-twitter"><span class="hide">twitter</span></a></li>
-            <li><a href="#" class="social-facebook"><span class="hide">facebook</span></a></li>
+            <li><a href="#" class="social-button social-twitter"><span class="hide">twitter</span></a></li>
+            <li><a href="#" class="social-button social-facebook"><span class="hide">facebook</span></a></li>
           </ul>
         </section>
 
-        <section class="footer-boek-be">
+        <section class="footer-boek-be footer-section">
           <a href="http://www.boek.be" class="footer-logo"><span class="hide">boek.be</span></a>
         </section>
 
-        <section class="footer-contact">
+        <section class="footer-contact footer-section">
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
-              <p><span class="bold">telefoon</span> +32 3 230 89 23</p>
+              <p class="contact-text"><span class="bold">telefoon</span> +32 3 230 89 23</p>
             </li>
             <li class="footer-contact-item">
-              <p><span class="bold">e-mail</span> info@boek.be</p>
+              <p class="contact-text"><span class="bold">e-mail</span> info@boek.be</p>
             </li>
           </ul>
         </section>

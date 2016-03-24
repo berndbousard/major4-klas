@@ -1,9 +1,3 @@
-.over{
-  .header-content-wrapper{
-    display: flex;
-  }
-}
-
 .over-header {
   width: 100%;
   display: flex;
@@ -38,23 +32,20 @@
 
 .over-heading{
   margin-bottom: 4rem;
+}
 
-  .sub-title{
-    display: block;
-    margin-top: 2rem;
-  }
+.about-subtitle {
+  display: block;
+  margin-top: 2rem;
 }
 
 .over-content{
   margin-left: 4rem;
-  .cta-button{
-    margin-top: 4rem;
-  }
 }
 
-
-// OMSCHRIJVING
-
+.aanvragen-button {
+  margin-top: 4rem;
+}
 
 .boek-omschrijving{
     background-color: $lichtPaars;
@@ -62,10 +53,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
+}
 
-    .title{
-      padding: 5rem 0;
-    }
+.boek-desc-title {
+  padding: 5rem 0;
 }
 
 .omschrijving-list{
@@ -90,32 +81,6 @@
   background-position: center;
   background-blend-mode: multiply;
 
-  .omschrijving-title{
-    color: $wit;
-    font-family: 'Plantagenet Cherokee';
-    font-size: $size-tab;
-    text-transform: uppercase;
-    @include wider-tekst;
-    position: relative;
-    text-align: center;
-    margin-top: 1rem;
-
-    transition: 0.4s all;
-
-    &::before{
-      content: '';
-      display: block;
-      width:  100%;
-      padding-top: 4rem;
-      margin-bottom: 2rem;
-      background-position: top center;
-      background-repeat: no-repeat;
-      background-size: contain;
-
-      transition: 0.4s all;
-    }
-  }
-
   &:nth-child(1){
     background-image: url('/assets/img/omschrijving/item1.jpg');
     .omschrijving-title::before{
@@ -137,67 +102,96 @@
       background-image: url('/assets/svg/iii.svg');
     }
   }
-  .omschrijving-item-wrapper{
-    position: relative;
-    width: 60%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 
-    transition: 0.4s all;
-  }
-  .omschrijving-content-wrapper{
-    width: 60%;
-    height: 60%;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    transition: 0.4s all;
-  }
-  .omschrijving-kader{
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    stroke-width: 3px;
-  }
-  .omschrijving-tekst{
-    color: $wit;
-    text-align: center;
-    opacity: 0;
-
-    display: inherit;
-
-    transition: 0s opacity;
-    transition-delay: 0.4s;
+  &:hover {
+    background-color: rgba(227, 215, 247, 1);
   }
 }
 
-/////// HOVER
+.omschrijving-item-wrapper{
+  position: relative;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
-.omschrijving-item:hover, .not-desktop .omschrijving-item{
-  background-color: rgba(227, 215, 247, 1);
+  transition: 0.4s all;
 
-  .omschrijving-title{
-    margin-top: 0;
-  }
-  .omschrijving-item-wrapper{
+  &:hover {
     width: 100%;
     height: 100%;
   }
-  .omschrijving-content-wrapper{
+}
+.omschrijving-content-wrapper{
+  width: 60%;
+  height: 60%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.4s all;
+
+  &:hover{
     margin-bottom: 2rem;
   }
-  .omschrijving-title{
+}
+.omschrijving-kader{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke-width: 3px;
+}
+
+.omschrijving-tekst{
+  color: $wit;
+  text-align: center;
+  opacity: 0;
+
+  display: inherit;
+
+  transition: 0s opacity;
+  transition-delay: 0.4s;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.omschrijving-title{
+  color: $wit;
+  font-size: $size-tab;
+  text-transform: uppercase;
+  @include wider-tekst;
+  position: relative;
+  text-align: center;
+  margin-top: 1rem;
+
+  transition: 0.4s all;
+
+  &::before{
+    content: '';
+    display: block;
+    width:  100%;
+    padding-top: 4rem;
+    margin-bottom: 2rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    transition: 0.4s all;
+  }
+
+  &:hover {
+    margin-top: 0;
     margin-bottom: 2rem;
 
     &::before{
@@ -205,16 +199,14 @@
       margin-bottom: 2rem;
     }
   }
-  .omschrijving-tekst{
-    opacity: 1;
-
-    // dient om geen delay te hebben
-    // tijdens fade-out, maar werkt niet
-    // don't ask me why
-    //
-    // transition-delay: 0s;
-  }
 }
+
+/////// HOVER
+
+// .omschrijving-item:hover, .not-desktop .omschrijving-item{
+
+
+// }
 
 // OVER DE AUTEUR
 
@@ -251,7 +243,6 @@
 }
 .bib-boek-naam{
   margin-top: 0.5rem;
-  font-family: 'Titillium Web';
   font-weight: 700;
   font-style: $size-button;
 }
@@ -260,7 +251,6 @@
   margin-top: 10%;
   opacity: 0.5;
   writing-mode: tb-rl;
-  font-family: 'Titillium Web';
   font-style: italic;
   font-weight: 600;
   font-style: $size-brood;
@@ -295,11 +285,10 @@
   }
 }
 
-.reviews-pers{
-  .title{
-    margin-bottom: 5rem;
-  }
+.reviews-title {
+  margin-bottom: 5rem;
 }
+
 .reviews-list{
   display: flex;
   justify-content: space-between;
@@ -312,6 +301,7 @@
   background-position: left center;
   background-size: contain;
 }
+
 .review-quote{
   display: flex;
   flex-direction: column;
@@ -325,6 +315,5 @@
 .quote-footer{
   margin-top: 1rem;
   align-self: flex-end;
-  font-family: 'Titillium Web';
   font-size: $size-button;
 }

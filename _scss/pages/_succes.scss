@@ -1,0 +1,30 @@
+.succes-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.3rem;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.succes-bedanking {
+  font-size: $size-tab;
+  color: $paars;
+}
+
+.succes-text {
+  margin-top: 1rem;
+}
+
+.yay {
+  margin-top: 2rem;
+}
+
+.succes-social {
+  margin-top: 1.5rem;
+}
+
+.succes-button {
+  margin-top: 5rem;
+}

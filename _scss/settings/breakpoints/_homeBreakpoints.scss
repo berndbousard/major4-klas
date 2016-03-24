@@ -13,6 +13,7 @@
       transition: 0.4s all;
       }
     }
+
   .omschrijving-item-wrapper{
     position: relative;
     width: 70%;
@@ -117,7 +118,7 @@
 }
 
 @media only screen and (max-width: 900px){
-  .main-footer .container {
+  .footer-container {
     justify-content: center;
   }
 
@@ -139,8 +140,8 @@
   }
 
   .omschrijving-item-wrapper {
-    width: 30rem !important;
-    height: 30rem !important;
+    width: 30rem;
+    height: 30rem;
   }
 }
 
@@ -187,10 +188,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
-    .cta-button {
-      position: initial;
-    }
+  .boek-button {
+    position: initial;
   }
 
   .info-over-wedstrijd::before {
@@ -222,14 +223,13 @@
   .sec-over-boek, .sec-beeld-boek {
     width: 100%;
   }
+
   .main-header {
-    height: auto !important;
     margin-bottom: 5rem;
   }
-  .over-heading {
-    .quote {
-      display: none;
-    }
+
+  .over-sub-title {
+    display: none;
   }
 
   .over-content {
@@ -237,13 +237,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
-    .cta-button {
-      display: inline-block;
-      margin: 0 auto;
-      position: relative;
-      top: 20rem;
-    }
+  .aanvragen-button {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    top: 20rem;
   }
 
   // reviews
@@ -268,23 +268,21 @@
     align-items: center;
   }
 
-  .sec-over .sub-title {
+  .wedstrijd-subtitle {
     width: 95vw;
     margin-left: 0;
     text-align: center;
   }
 
-  .over-wedstrijd .title {
+  .wedstrijd-title {
     padding: 3rem;
     text-align: center;
   }
 
-  .info-over-wedstrijd {
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .wedstrijd-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .wedstrijd-uitleg {
@@ -352,7 +350,7 @@
     padding: 3.5vw;
   }
 
-  .main-header .container {
+  .main-container {
     margin-top: 5vw;
   }
 
@@ -376,11 +374,11 @@
 
   .deelnemende-klassen {
     padding: 5vw 0;
+  }
 
-    .title {
-      text-shadow: none;
-      text-align: center;
-    }
+  .klassen-title {
+    text-shadow: none;
+    text-align: center;
   }
 
   .klassen-list {
@@ -437,11 +435,10 @@
 }
 
 @media only screen and (max-width: 640px){
-  .over {
-    .main-header {
-      background: none;
-    }
+  .actie-header {
+    background: none;
   }
+
   .over-auteur {
       background: none;
   }
@@ -459,37 +456,33 @@
 
   .catch-phrase-text-wrapper {
     padding: 0 1rem;
+  }
 
-    .tekst {
-      line-height: 2rem;
-    }
+  .catch-text {
+    line-height: 2rem;
   }
 
   .title {
     text-shadow: none;
   }
 
-  .hoe-het-werkt {
-    background-image: initial;
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .hoe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .sec-werking {
     align-self: initial;
     align-items: center;
+  }
 
-    .korte-uitleg {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin-left: 0;
-    }
+  .sec-uitleg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
   }
 
   .uitleg-lijst {
@@ -512,16 +505,14 @@
 }
 
 @media only screen and (max-width: 550px){
-  .home {
-    .arrow-down {
-      display: none;
-      background-image: none;
-    }
+  .home-arrow {
+    display: none;
+    background-image: none;
   }
 
-  .body-wrapper .container {
-    margin-bottom: 3rem;
-  }
+  // .body-wrapper .container {
+  //   margin-bottom: 3rem;
+  // }
 
   .tab-title {
     font-size: 1rem;
@@ -549,18 +540,15 @@
     padding: 3.5vw 1vw;
   }
 
-  .main-footer {
-    margin: 0;
 
-    .container {
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0;
-    }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
 
-    section {
-      margin: 2.5vw 0 3.5vw 0;
-    }
+  .footer-section {
+    margin: 2.5vw 0 3.5vw 0;
   }
 
   .footer-contact {
@@ -577,6 +565,10 @@
 
   .main-header {
     margin-bottom: 3vw;
+  }
+
+  .cta-button {
+    width: 90vw;
   }
 }
 
@@ -618,5 +610,16 @@
 @media only screen and (max-width: 400px){
   .main-nav {
     height: 9rem;
+  }
+}
+
+@media only screen and (max-width: 350px){
+  .omschrijving-kader {
+    display: none;
+    background-color: $wit;
+  }
+
+  .omschrijving-content-wrapper {
+    margin: 0;
   }
 }
