@@ -68,7 +68,10 @@
           </section>
 
           <section class="sec-beeld-boek">
-            <img src="/assets/img/beeld-boek.png" class="boek-view" width="227" height="357" alt="the shining boek cover">
+            <picture>
+              <!-- Kan hij kleiner met webp? -->
+              <img src="/assets/img/beeld-boek.png" class="boek-view" width="227" height="357" alt="the shining boek cover">
+            </picture>
             <q class="sub-title quote">I’m not gonna hurt ya. I'm just going to <span class="paars">bash your brains</span> in</q>
           </section>
         </div>
@@ -133,7 +136,10 @@
             <ul class="bib-lijst">
               <li class="bib-item">
                 <figure class="bib-figure">
-                  <img class="bib-img" src="/assets/img/bibliografie/boek-salem.jpg" class="bib-boek" alt="Salem's Lot">
+                  <picture class="bib-img">
+                    <source srcset="/assets/img/bibliografie/boek-salem.webp">
+                    <img class="bib-img" src="/assets/img/bibliografie/boek-salem.jpg" class="bib-boek" alt="Salem's Lot">
+                  </picture>
                   <figcaption class="bib-boek-meta">
                     <h1 class="bib-boek-naam">Salem's Lot</h1>
                   </figcaption>
@@ -142,7 +148,11 @@
               </li>
               <li class="bib-item">
                 <figure class="bib-figure">
-                  <img class="bib-img" src="/assets/img/bibliografie/boek-running.jpg" class="bib-boek" alt="The Running Man">
+                  <picture class="bib-img">
+                    <source srcset="/assets/img/bibliografie/boek-running.webp">
+                    <img class="bib-img" src="/assets/img/bibliografie/boek-running.jpg" class="bib-boek" alt="The Running Man">
+                  </picture>
+
                   <figcaption class="bib-boek-meta">
                     <h1 class="bib-boek-naam">The Running Man</h1>
                   </figcaption>
@@ -165,7 +175,10 @@
               <header class="hide">
                 <h1>image stephan king</h1>
               </header>
-              <img src="/assets/img/beeld-auteur.png" alt="Foto Stephan King">
+              <picture>
+                <source srcset="/assets/img/beeld-auteur.webp">
+                <img src="/assets/img/beeld-auteur.png" alt="Foto Stephan King">
+              </picture>
             </section>
           </div>
         </div>
