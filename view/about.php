@@ -47,7 +47,7 @@
             <a href="/about" class="active nav-item-link"><span>over de shining</span></a>
           </li>
           <li class="nav-item">
-            <a href="/#form-deelnemen" class="nav-item-link"><span>deelnemen</span></a>
+            <a href="/#form-deelnemen" class="nav-item-link scroll-link"><span>deelnemen</span></a>
           </li>
         </div>
       </ul>
