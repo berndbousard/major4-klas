@@ -1,5 +1,7 @@
 // MAIII - Kevin Hendrickx
 
+import {basename} from '../globals';
+
 let scrollAnimation, userCanScroll = true, scrollLinks;
 
 export default scrollLink => {
@@ -18,6 +20,7 @@ export default scrollLink => {
 // HANDLERS
 
 const scrollLinkClickHandler = (e, link) => {
+  console.log('click', link);
   e.preventDefault();
   let targetId = link.getAttribute('href');
 
@@ -34,16 +37,16 @@ const prepareScrollToId = id => {
   let l = id.length;
   let indexOfScrolling;
 
-
   for (var i = 0; i <= l - 1; i++) {
-    let char = id.substring(i, 1);
+    let char = id.substring(i, i+1);
     if (char == '#') {
-      indexOfScrolling = i - 1;
+      indexOfScrolling = i;
       break;
     }
   }
 
   id = id.substring(indexOfScrolling);
+
   if (id.substring(0, 1) != '#') return;
 
   let containerPosition = document.querySelector(id).offsetTop;

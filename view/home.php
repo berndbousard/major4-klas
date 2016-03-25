@@ -5,7 +5,7 @@
     WebFontConfig = {
       custom: {
         families: ['Plantagenet Cherokee'],
-        urls: ['/assets/fonts/plantagenetCherokee/plantagenetCherokee.css']
+        urls: ["<?php echo $basePath . '/assets/fonts/plantagenetCherokee/plantagenetCherokee.css' ?>"]
       },
       google: { families: [ 'Titillium+Web:400,600,300,700:latin' ] }
     };
@@ -41,13 +41,13 @@
         </li>
         <div class="nav-items">
           <li class="nav-item">
-            <a href="/" class="active nav-item-link"><span>de actie</span></a>
+            <a href="<?php echo $basePath ?>" class="active nav-item-link"><span>de actie</span></a>
           </li>
           <li class="nav-item">
-            <a href="/about" class="nav-item-link"><span>over de shining</span></a>
+            <a href="<?php echo $basePath . '/about' ?>" class="nav-item-link"><span>over de shining</span></a>
           </li>
           <li class="nav-item">
-            <a href="/#form-deelnemen" class="nav-item-link scroll-link"><span>deelnemen</span></a>
+            <a href="<?php echo $basePath . '/#form-deelnemen' ?>" class="nav-item-link scroll-link"><span>deelnemen</span></a>
           </li>
         </div>
       </ul>
@@ -174,7 +174,7 @@
               <div class="tab-header hide" data-on-js="show"><span class="tab-title">recensie opsturen &amp; aanvragen</span></div>
             </div>
       <!-- FORM DEELNEMEN -->
-            <form action="/" method="POST" class="main-form form-deelnemen">
+            <form action="/" method="POST" class="main-form form-deelnemen" autocomplete="off">
               <fieldset class="form-container">
                 <legend class="hide">boek aanvragen</legend>
                 <div class="form-input-fields">
@@ -184,7 +184,7 @@
 
                     <div class="form-input-wrapper">
                       <label for="name">docent naam &amp; familienaam</label>
-                      <input type="text" name="name" id="name" placeholder="naam &amp; achternaam" <?php if(!empty($_POST['name']) && empty($errors['name'])) echo "value='" .  $_POST['name'] . "'" ?> >
+                      <input autocomplete="off" type="text" name="name" id="name" placeholder="naam &amp; achternaam" <?php if(!empty($_POST['name']) && empty($errors['name'])) echo "value='" .  $_POST['name'] . "'" ?> >
                       <?php if(!empty($errors['name'])) { ?>
                         <span class="form-error php-error"><?php echo $errors['name'] ?></span>
                       <?php } ?>
@@ -192,7 +192,7 @@
 
                     <div class="form-input-wrapper">
                       <label for="cardID">docentenkaartnummer</label>
-                      <input type="text" name="cardId" id="cardID" placeholder="kaartnummer" <?php if(!empty($_POST['cardId']) && empty($errors['cardId'])) echo "value='" .  $_POST['cardId'] . "'" ?> >
+                      <input autocomplete="off" type="text" name="cardId" id="cardID" placeholder="kaartnummer" <?php if(!empty($_POST['cardId']) && empty($errors['cardId'])) echo "value='" .  $_POST['cardId'] . "'" ?> >
                       <?php if(!empty($errors['cardId'])) { ?>
                         <span class="form-error php-error"><?php echo $errors['cardId'] ?></span>
                       <?php } ?>
@@ -203,14 +203,14 @@
                     <legend class="hide">aanmeld gegevens</legend>
                     <div class="form-input-wrapper">
                       <label for="email">e-mail adres</label>
-                      <input type="email" id="email" name="email" placeholder="voornaam.naam@school.be" <?php if(!empty($_POST['email']) && empty($errors['email'])) echo "value='" .  $_POST['email'] . "'" ?> >
+                      <input autocomplete="off" type="email" id="email" name="email" placeholder="voornaam.naam@school.be" <?php if(!empty($_POST['email']) && empty($errors['email'])) echo "value='" .  $_POST['email'] . "'" ?> >
                       <?php if(!empty($errors['email'])) { ?>
                         <span class="form-error php-error"><?php echo $errors['email'] ?></span>
                       <?php } ?>
                     </div>
                     <div class="form-input-wrapper">
                       <label for="password">wachtwoord</label>
-                      <input type="password" name="password" id="password" placeholder="wachtwoord">
+                      <input autocomplete="off" type="password" name="password" id="password" placeholder="wachtwoord">
                       <?php if(!empty($errors['password'])) { ?>
                         <span class="form-error php-error"><?php echo $errors['password'] ?></span>
                       <?php } ?>
@@ -229,7 +229,7 @@
             <div class="tab-navigation-remove" data-on-js="hide">
               <div class="tab-header active"><span class="tab-title">recensie opsturen &amp; aanvragen</span></div>
             </div>
-            <form action="/" method="POST" data-on-js="hide" enctype="multipart/form-data" class="main-form form-opsturen">
+            <form action="/" method="POST" data-on-js="hide" enctype="multipart/form-data" class="main-form form-opsturen" autocomplete="off">
               <fieldset class="form-container">
                 <legend class="hide">recensie opsturen</legend>
                 <div class="form-input-fields">
@@ -241,14 +241,14 @@
                       <legend class="hide">gelieve u eerst aanmelden</legend>
                       <div class="form-input-wrapper">
                         <label for="email_2">e-mail adres</label>
-                        <input type="text" name="email_2" id="email_2" placeholder="email" <?php if(!empty($_POST['email_2']) && empty($errors['email_2'])) echo "value='" .  $_POST['email_2'] . "'" ?> >
+                        <input autocomplete="off" type="text" name="email_2" id="email_2" placeholder="email" <?php if(!empty($_POST['email_2']) && empty($errors['email_2'])) echo "value='" .  $_POST['email_2'] . "'" ?> >
                         <?php if(!empty($errors['email_2'])) { ?>
                           <span class="form-error php-error"><?php echo $errors['email_2'] ?></span>
                         <?php } ?>
                       </div>
                       <div class="form-input-wrapper">
                         <label for="password_2">paswoord</label>
-                        <input type="password" name="password_2" id="password_2" placeholder="paswoord">
+                        <input autocomplete="off" type="password" name="password_2" id="password_2" placeholder="paswoord">
                         <?php if(!empty($errors['password_2'])) { ?>
                           <span class="form-error php-error"><?php echo $errors['password_2'] ?></span>
                         <?php } ?>
@@ -259,14 +259,14 @@
                       <legend class="hide">klas gegevens</legend>
                       <div class="form-input-wrapper">
                         <label for="school">school</label>
-                        <input type="text" name="school" id="school" placeholder="school" <?php if(!empty($_POST['school']) && empty($errors['school'])) echo "value='" .  $_POST['school'] . "'" ?> >
+                        <input autocomplete="off" type="text" name="school" id="school" placeholder="school" <?php if(!empty($_POST['school']) && empty($errors['school'])) echo "value='" .  $_POST['school'] . "'" ?> >
                         <?php if(!empty($errors['school'])) { ?>
                           <span class="form-error php-error"><?php echo $errors['school'] ?></span>
                         <?php } ?>
                       </div>
                       <div class="form-input-wrapper">
                         <label for="class">klas</label>
-                        <input type="text" name="class" id="class" placeholder="klas" <?php if(!empty($_POST['class']) && empty($errors['class'])) echo "value='" .  $_POST['class'] . "'" ?> >
+                        <input autocomplete="off" type="text" name="class" id="class" placeholder="klas" <?php if(!empty($_POST['class']) && empty($errors['class'])) echo "value='" .  $_POST['class'] . "'" ?> >
                         <?php if(!empty($errors['class'])) { ?>
                           <span class="form-error php-error"><?php echo $errors['class'] ?></span>
                         <?php } ?>

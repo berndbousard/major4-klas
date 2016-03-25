@@ -5,7 +5,7 @@
     WebFontConfig = {
       custom: {
         families: ['Plantagenet Cherokee'],
-        urls: ['/assets/fonts/plantagenetCherokee/plantagenetCherokee.css']
+        urls: ["<?php echo $basePath . '/assets/fonts/plantagenetCherokee/plantagenetCherokee.css' ?>"]
       },
       google: { families: [ 'Titillium+Web:400,600,300,700:latin' ] }
     };
@@ -41,13 +41,13 @@
           </li>
           <div class="nav-items">
             <li class="nav-item">
-              <a href="/" class="nav-item-link"><span>de actie</span></a>
+              <a href="<?php echo $basePath ?>" class="active nav-item-link"><span>de actie</span></a>
             </li>
             <li class="nav-item">
-              <a href="/about" class="nav-item-link"><span>over de shining</span></a>
+              <a href="<?php echo $basePath . '/about' ?>" class="nav-item-link"><span>over de shining</span></a>
             </li>
             <li class="nav-item">
-              <a href="/#form-deelnemen" class="nav-item-link"><span>deelnemen</span></a>
+              <a href="<?php echo $basePath . '/#form-deelnemen' ?>" class="nav-item-link scroll-link"><span>deelnemen</span></a>
             </li>
           </div>
         </ul>

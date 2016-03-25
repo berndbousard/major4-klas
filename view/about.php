@@ -5,7 +5,7 @@
     WebFontConfig = {
       custom: {
         families: ['Plantagenet Cherokee'],
-        urls: ['/assets/fonts/plantagenetCherokee/plantagenetCherokee.css']
+        urls: ["<?php echo $basePath . '/assets/fonts/plantagenetCherokee/plantagenetCherokee.css' ?>"]
       },
       google: { families: [ 'Titillium+Web:400,600,300,700:latin' ] }
     };
@@ -35,19 +35,19 @@
       <ul class="main-nav-list">
         <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
           <svg class="nav-logo-svg">
-            <use class="nav-logo-svg-use" xlink:href="<?php echo $basePath . '/assets/svg/logo.svg#logo'  ?>"/>
+            <use class="nav-logo-svg-use" xlink:href="./assets/svg/logo.svg#logo"/>
           </svg>
           <span class="hide">boek.be</span></a>
         </li>
         <div class="nav-items">
           <li class="nav-item">
-            <a href="/" class="nav-item-link"><span>de actie</span></a>
+            <a href="<?php echo $basePath . '/' ?>" class="nav-item-link"><span>de actie</span></a>
           </li>
           <li class="nav-item">
-            <a href="/about" class="active nav-item-link"><span>over de shining</span></a>
+            <a href="<?php echo $basePath . '/about' ?>" class="active nav-item-link"><span>over de shining</span></a>
           </li>
           <li class="nav-item">
-            <a href="/#form-deelnemen" class="nav-item-link scroll-link"><span>deelnemen</span></a>
+            <a href="<?php echo $basePath . '/#form-deelnemen' ?>" class="nav-item-link scroll-link"><span>deelnemen</span></a>
           </li>
         </div>
       </ul>
@@ -70,7 +70,7 @@
           <section class="sec-beeld-boek">
             <picture>
               <!-- Kan hij kleiner met webp? -->
-              <img src="/assets/img/beeld-boek.png" class="boek-view" width="227" height="357" alt="the shining boek cover">
+              <img src="<?php echo $basePath . '/assets/img/beeld-boek.png' ?>" class="boek-view" width="227" height="357" alt="the shining boek cover">
             </picture>
             <q class="sub-title quote about-subtitle">I’m not gonna hurt ya. I'm just going to <span class="paars">bash your brains</span> in</q>
           </section>
@@ -91,7 +91,7 @@
                   <p class="tekst omschrijving-tekst">Wat nooit aan het daglicht is gekomen, zijn de gruwelijke feiten die zich afgespeeld hebben in het verleden. Deze zijn niets voor niets in de doofpot gestopt.</p>
                 </div>
                 <svg class="omschrijving-kader" viewBox="0 0 208 216.29" width="100" height="100">
-                  <use xlink:href="/assets/svg/6-hoek-groot-2.svg#Layer_1"></use>
+                  <use xlink:href="<?php echo $basePath . '/assets/svg/6-hoek-groot-2.svg#Layer_1'  ?>"></use>
                 </svg>
               </div>
             </li>
@@ -104,7 +104,7 @@
                   <p class="tekst omschrijving-tekst">Een niets vermoedend gezin komt tijdens de winter toezien op het hotel. Beetje bij beetje ontdekken ze de eigen wil van het etablissement.</p>
                 </div>
                 <svg class="omschrijving-kader" viewBox="0 0 208 216.29" width="100" height="100">
-                  <use xlink:href="/assets/svg/6-hoek-groot-2.svg#Layer_1"></use>
+                  <use xlink:href="<?php echo $basePath . '/assets/svg/6-hoek-groot-2.svg#Layer_1'  ?>"></use>
                 </svg>
               </div>
             </li>
@@ -117,7 +117,7 @@
                   <p class="tekst omschrijving-tekst">Zoontje Danny ontdekt zijn gave, waardoor hij langzaamaan achterhaalt  wat zijn familie te wachten staat.</p>
                 </div>
                 <svg class="omschrijving-kader" viewBox="0 0 208 216.29" width="100" height="100">
-                  <use xlink:href="/assets/svg/6-hoek-groot-2.svg#Layer_1"></use>
+                  <use xlink:href="<?php echo $basePath . '/assets/svg/6-hoek-groot-2.svg#Layer_1'  ?>"></use>
                 </svg>
               </div>
             </li>
@@ -137,8 +137,8 @@
               <li class="bib-item">
                 <figure class="bib-figure">
                   <picture class="bib-img">
-                    <source srcset="/assets/img/bibliografie/boek-salem.webp">
-                    <img class="bib-img" src="/assets/img/bibliografie/boek-salem.jpg" class="bib-boek" alt="Salem's Lot">
+                    <source srcset="<?php echo $basePath . '/assets/img/bibliografie/boek-salem.webp' ?>">
+                    <img class="bib-img" src="<?php echo $basePath . '/assets/img/bibliografie/boek-salem.jpg' ?>" class="bib-boek" alt="Salem's Lot">
                   </picture>
                   <figcaption class="bib-boek-meta">
                     <h1 class="bib-boek-naam">Salem's Lot</h1>
@@ -149,8 +149,8 @@
               <li class="bib-item">
                 <figure class="bib-figure">
                   <picture class="bib-img">
-                    <source srcset="/assets/img/bibliografie/boek-running.webp">
-                    <img class="bib-img" src="/assets/img/bibliografie/boek-running.jpg" class="bib-boek" alt="The Running Man">
+                    <source srcset="<?php echo $basePath . '/assets/img/bibliografie/boek-running.webp' ?>">
+                    <img class="bib-img" src="<?php echo $basePath . '/assets/img/bibliografie/boek-running.jpg' ?>" class="bib-boek" alt="The Running Man">
                   </picture>
 
                   <figcaption class="bib-boek-meta">
@@ -176,8 +176,8 @@
                 <h1>image stephan king</h1>
               </header>
               <picture>
-                <source srcset="/assets/img/beeld-auteur.webp">
-                <img src="/assets/img/beeld-auteur.png" alt="Foto Stephan King">
+                <source srcset="<?php echo $basePath . '/assets/img/beeld-auteur.webp' ?>">
+                <img src="<?php echo $basePath . '/assets/img/beeld-auteur.png' ?>" alt="Foto Stephan King">
               </picture>
             </section>
           </div>
