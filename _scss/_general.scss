@@ -248,3 +248,7 @@ body {
     transform: rotate(-90deg);
   }
 }
+
+.form-input-wrapper .good, .form-input-wrapper .file-input-replacement.good {
+  border-color: $groen;
+}

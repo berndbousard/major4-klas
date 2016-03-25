@@ -43,6 +43,31 @@ const initJSPerfections = () => {
   initTabs();
   initScroll('.scroll-link');
   initFileInputEnhancement('.file-input', '.file-input-replacement');
+  initFormValidater();
+};
+
+const initFormValidater = () => {
+  let inputs = document.querySelectorAll('input');
+  [...inputs].forEach((input) => {
+    input.addEventListener('change', (e) => validateNotEmpty(e));
+  });
+};
+
+const validateNotEmpty = (e) => {
+  // console.log(e.srcElement.value);
+  if(e.srcElement.value !== ''){
+    e.srcElement.classList.add('good');
+    e.srcElement.parentNode.querySelector('.file-input-replacement').classList.add('good');
+    if(e.srcElement.parentNode.querySelector('.php-error')){
+      e.srcElement.parentNode.querySelector('.php-error').classList.add('hide');
+    }
+  }else{
+    e.srcElement.classList.remove('good');
+    e.srcElement.parentNode.querySelector('.file-input-replacement').classList.remove('good');
+    if(e.srcElement.parentNode.querySelector('.php-error')){
+      e.srcElement.parentNode.querySelector('.php-error').classList.remove('hide');
+    }
+  }
 };
 
 init();

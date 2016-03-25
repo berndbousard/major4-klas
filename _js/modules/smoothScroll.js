@@ -1,3 +1,5 @@
+// MAIII - Kevin Hendrickx
+
 let scrollAnimation, userCanScroll = true, scrollLinks;
 
 export default scrollLink => {

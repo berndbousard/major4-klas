@@ -407,11 +407,15 @@ $app->post('/', function ($request, $response, $args) {
         }
       }
     } else {
+        $participationDAO = new ParticipationDAO();
+        $photos = $participationDAO->selectAllPhotos();
+
         $view = new \Slim\Views\PhpRenderer('view/');
         $basePath = $request->getUri()->getBasePath();
         return $view->render($response, 'home.php', [
           'basePath' => $basePath,
-          'errors' => $errors
+          'errors' => $errors,
+          'photos' => $photos
       ]);
     }
   }

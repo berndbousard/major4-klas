@@ -186,7 +186,7 @@
                       <label for="name">docent naam &amp; familienaam</label>
                       <input type="text" name="name" id="name" placeholder="naam &amp; achternaam" <?php if(!empty($_POST['name']) && empty($errors['name'])) echo "value='" .  $_POST['name'] . "'" ?> >
                       <?php if(!empty($errors['name'])) { ?>
-                        <span class="form-error"><?php echo $errors['name'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['name'] ?></span>
                       <?php } ?>
                     </div>
 
@@ -194,7 +194,7 @@
                       <label for="cardID">docentenkaartnummer</label>
                       <input type="text" name="cardId" id="cardID" placeholder="kaartnummer" <?php if(!empty($_POST['cardId']) && empty($errors['cardId'])) echo "value='" .  $_POST['cardId'] . "'" ?> >
                       <?php if(!empty($errors['cardId'])) { ?>
-                        <span class="form-error"><?php echo $errors['cardId'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['cardId'] ?></span>
                       <?php } ?>
                     </div>
                   </fieldset>
@@ -205,14 +205,14 @@
                       <label for="email">e-mail adres</label>
                       <input type="email" id="email" name="email" placeholder="voornaam.naam@school.be" <?php if(!empty($_POST['email']) && empty($errors['email'])) echo "value='" .  $_POST['email'] . "'" ?> >
                       <?php if(!empty($errors['email'])) { ?>
-                        <span class="form-error"><?php echo $errors['email'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['email'] ?></span>
                       <?php } ?>
                     </div>
                     <div class="form-input-wrapper">
                       <label for="password">wachtwoord</label>
                       <input type="password" name="password" id="password" placeholder="wachtwoord">
                       <?php if(!empty($errors['password'])) { ?>
-                        <span class="form-error"><?php echo $errors['password'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['password'] ?></span>
                       <?php } ?>
                     </div>
                   </fieldset>
@@ -243,14 +243,14 @@
                         <label for="email_2">e-mail adres</label>
                         <input type="text" name="email_2" id="email_2" placeholder="email" <?php if(!empty($_POST['email_2']) && empty($errors['email_2'])) echo "value='" .  $_POST['email_2'] . "'" ?> >
                         <?php if(!empty($errors['email_2'])) { ?>
-                          <span class="form-error"><?php echo $errors['email_2'] ?></span>
+                          <span class="form-error php-error"><?php echo $errors['email_2'] ?></span>
                         <?php } ?>
                       </div>
                       <div class="form-input-wrapper">
                         <label for="password_2">paswoord</label>
                         <input type="password" name="password_2" id="password_2" placeholder="paswoord">
                         <?php if(!empty($errors['password_2'])) { ?>
-                          <span class="form-error"><?php echo $errors['password_2'] ?></span>
+                          <span class="form-error php-error"><?php echo $errors['password_2'] ?></span>
                         <?php } ?>
                       </div>
                     </fieldset>
@@ -261,14 +261,14 @@
                         <label for="school">school</label>
                         <input type="text" name="school" id="school" placeholder="school" <?php if(!empty($_POST['school']) && empty($errors['school'])) echo "value='" .  $_POST['school'] . "'" ?> >
                         <?php if(!empty($errors['school'])) { ?>
-                          <span class="form-error"><?php echo $errors['school'] ?></span>
+                          <span class="form-error php-error"><?php echo $errors['school'] ?></span>
                         <?php } ?>
                       </div>
                       <div class="form-input-wrapper">
                         <label for="class">klas</label>
                         <input type="text" name="class" id="class" placeholder="klas" <?php if(!empty($_POST['class']) && empty($errors['class'])) echo "value='" .  $_POST['class'] . "'" ?> >
                         <?php if(!empty($errors['class'])) { ?>
-                          <span class="form-error"><?php echo $errors['class'] ?></span>
+                          <span class="form-error php-error"><?php echo $errors['class'] ?></span>
                         <?php } ?>
                       </div>
                     </fieldset>
@@ -281,7 +281,7 @@
                       <label for="pdf" class="file-input-replacement hide" data-on-js="show">klik om je pdf te selecteren</label>
                       <input type="file" class="file-input" data-on-js="hide" name="pdf" id="pdf">
                       <?php if(!empty($errors['pdf'])) { ?>
-                        <span class="form-error"><?php echo $errors['pdf'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['pdf'] ?></span>
                       <?php } ?>
                     </div>
                     <div class="form-input-wrapper">
@@ -289,7 +289,7 @@
                       <label for="photo" class="file-input-replacement hide" data-on-js="show">klik om je klasfoto te selecteren</label>
                       <input type="file" class="file-input" data-on-js="hide" name="photo" id="photo">
                       <?php if(!empty($errors['photo'])) { ?>
-                        <span class="form-error"><?php echo $errors['photo'] ?></span>
+                        <span class="form-error php-error"><?php echo $errors['photo'] ?></span>
                       <?php } ?>
                     </div>
                     <div class="cta-button form-submit-button">
