@@ -346,6 +346,11 @@ $app->post('/', function ($request, $response, $args) {
                 $ext = explode('.', $data['photo']['name']);
                 $ext = $ext[sizeof($ext) - 1];
                 $data['photo'] = uniqid() . '.' . $ext;
+
+                // TINYPNG
+                // $sourceImage = \Tinify\fromFile($_FILES['photo']['tmp_name']);
+                // $tinifiedImage = $sourceImage->toFile(uniqid() . '.' . $ext);
+
                 $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
 
                 if(!empty($data['pdf'])){

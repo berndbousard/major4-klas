@@ -67,7 +67,7 @@
       <span class="yay">Laat je collega's weten van je deelname</span>
     <?php } ?>
     <?php if(isset($_GET['type'])) { ?>
-      <section class="footer-social footer-section">
+      <section class="footer-social footer-section succes-social">
           <ul class="footer-social-list">
             <li><a href="#" class="social-button social-twitter"><span class="hide">twitter</span></a></li>
             <li><a href="#" class="social-button social-facebook"><span class="hide">facebook</span></a></li>

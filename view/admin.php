@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" class="react-html">
 <head>
     <script>
         WebFontConfig = {
@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $basePath;?>/css/style.css"/>
 </head>
-<body>
+<body class="react-body">
     <div class="react-container">
 
     </div>

@@ -398,6 +398,10 @@ body {
           transform: rotate(-90deg);
 }
 
+.react-html {
+  font-size: 62.5%;
+}
+
 .cms-header-top {
   position: relative;
   background-color: #3E3E3E;
@@ -1702,12 +1706,15 @@ body {
   margin-top: 2rem;
 }
 
-.succes-social {
+.footer-social.succes-social {
   margin-top: 1.5rem;
+  -webkit-order: initial;
+      -ms-flex-order: initial;
+          order: initial;
 }
 
 .succes-button {
-  margin-top: 5rem;
+  margin-top: 10vw;
 }
 
 @media only screen and (max-width: 1390px) {
@@ -2176,6 +2183,9 @@ body {
   }
   .review-quote-text {
     margin: 0;
+  }
+  .succes-wrapper {
+    margin-top: 2rem;
   }
 }
 
