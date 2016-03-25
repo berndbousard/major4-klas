@@ -219,7 +219,7 @@ $app->get('/admin/{anything:.*}', function ($request, $response, $args) {
 
 // --------------------------------------------------------------------------- WEBSITE
 
-$app->post('/', function ($request, $response, $args) {
+$app->post(WWW_ROOT, function ($request, $response, $args) {
   $data = $request->getParsedBody();
   $userDAO = new UserDAO();
   $hasher = new \Phpass\Hash;
@@ -272,7 +272,8 @@ $app->post('/', function ($request, $response, $args) {
         $response = $response->withStatus(201);
       }
 
-      return $response->withRedirect('/succes?type=registreren');
+      $basePath = $request->getUri()->getBasePath();
+      return $response->withRedirect($basePath . '/succes?type=registreren');
     } else {
       $view = new \Slim\Views\PhpRenderer('view/');
       $basePath = $request->getUri()->getBasePath();
@@ -419,7 +420,9 @@ $app->post('/', function ($request, $response, $args) {
       ]);
     }
   }
-  return $response->withRedirect('/');
+
+  $basePath = $request->getUri()->getBasePath();
+  return $response->withRedirect($basePath);
 });
 
 $app->get('/succes', function ($request, $response, $args) {
