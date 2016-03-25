@@ -123,7 +123,7 @@
                       </header>
                       <p class="tekst boek-text">door Stephan King</p>
                     </div>
-                    <a href="/#form-deelnemen" class="cta-button boek-button">
+                    <a href="<?php echo $basePath . '/#form-deelnemen' ?>" class="cta-button boek-button">
                       <span class="cta-button-content">mijn klas durft dit</span>
                     </a>
                   </figcaption>
@@ -232,7 +232,11 @@
             <div class="tab-navigation-remove" data-on-js="hide">
               <div class="tab-header active"><span class="tab-title">recensie opsturen &amp; aanvragen</span></div>
             </div>
+<<<<<<< HEAD
             <form action="<?php echo $basePath . '/' ?>" method="POST" data-on-js="hide" enctype="multipart/form-data" class="main-form form-opsturen" autocomplete="off">
+=======
+            <form action="<?php echo $basePath ?>" method="POST" data-on-js="hide" enctype="multipart/form-data" class="main-form form-opsturen" autocomplete="off">
+>>>>>>> 48a47b6c6edf7fbd572920c0f1f626c69dbd433d
               <fieldset class="form-container">
                 <legend class="hide">recensie opsturen</legend>
                 <div class="form-input-fields">
