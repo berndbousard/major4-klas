@@ -278,16 +278,16 @@
                     <legend class="hide">bestanden uploaden</legend>
                     <div class="form-input-wrapper">
                       <label for="pdf">kies je boekbespreking</label>
-                      <label for="pdf" class="file-input-replacement">sleep je pdf hier</label>
-                      <input type="file" class="hide" name="pdf" id="pdf">
+                      <label for="pdf" class="file-input-replacement hide" data-on-js="show">klik om je pdf te selecteren</label>
+                      <input type="file" class="file-input" data-on-js="hide" name="pdf" id="pdf">
                       <?php if(!empty($errors['pdf'])) { ?>
                         <span class="form-error"><?php echo $errors['pdf'] ?></span>
                       <?php } ?>
                     </div>
                     <div class="form-input-wrapper">
                       <label for="photo">kies je klasfoto</label>
-                      <label for="photo" class="file-input-replacement">sleep je klasfoto hier</label>
-                      <input type="file" class="hide" name="photo" id="photo">
+                      <label for="photo" class="file-input-replacement hide" data-on-js="show">klik om je klasfoto te selecteren</label>
+                      <input type="file" class="file-input" data-on-js="hide" name="photo" id="photo">
                       <?php if(!empty($errors['photo'])) { ?>
                         <span class="form-error"><?php echo $errors['photo'] ?></span>
                       <?php } ?>

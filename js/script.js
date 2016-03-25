@@ -44,13 +44,13 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("__webpack_require__(1);\nmodule.exports = __webpack_require__(241);\n\n\n/*****************\n ** WEBPACK FOOTER\n ** multi main\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///multi_main?");
+	eval("__webpack_require__(1);\nmodule.exports = __webpack_require__(242);\n\n\n/*****************\n ** WEBPACK FOOTER\n ** multi main\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///multi_main?");
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\nvar _reactDom = __webpack_require__(2);\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _react = __webpack_require__(147);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _globals = __webpack_require__(159);\n\nvar _routers = __webpack_require__(160);\n\nvar _routers2 = _interopRequireDefault(_routers);\n\nvar _smoothScroll = __webpack_require__(239);\n\nvar _smoothScroll2 = _interopRequireDefault(_smoothScroll);\n\nvar _formTabs = __webpack_require__(240);\n\nvar _formTabs2 = _interopRequireDefault(_formTabs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar init = function init() {\n  // Check of je op de admin pagina zit of niet\n\n  if (document.querySelector('.react-container')) {\n\n    initSession();\n\n    _reactDom2.default.render(_react2.default.createElement(_routers2.default, null), document.querySelector('.react-container'));\n  }\n\n  if (document.querySelector('.home')) {\n    initWebsite();\n  }\n};\n\nvar initSession = function initSession() {\n  if ((0, _globals.isAuthenticated)() === null || (0, _globals.isAuthenticated)() === undefined) {\n    (0, _globals.setAuthenticated)(0);\n  }\n};\n\nvar initWebsite = function initWebsite() {\n  initJSPerfections();\n};\n\nvar initJSPerfections = function initJSPerfections() {\n  // progressive enhancement shizzle\n  (0, _formTabs2.default)();\n  (0, _smoothScroll2.default)('.scroll-link');\n};\n\ninit();\n\n/*****************\n ** WEBPACK FOOTER\n ** ./_js/script.js\n ** module id = 1\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./_js/script.js?");
+	eval("'use strict';\n\nvar _reactDom = __webpack_require__(2);\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _react = __webpack_require__(147);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _globals = __webpack_require__(159);\n\nvar _routers = __webpack_require__(160);\n\nvar _routers2 = _interopRequireDefault(_routers);\n\nvar _smoothScroll = __webpack_require__(239);\n\nvar _smoothScroll2 = _interopRequireDefault(_smoothScroll);\n\nvar _formTabs = __webpack_require__(240);\n\nvar _formTabs2 = _interopRequireDefault(_formTabs);\n\nvar _fileInputEnhancement = __webpack_require__(241);\n\nvar _fileInputEnhancement2 = _interopRequireDefault(_fileInputEnhancement);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar init = function init() {\n  // Check of je op de admin pagina zit of niet\n\n  if (document.querySelector('.react-container')) {\n\n    initSession();\n\n    _reactDom2.default.render(_react2.default.createElement(_routers2.default, null), document.querySelector('.react-container'));\n  }\n\n  if (document.querySelector('.home')) {\n    initWebsite();\n  }\n};\n\nvar initSession = function initSession() {\n  if ((0, _globals.isAuthenticated)() === null || (0, _globals.isAuthenticated)() === undefined) {\n    (0, _globals.setAuthenticated)(0);\n  }\n};\n\nvar initWebsite = function initWebsite() {\n  initJSPerfections();\n};\n\nvar initJSPerfections = function initJSPerfections() {\n  // progressive enhancement shizzle\n  (0, _formTabs2.default)();\n  (0, _smoothScroll2.default)('.scroll-link');\n  (0, _fileInputEnhancement2.default)('.file-input', '.file-input-replacement');\n};\n\ninit();\n\n/*****************\n ** WEBPACK FOOTER\n ** ./_js/script.js\n ** module id = 1\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./_js/script.js?");
 
 /***/ },
 /* 2 */
@@ -1490,7 +1490,13 @@
 /* 241 */
 /***/ function(module, exports) {
 
-	eval("// removed by extract-text-webpack-plugin\n\n/*****************\n ** WEBPACK FOOTER\n ** ./_scss/style.scss\n ** module id = 241\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./_scss/style.scss?");
+	eval("'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }\n\nvar inputClass = void 0,\n    labelClass = void 0;\n\nexports.default = function (originalInputClass, replacementLabelClass) {\n  inputClass = originalInputClass;\n  labelClass = replacementLabelClass;\n\n  var fileInputFields = document.querySelectorAll(inputClass);\n  [].concat(_toConsumableArray(fileInputFields)).forEach(function (input) {\n    input.addEventListener('change', fileInputChangeHandler);\n  });\n};\n\nvar fileInputChangeHandler = function fileInputChangeHandler(e) {\n  var id = e.target.id;\n  var fileName = e.target.value.split(/(\\\\|\\/)/g).pop();\n\n  var label = getReplacementLabel(id);\n  updateReplacementLabel(label, fileName);\n};\n\nvar getReplacementLabel = function getReplacementLabel(id) {\n  return document.querySelector('label[for=\"' + id + '\"]' + labelClass);\n};\n\nvar updateReplacementLabel = function updateReplacementLabel(label, content) {\n  label.innerText = content;\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./_js/modules/fileInputEnhancement.js\n ** module id = 241\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./_js/modules/fileInputEnhancement.js?");
+
+/***/ },
+/* 242 */
+/***/ function(module, exports) {
+
+	eval("// removed by extract-text-webpack-plugin\n\n/*****************\n ** WEBPACK FOOTER\n ** ./_scss/style.scss\n ** module id = 242\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./_scss/style.scss?");
 
 /***/ }
 /******/ ]);

@@ -8,6 +8,7 @@ import Router from './routers/';
 
 import initScroll from './modules/smoothScroll';
 import initTabs from './modules/formTabs';
+import initFileInputEnhancement from './modules/fileInputEnhancement';
 
 const init = () => {
   // Check of je op de admin pagina zit of niet
@@ -41,6 +42,7 @@ const initJSPerfections = () => {
   // progressive enhancement shizzle
   initTabs();
   initScroll('.scroll-link');
+  initFileInputEnhancement('.file-input', '.file-input-replacement');
 };
 
 init();
