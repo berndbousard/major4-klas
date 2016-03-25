@@ -35,7 +35,7 @@
         <ul class="main-nav-list">
           <li class="nav-logo"><a class="nav-logo-link" href="http://www.boek.be">
             <svg class="nav-logo-svg">
-              <use class="nav-logo-svg-use" xlink:href="./assets/svg/logo.svg#logo"/>
+              <use class="nav-logo-svg-use" xlink:href="<?php echo $basePath . '/assets/svg/logo.svg#logo' ?>"/>
             </svg>
             <span class="hide">boek.be</span></a>
           </li>
@@ -74,6 +74,6 @@
           </ul>
         </section>
     <?php } ?>
-    <a href="/" class="cta-button succes-button"><span class="cta-button-content">terug naar de website</span></a>
+    <a href="<?php echo $basePath ?>" class="cta-button succes-button"><span class="cta-button-content">terug naar de website</span></a>
   </section>
 </body>

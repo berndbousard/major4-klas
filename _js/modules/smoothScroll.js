@@ -1,7 +1,4 @@
 // MAIII - Kevin Hendrickx
-
-import {basename} from '../globals';
-
 let scrollAnimation, userCanScroll = true, scrollLinks;
 
 export default scrollLink => {

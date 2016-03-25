@@ -272,7 +272,8 @@ $app->post('/', function ($request, $response, $args) {
         $response = $response->withStatus(201);
       }
 
-      return $response->withRedirect('/succes?type=registreren');
+      $basePath = $request->getUri()->getBasePath();
+      return $response->withRedirect($basePath . '/succes?type=registreren');
     } else {
       $view = new \Slim\Views\PhpRenderer('view/');
       $basePath = $request->getUri()->getBasePath();
@@ -381,8 +382,6 @@ $app->post('/', function ($request, $response, $args) {
                     $data['pdf'] = uniqid() . '.' . $ext;
                     move_uploaded_file($_FILES['pdf']['tmp_name'], WWW_ROOT . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
 
-                    error_log(print_r(WWW_ROOT . 'uploads' . DS . 'pdf' . DS . $data['pdf'], true));
-
                     $participationDAO = new ParticipationDAO();
 
                     $data['created'] = date('Y-m-d H:i:s');
@@ -398,7 +397,8 @@ $app->post('/', function ($request, $response, $args) {
                       $response = $response->withStatus(201);
                     }
 
-                    return $response->withRedirect('/succes?type=inschrijven');
+                    $basePath = $request->getUri()->getBasePath();
+                    return $response->withRedirect($basePath . '/succes?type=inschrijven');
                   }
                 }
               }
