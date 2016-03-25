@@ -17,8 +17,15 @@ require_once 'phpUtils' . DS . 'resizeCrop.php';
 
 require 'vendor/autoload.php';
 
+
 // TINYPNG
-\Tinify\setKey("W9UsdoqEYCE335hV_7CtwWrJWFv3Hvdf");
+
+use Kinglozzer\TinyPng\Compressor;
+use Kinglozzer\TinyPng\Exception\AuthorizationException;
+use Kinglozzer\TinyPng\Exception\InputException;
+use Kinglozzer\TinyPng\Exception\LogicException;
+
+// \Tinify\setKey("W9UsdoqEYCE335hV_7CtwWrJWFv3Hvdf");
 
 $app = new \Slim\App([
     'settings' => [
@@ -347,11 +354,25 @@ $app->post('/', function ($request, $response, $args) {
                 $ext = $ext[sizeof($ext) - 1];
                 $data['photo'] = uniqid() . '.' . $ext;
 
-                // TINYPNG
-                // $sourceImage = \Tinify\fromFile($_FILES['photo']['tmp_name']);
-                // $tinifiedImage = $sourceImage->toFile(uniqid() . '.' . $ext);
+                $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'], $_FILES['photo']['tmp_name'], 480, 360);
 
-                $resizeCrop->resizeCropImage($_FILES['photo']['tmp_name'],  WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo'], 480, 360);
+                // TINYPNG
+
+                $compressor = new Compressor('W9UsdoqEYCE335hV_7CtwWrJWFv3Hvdf');
+
+                try {
+                    $result = $compressor->compress($_FILES['photo']['tmp_name']);
+                    $result->writeTo(WWW_ROOT . 'uploads' . DS . 'photo' . DS . $data['photo']); // Write the returned image
+                    $result->getCompressedFileSize(); // Int size of compressed image, e.g: 104050
+                    $result->getCompressedFileSize(true); // Human-readable, e.g: '101.61 KB'
+                    $result->getResponseData(); // array containing JSON-decoded response data
+                } catch (AuthorizationException $e) {
+                    // Invalid credentials or requests per month exceeded
+                } catch (InputException $e) {
+                    // Not a valid PNG or JPEG
+                } catch (Exception $e) {
+                    // Unknown error
+                }
 
                 if(!empty($data['pdf'])){
                   if(empty($data['pdf']['error']) && !empty($data['pdf']['size'])){

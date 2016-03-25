@@ -2,6 +2,7 @@
     "require": {
         "slim/slim": "^3.2",
         "slim/php-view": "^2.0",
-        "tinify/tinify": "^1.2"
+        "tinify/tinify": "^1.2",
+        "kinglozzer/tinypng": "0.1.*"
     }
 }
