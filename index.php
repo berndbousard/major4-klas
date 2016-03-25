@@ -379,7 +379,9 @@ $app->post('/', function ($request, $response, $args) {
                     $ext = explode('.', $data['pdf']['name']);
                     $ext = $ext[sizeof($ext) - 1];
                     $data['pdf'] = uniqid() . '.' . $ext;
-                    move_uploaded_file($data['pdf'], $basePath . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
+                    move_uploaded_file($_FILES['pdf']['tmp_name'], WWW_ROOT . 'uploads' . DS . 'pdf' . DS . $data['pdf']);
+
+                    error_log(print_r(WWW_ROOT . 'uploads' . DS . 'pdf' . DS . $data['pdf'], true));
 
                     $participationDAO = new ParticipationDAO();
 

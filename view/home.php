@@ -327,6 +327,9 @@
               </li>
               <?php } ?>
             <?php if(!empty($photos)) echo "</ol>"  ?>
+            <?php if(empty($photos)) { ?>
+              <span class="no-participations">Er heeft zich nog geen enkele klas ingeschreven.</span>
+            <?php } ?>
           </section>
         </div>
       </article>

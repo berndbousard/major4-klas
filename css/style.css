@@ -65,11 +65,11 @@ main {
   display: block;
 }
 
-.wf-loading .cms-button-afmelden, .wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell, .wf-loading .succes-wrapper, .wf-loading .mini-title, .wf-loading .main-title, .wf-loading .catch-text, .wf-loading .boek-cite, .wf-loading .shining-title, .wf-loading .tab-title, .wf-loading .form-error, .wf-loading .klas-onderschrift, .wf-loading .contact-text, .wf-loading .tab-title, .wf-loading .omschrijving-title, .wf-loading .quote-footer, .wf-loading .bib-boek-genre, .wf-loading .bib-boek-naam {
+.wf-loading .cms-button-afmelden, .wf-loading .cms-login-label, .wf-loading .cms-orders-navitem-link, .wf-loading .cms-orders-table-header, .wf-loading .cms-orders-table-data-cell, .wf-loading .succes-wrapper, .wf-loading .mini-title, .wf-loading .main-title, .wf-loading .catch-text, .wf-loading .boek-cite, .wf-loading .shining-title, .wf-loading .tab-title, .wf-loading .form-error, .wf-loading .klas-onderschrift, .wf-loading .contact-text, .wf-loading .tab-title, .wf-loading .omschrijving-title, .wf-loading .quote-footer, .wf-loading .bib-boek-genre, .wf-loading .bib-boek-naam, .wf-loading .no-participations {
   visibility: hidden;
 }
 
-.wf-active .cms-button-afmelden, .wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell, .wf-active .succes-wrapper, .wf-active .mini-title, .wf-active .catch-text, .wf-active .boek-cite, .wf-active .shining-title, .wf-active .tab-title, .wf-active .form-error, .wf-active .klas-onderschrift, .wf-active .contact-text, .wf-active .tab-title, .wf-active .quote-footer, .wf-active .bib-boek-genre, .wf-active .bib-boek-naam {
+.wf-active .cms-button-afmelden, .wf-active .cms-login-label, .wf-active .cms-login-submit, .wf-active .cms-login-input, .wf-active .cms-orders-navitem-link, .wf-active .cms-orders-table-header, .wf-active .cms-orders-table-data-cell, .wf-active .succes-wrapper, .wf-active .mini-title, .wf-active .catch-text, .wf-active .boek-cite, .wf-active .shining-title, .wf-active .tab-title, .wf-active .form-error, .wf-active .klas-onderschrift, .wf-active .contact-text, .wf-active .tab-title, .wf-active .quote-footer, .wf-active .bib-boek-genre, .wf-active .bib-boek-naam, .wf-active .no-participations {
   font-family: 'titillium web';
   visibility: visible;
 }
@@ -1277,6 +1277,11 @@ body {
 
 .contact-text:first-child {
   margin-bottom: 0.5rem;
+}
+
+.no-participations {
+  color: #3E3E3E;
+  text-align: center;
 }
 
 .over-header {
