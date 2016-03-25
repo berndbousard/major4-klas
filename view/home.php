@@ -84,7 +84,7 @@
               </section>
             </div>
           </div>
-          <a href="/#form-deelnemen" class="cta-text arrow-down home-arrow"><span>ontdek de actie</span></a>
+          <a href="/#actie-uitleg" class="cta-text arrow-down home-arrow scroll-link"><span>ontdek de actie</span></a>
         </div>
       </header>
 
@@ -130,7 +130,7 @@
           </div>
         </section>
 
-        <section class="hoe-het-werkt">
+        <section class="hoe-het-werkt" id="actie-uitleg">
           <div class="container hoe-container">
             <header>
               <h1 class="title hoe-title">hoe het <span class="paars">werkt</span></h1>
